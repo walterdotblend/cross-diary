@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Minimalist Zen Ruled Journal Page -->
+  <rect width="120" height="120" rx="28" fill="#F5F3ED"/>
+  <!-- Minimalist Clean Bookmark Fold -->
+  <path d="M38 28H82V92H38V28Z" fill="#FFFFFF" stroke="#2B2D42" stroke-width="4.5" stroke-linejoin="round"/>
+  <!-- Minimal Notebook Lines -->
+  <line x1="48" y1="44" x2="72" y2="44" stroke="#8D99AE" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="48" y1="56" x2="72" y2="56" stroke="#8D99AE" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="48" y1="68" x2="64" y2="68" stroke="#8D99AE" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Cross Accent / Star -->
+  <path d="M72 74L74 80L80 82L74 84L72 90L70 84L64 82L70 80Z" fill="#D90429"/>
+  <!-- Top Corner Fold -->
+  <path d="M70 28L82 40H70V28Z" fill="#E2DFD6" stroke="#2B2D42" stroke-width="3"/>
+</svg>

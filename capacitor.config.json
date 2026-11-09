@@ -1,0 +1,14 @@
+{
+  "appId": "com.crossdiary.app",
+  "appName": "Cross-Diary",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

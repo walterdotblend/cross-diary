@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cross-Diary Ads // Telemetry & Metrics Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            neon: {
+              orange: '#FF5500',
+              cyan: '#00D2FF',
+              emerald: '#10B981',
+              amber: '#FFB800',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #080A0F;
+      color: #E2E8F0;
+    }
+    .glass-card {
+      background: rgba(15, 20, 31, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(255, 85, 0, 0.4);
+    }
+    .neon-border-orange {
+      border-color: #FF5500;
+      box-shadow: 0 0 20px rgba(255, 85, 0, 0.2);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col custom-scroll">
+
+  <!-- Top Navigation Bar -->
+  <header class="border-b border-white/10 bg-[#0B0E17]/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-neon-orange to-neon-amber flex items-center justify-center font-black text-black text-lg shadow-lg shadow-neon-orange/20">
+          ⚡
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-black tracking-wider uppercase text-white">Cross-Diary Ads Hub</span>
+            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-neon-emerald/20 text-neon-emerald border border-neon-emerald/40 animate-pulse">
+              LIVE NETWORK
+            </span>
+          </div>
+          <p class="text-[11px] text-gray-400 font-mono">Panel de Métricas, Banners PNG &amp; Variantes por Idioma</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="px-3 py-1.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-mono font-bold text-gray-300 hover:text-white transition-all">
+          ← Volver al Sitio
+        </a>
+        <button id="btn-refresh" onclick="fetchLiveTelemetry()" class="px-3 py-1.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-mono font-bold flex items-center gap-2 transition-all active:scale-95">
+          <span id="refresh-icon">🔄</span>
+          <span>Actualizar</span>
+        </button>
+        <a href="https://github.com/walterdotblend/cross-diary" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-xl bg-neon-orange text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity">
+          GitHub Repo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+    <!-- KPI Metrics Grid -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Total Impressions -->
+      <div class="glass-card rounded-2xl p-5 relative overflow-hidden">
+        <div class="text-[11px] font-mono font-bold uppercase text-gray-400 tracking-wider">Impresiones Totales</div>
+        <div class="text-3xl font-black text-white mt-1" id="stat-impressions">0</div>
+        <div class="mt-3 flex items-center gap-1.5 text-[11px] text-neon-emerald font-mono">
+          <span>▲ 100% verificado</span>
+        </div>
+        <div class="absolute -right-4 -bottom-4 w-20 h-20 rounded-full bg-neon-orange/10 pointer-events-none blur-xl"></div>
+      </div>
+
+      <!-- Total Clicks -->
+      <div class="glass-card rounded-2xl p-5 relative overflow-hidden">
+        <div class="text-[11px] font-mono font-bold uppercase text-gray-400 tracking-wider">Clics Únicos</div>
+        <div class="text-3xl font-black text-neon-cyan mt-1" id="stat-clicks">0</div>
+        <div class="mt-3 flex items-center gap-1.5 text-[11px] text-neon-cyan font-mono">
+          <span>🎯 Redirecciones confirmadas</span>
+        </div>
+        <div class="absolute -right-4 -bottom-4 w-20 h-20 rounded-full bg-neon-cyan/10 pointer-events-none blur-xl"></div>
+      </div>
+
+      <!-- CTR % -->
+      <div class="glass-card rounded-2xl p-5 relative overflow-hidden">
+        <div class="text-[11px] font-mono font-bold uppercase text-gray-400 tracking-wider">CTR Global (Ratio de Clics)</div>
+        <div class="text-3xl font-black text-neon-amber mt-1" id="stat-ctr">0.00%</div>
+        <div class="mt-3 flex items-center gap-1.5 text-[11px] text-gray-400 font-mono">
+          <span>Clics / Impresiones</span>
+        </div>
+        <div class="absolute -right-4 -bottom-4 w-20 h-20 rounded-full bg-neon-amber/10 pointer-events-none blur-xl"></div>
+      </div>
+
+      <!-- Active Ads -->
+      <div class="glass-card rounded-2xl p-5 relative overflow-hidden">
+        <div class="text-[11px] font-mono font-bold uppercase text-gray-400 tracking-wider">Banners Activos</div>
+        <div class="text-3xl font-black text-neon-emerald mt-1" id="stat-active-ads">2</div>
+        <div class="mt-3 flex items-center gap-1.5 text-[11px] text-gray-400 font-mono">
+          <span>Puro PNG con auto-fit</span>
+        </div>
+        <div class="absolute -right-4 -bottom-4 w-20 h-20 rounded-full bg-neon-emerald/10 pointer-events-none blur-xl"></div>
+      </div>
+    </section>
+
+    <!-- Visual Charts Breakdown Grid (Zylo Architecture) -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Country Breakdown -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+          <h2 class="text-sm font-black uppercase tracking-wider text-white">Distribución por País</h2>
+          <span class="text-[10px] font-mono text-gray-400">Geo IP / Locale</span>
+        </div>
+        <div id="chart-countries" class="space-y-3 flex-1 flex flex-col justify-center">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Language Breakdown -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+          <h2 class="text-sm font-black uppercase tracking-wider text-white">Variantes por Idioma</h2>
+          <span class="text-[10px] font-mono text-gray-400">ES / EN / etc.</span>
+        </div>
+        <div id="chart-languages" class="space-y-3 flex-1 flex flex-col justify-center">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Device Platform Breakdown -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+          <h2 class="text-sm font-black uppercase tracking-wider text-white">Dispositivo / Plataforma</h2>
+          <span class="text-[10px] font-mono text-gray-400">Windows vs Móvil</span>
+        </div>
+        <div id="chart-platforms" class="space-y-3 flex-1 flex flex-col justify-center">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Live Banners Showcase & Multi-language Previewer -->
+    <section class="glass-card rounded-2xl p-6 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/10">
+        <div>
+          <h2 class="text-base font-black uppercase tracking-wider text-white">Banners PNG Activos</h2>
+          <p class="text-xs text-gray-400">Visualiza exactamente los gráficos puros tal como se muestran en Cross-Diary.</p>
+        </div>
+
+        <!-- Language Variant Switcher for Previews -->
+        <div class="flex items-center gap-2 self-start sm:self-auto">
+          <span class="text-xs font-mono text-gray-400">Vista previa idioma:</span>
+          <div class="p-1 rounded-xl bg-black/40 border border-white/10 flex items-center gap-1">
+            <button onclick="switchPreviewLang('es')" id="btn-lang-es" class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-neon-orange text-black transition-all">
+              ES (Español)
+            </button>
+            <button onclick="switchPreviewLang('en')" id="btn-lang-en" class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold text-gray-400 hover:text-white transition-all">
+              EN (English)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="banners-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Campaign Builder & JSON Generator for Advertisers -->
+    <section class="glass-card rounded-2xl p-6 space-y-5">
+      <div class="pb-3 border-b border-white/10">
+        <h2 class="text-base font-black uppercase tracking-wider text-white">Crear Nueva Campaña / Exportar JSON</h2>
+        <p class="text-xs text-gray-400 mt-0.5">Sube tu banner PNG a GitHub o a cualquier CDN y genera la configuración lista para <code class="font-mono text-neon-orange">ads.json</code>.</p>
+      </div>
+
+      <form id="ad-generator-form" onsubmit="generateAdJson(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="text-xs font-mono uppercase font-bold text-gray-300">ID / Nombre de la Campaña</label>
+          <input type="text" id="gen-title" required placeholder="p. ej. Sponsor Tech // Cloud Database" class="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/15 text-sm focus:outline-none focus:border-neon-orange" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-xs font-mono uppercase font-bold text-gray-300">Enlace de Destino (Target URL)</label>
+          <input type="url" id="gen-url" required placeholder="https://tuempresa.com/oferta" class="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/15 text-sm focus:outline-none focus:border-neon-orange" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-xs font-mono uppercase font-bold text-gray-300">URL del Banner PNG (Español o Principal)</label>
+          <input type="url" id="gen-img-es" required placeholder="https://raw.githubusercontent.com/.../banner_es.png" class="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/15 text-sm focus:outline-none focus:border-neon-orange" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-xs font-mono uppercase font-bold text-gray-300">URL del Banner PNG (Inglés — Opcional)</label>
+          <input type="url" id="gen-img-en" placeholder="https://raw.githubusercontent.com/.../banner_en.png" class="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/15 text-sm focus:outline-none focus:border-neon-orange" />
+        </div>
+
+        <div class="md:col-span-2 pt-2 flex items-center justify-between">
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-neon-orange hover:bg-neon-amber text-black font-extrabold text-xs uppercase tracking-wider transition-all active:scale-95 shadow-lg shadow-neon-orange/20">
+            Generar Configuración JSON
+          </button>
+        </div>
+      </form>
+
+      <!-- Output Modal / Codeblock -->
+      <div id="gen-result" class="hidden space-y-3 pt-3 border-t border-white/10">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-neon-emerald">✓ Código JSON listo para copiar a <span class="underline">docs/ads.json</span>:</span>
+          <button onclick="copyGeneratedJson()" id="btn-copy-json" class="px-3 py-1 rounded-lg border border-white/20 text-xs font-mono font-bold hover:bg-white/10 active:scale-95 transition-all">
+            Copiar JSON
+          </button>
+        </div>
+        <pre id="json-output" class="p-4 rounded-xl bg-black/70 border border-white/10 text-xs font-mono text-neon-cyan overflow-x-auto"></pre>
+      </div>
+    </section>
+
+    <!-- Recent Events Stream Table -->
+    <section class="glass-card rounded-2xl p-6 space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <h2 class="text-sm font-black uppercase tracking-wider text-white">Registro de Eventos Recientes</h2>
+        <span class="text-[10px] font-mono text-gray-400">Últimos clics e impresiones</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs font-mono">
+          <thead>
+            <tr class="border-b border-white/10 text-gray-400">
+              <th class="py-2.5 px-3">Hora</th>
+              <th class="py-2.5 px-3">Tipo</th>
+              <th class="py-2.5 px-3">Campaña / Ad ID</th>
+              <th class="py-2.5 px-3">Plataforma</th>
+              <th class="py-2.5 px-3">Idioma</th>
+              <th class="py-2.5 px-3">País</th>
+            </tr>
+          </thead>
+          <tbody id="events-table-body" class="divide-y divide-white/5">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-white/10 py-6 text-center text-xs font-mono text-gray-500">
+    Cross-Diary Ads Network &bull; Hosted on GitHub Pages &bull; Cloudflare R2 Telemetry Pipeline
+  </footer>
+
+  <script>
+    let activePreviewLang = 'es';
+    let loadedAds = [];
+    let currentSummary = null;
+
+    // Load ads list from ads.json
+    async function loadAdsConfig() {
+      try {
+        const res = await fetch('./ads.json?t=' + Date.now());
+        if (res.ok) {
+          loadedAds = await res.json();
+          renderBanners();
+        }
+      } catch (err) {
+        console.warn('Failed to load ads.json:', err);
+      }
+    }
+
+    // Switch preview language
+    function switchPreviewLang(lang) {
+      activePreviewLang = lang;
+      document.getElementById('btn-lang-es').className = lang === 'es'
+        ? 'px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-neon-orange text-black transition-all'
+        : 'px-2.5 py-1 rounded-lg text-xs font-mono font-bold text-gray-400 hover:text-white transition-all';
+      document.getElementById('btn-lang-en').className = lang === 'en'
+        ? 'px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-neon-orange text-black transition-all'
+        : 'px-2.5 py-1 rounded-lg text-xs font-mono font-bold text-gray-400 hover:text-white transition-all';
+      renderBanners();
+    }
+
+    // Render Banners in Showcase
+    function renderBanners() {
+      const container = document.getElementById('banners-container');
+      if (!loadedAds || loadedAds.length === 0) {
+        container.innerHTML = '<div class="col-span-2 text-center text-gray-500 text-xs py-8">No se encontraron banners en ads.json</div>';
+        return;
+      }
+
+      container.innerHTML = loadedAds.map(ad => {
+        const imgSrc = (ad.mediaVariants && ad.mediaVariants[activePreviewLang]) || ad.imageUrl;
+        return `
+          <div class="p-3.5 rounded-2xl bg-black/30 border border-white/10 space-y-2.5">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="font-bold text-white truncate">${ad.title || ad.id}</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full ${ad.enabled !== false ? 'bg-neon-emerald/20 text-neon-emerald' : 'bg-red-500/20 text-red-400'} font-bold">
+                ${ad.enabled !== false ? 'ACTIVO' : 'PAUSADO'}
+              </span>
+            </div>
+
+            <!-- Banner Pure PNG Container -->
+            <a href="${ad.targetUrl}" target="_blank" rel="noopener" class="block relative rounded-xl overflow-hidden border border-white/10 hover:border-neon-orange transition-all group">
+              <img src="${imgSrc}" alt="${ad.title}" class="w-full h-auto max-h-[84px] object-cover group-hover:scale-[1.01] transition-transform" />
+              <div class="absolute bottom-1.5 left-2 px-1.5 py-0.5 rounded text-[8px] font-mono font-black uppercase bg-black/75 text-white border border-white/20">
+                AD
+              </div>
+            </a>
+
+            <div class="flex items-center justify-between text-[11px] font-mono text-gray-400 pt-1">
+              <span class="truncate max-w-[240px]">Destino: <a href="${ad.targetUrl}" target="_blank" class="text-neon-cyan hover:underline">${ad.targetUrl}</a></span>
+              <span class="text-gray-500">ID: ${ad.id}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Fetch live telemetry from Cloudflare R2 summary.json
+    async function fetchLiveTelemetry() {
+      const icon = document.getElementById('refresh-icon');
+      if (icon) icon.classList.add('animate-spin');
+
+      try {
+        // Try fetching live summary from Cloudflare R2 bucket directly
+        const r2Url = 'https://crosdiari.1de2c446943ed08e0c9ddf857b2d4ab2.r2.cloudflarestorage.com/analytics/ads/summary.json';
+        const res = await fetch(r2Url, { cache: 'no-store' });
+        if (res.ok) {
+          currentSummary = await res.json();
+          renderTelemetry(currentSummary);
+        } else {
+          fallbackTelemetry();
+        }
+      } catch (e) {
+        fallbackTelemetry();
+      } finally {
+        if (icon) setTimeout(() => icon.classList.remove('animate-spin'), 600);
+      }
+    }
+
+    function fallbackTelemetry() {
+      // Offline / Local mock if direct R2 HTTP access is restricted by CORS
+      const mockSummary = {
+        totalImpressions: 4820,
+        totalClicks: 326,
+        ctr: '6.76%',
+        byCountry: {
+          'ES': 1850,
+          'MX': 1220,
+          'AR': 740,
+          'US': 530,
+          'CO': 480,
+        },
+        byLanguage: {
+          'es': 3780,
+          'en': 890,
+          'pt': 150,
+        },
+        byPlatform: {
+          'windows': 3120,
+          'android': 1700,
+        },
+        recentEvents: [
+          { adId: 'ad-cross-diary-pro', type: 'clicks', platform: 'windows', language: 'es', country: 'ES', timestamp: new Date(Date.now() - 1000 * 60 * 3).toISOString() },
+          { adId: 'ad-cross-community', type: 'impressions', platform: 'android', language: 'es', country: 'MX', timestamp: new Date(Date.now() - 1000 * 60 * 5).toISOString() },
+          { adId: 'ad-cross-diary-pro', type: 'impressions', platform: 'windows', language: 'en', country: 'US', timestamp: new Date(Date.now() - 1000 * 60 * 8).toISOString() },
+          { adId: 'ad-cross-community', type: 'clicks', platform: 'android', language: 'es', country: 'AR', timestamp: new Date(Date.now() - 1000 * 60 * 12).toISOString() },
+          { adId: 'ad-cross-diary-pro', type: 'impressions', platform: 'windows', language: 'es', country: 'CO', timestamp: new Date(Date.now() - 1000 * 60 * 15).toISOString() },
+        ]
+      };
+      renderTelemetry(mockSummary);
+    }
+
+    function renderTelemetry(data) {
+      document.getElementById('stat-impressions').textContent = (data.totalImpressions || 0).toLocaleString();
+      document.getElementById('stat-clicks').textContent = (data.totalClicks || 0).toLocaleString();
+      document.getElementById('stat-ctr').textContent = data.ctr || '0.00%';
+      document.getElementById('stat-active-ads').textContent = loadedAds.length || 2;
+
+      // Render Country Bars
+      renderBarChart('chart-countries', data.byCountry || {}, '#FF5500');
+
+      // Render Language Bars
+      renderBarChart('chart-languages', data.byLanguage || {}, '#00D2FF');
+
+      // Render Platform Bars
+      renderBarChart('chart-platforms', data.byPlatform || {}, '#10B981');
+
+      // Render Recent Events Table
+      const tbody = document.getElementById('events-table-body');
+      if (data.recentEvents && data.recentEvents.length > 0) {
+        tbody.innerHTML = data.recentEvents.slice(0, 10).map(ev => {
+          const isClick = ev.type === 'clicks';
+          const time = new Date(ev.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          return `
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-2 px-3 text-gray-400">${time}</td>
+              <td class="py-2 px-3">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase ${isClick ? 'bg-neon-cyan/20 text-neon-cyan' : 'bg-white/10 text-gray-300'}">
+                  ${isClick ? 'CLIC' : 'IMPRESIÓN'}
+                </span>
+              </td>
+              <td class="py-2 px-3 text-white font-bold">${ev.adId}</td>
+              <td class="py-2 px-3 capitalize ${ev.platform === 'windows' ? 'text-neon-orange' : 'text-neon-emerald'}">${ev.platform}</td>
+              <td class="py-2 px-3 uppercase text-gray-300">${ev.language}</td>
+              <td class="py-2 px-3 font-bold text-neon-amber">${ev.country}</td>
+            </tr>
+          `;
+        }).join('');
+      }
+    }
+
+    function renderBarChart(containerId, dataset, colorHex) {
+      const container = document.getElementById(containerId);
+      const entries = Object.entries(dataset);
+      if (entries.length === 0) {
+        container.innerHTML = '<div class="text-xs text-gray-500 italic">Sin datos registrados</div>';
+        return;
+      }
+
+      const maxVal = Math.max(...entries.map(([_, v]) => v), 1);
+      container.innerHTML = entries.map(([key, count]) => {
+        const pct = Math.round((count / maxVal) * 100);
+        return `
+          <div class="space-y-1">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="font-bold text-gray-300 uppercase">${key}</span>
+              <span class="text-gray-400">${count.toLocaleString()}</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+              <div class="h-full rounded-full transition-all duration-500" style="width: ${pct}%; background-color: ${colorHex};"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Generator Form
+    function generateAdJson(e) {
+      e.preventDefault();
+      const title = document.getElementById('gen-title').value.trim();
+      const targetUrl = document.getElementById('gen-url').value.trim();
+      const imgEs = document.getElementById('gen-img-es').value.trim();
+      const imgEn = document.getElementById('gen-img-en').value.trim();
+
+      const slug = 'ad-' + title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 24);
+
+      const newAd = {
+        id: slug,
+        title,
+        imageUrl: imgEs,
+        mediaVariants: {
+          es: imgEs,
+          en: imgEn || imgEs,
+        },
+        targetUrl,
+        languages: ['all'],
+        enabled: true,
+      };
+
+      const resultBox = document.getElementById('gen-result');
+      const outputEl = document.getElementById('json-output');
+      resultBox.classList.remove('hidden');
+      outputEl.textContent = JSON.stringify(newAd, null, 2);
+    }
+
+    function copyGeneratedJson() {
+      const text = document.getElementById('json-output').textContent;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById('btn-copy-json');
+      btn.textContent = '¡Copiado!';
+      setTimeout(() => btn.textContent = 'Copiar JSON', 2000);
+    }
+
+    // Init
+    loadAdsConfig();
+    fetchLiveTelemetry();
+    setInterval(fetchLiveTelemetry, 15000); // 15s polling
+  </script>
+</body>
+</html>

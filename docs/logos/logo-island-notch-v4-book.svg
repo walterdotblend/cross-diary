@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Minimalist Island Notch V4 - Open Book Journal & Notch Clip -->
+  <defs>
+    <linearGradient id="emeraldGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#070A0E"/>
+  
+  <!-- Floating Island Notch -->
+  <rect x="28" y="22" width="64" height="22" rx="11" fill="#131B28" stroke="#25354F" stroke-width="2"/>
+  <circle cx="44" cy="33" r="4.5" fill="#10B981"/>
+  <rect x="56" y="30.5" width="22" height="5" rx="2.5" fill="#FFFFFF" fill-opacity="0.8"/>
+
+  <!-- Minimalist Open Book Spine with Star Flare -->
+  <path d="M60 62C48 56 34 58 26 62V96C34 92 48 90 60 96C72 90 86 92 94 96V62C86 58 72 56 60 62Z" fill="#101826" stroke="url(#emeraldGold)" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Central Spine Fold Line -->
+  <line x1="60" y1="62" x2="60" y2="96" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Floating Star above pages -->
+  <path d="M60 48L63 56L71 59L63 62L60 70L57 62L49 59L57 56Z" fill="#10B981"/>
+</svg>

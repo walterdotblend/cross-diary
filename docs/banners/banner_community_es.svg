@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 728 90" width="728" height="90">
+  <defs>
+    <linearGradient id="cbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+    <linearGradient id="emerald" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+  </defs>
+  <rect width="728" height="90" rx="16" fill="url(#cbg)" stroke="#10B981" stroke-width="1.8" />
+  <circle cx="50" cy="45" r="28" fill="#10B981" fill-opacity="0.12" stroke="#10B981" stroke-width="1.5" />
+  <text x="50" y="52" font-family="system-ui, sans-serif" font-size="22" font-weight="900" fill="#10B981" text-anchor="middle">★</text>
+  <text x="96" y="38" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="1">COMUNIDAD &amp; EXTENSIONES</text>
+  <text x="96" y="60" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#9CA3AF">Descarga extensiones comunitarias, reporta ideas y conecta con otros usuarios.</text>
+  <rect x="585" y="24" width="122" height="42" rx="12" fill="url(#emerald)" />
+  <text x="646" y="50" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#000000" text-anchor="middle" letter-spacing="0.5">UNIRSE &gt;</text>
+</svg>

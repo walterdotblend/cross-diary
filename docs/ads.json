@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ad-cross-diary-pro",
+    "title": "Cross-Diary Pro // Cloud Sync",
+    "imageUrl": "https://raw.githubusercontent.com/walterdotblend/cross-diary/main/docs/banners/banner_pro_es.svg",
+    "mediaVariants": {
+      "es": "https://raw.githubusercontent.com/walterdotblend/cross-diary/main/docs/banners/banner_pro_es.svg",
+      "en": "https://raw.githubusercontent.com/walterdotblend/cross-diary/main/docs/banners/banner_pro_en.svg"
+    },
+    "targetUrl": "https://github.com/walterdotblend/cross-diary",
+    "languages": ["all"],
+    "enabled": true
+  },
+  {
+    "id": "ad-cross-community",
+    "title": "Comunidad Cross-Diary & Soporte",
+    "imageUrl": "https://raw.githubusercontent.com/walterdotblend/cross-diary/main/docs/banners/banner_community_es.svg",
+    "mediaVariants": {
+      "es": "https://raw.githubusercontent.com/walterdotblend/cross-diary/main/docs/banners/banner_community_es.svg",
+      "en": "https://raw.githubusercontent.com/walterdotblend/cross-diary/main/docs/banners/banner_community_es.svg"
+    },
+    "targetUrl": "https://github.com/walterdotblend/cross-diary/issues",
+    "languages": ["all"],
+    "enabled": true
+  }
+]

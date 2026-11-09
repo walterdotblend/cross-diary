@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Minimalist Monogram C+D Intertwined Spine -->
+  <rect width="120" height="120" rx="28" fill="#140D1B"/>
+  <!-- Continuous Loop C and D -->
+  <path d="M54 36C40 36 32 46 32 60C32 74 40 84 54 84" stroke="#FF70A6" stroke-width="7" stroke-linecap="round"/>
+  <path d="M60 36H72C84 36 92 46 92 60C92 74 84 84 72 84H60V36Z" stroke="#9D4EDD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Central spine stitch -->
+  <circle cx="60" cy="48" r="2.5" fill="#FFFFFF"/>
+  <circle cx="60" cy="60" r="2.5" fill="#FFFFFF"/>
+  <circle cx="60" cy="72" r="2.5" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Minimalist Island Notch V3 - Pen Quill & Writer Notch -->
+  <defs>
+    <linearGradient id="cyanEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#06090F"/>
+  
+  <!-- Floating Island Notch -->
+  <rect x="26" y="22" width="68" height="20" rx="10" fill="#111726" stroke="#222F4D" stroke-width="2"/>
+  <circle cx="40" cy="32" r="4" fill="#00D2FF"/>
+  <!-- Mini audio bars in notch -->
+  <line x1="52" y1="36" x2="52" y2="28" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+  <line x1="57" y1="37" x2="57" y2="27" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
+  <line x1="62" y1="35" x2="62" y2="29" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="78" cy="32" r="3" fill="#FFFFFF" fill-opacity="0.8"/>
+
+  <!-- Minimalist Stylus / Quill Nib Star Silhouette -->
+  <path d="M60 52L72 68L68 88L60 102L52 88L48 68Z" fill="#111726" stroke="url(#cyanEmerald)" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="60" y1="58" x2="60" y2="88" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="60" cy="80" r="3" fill="#10B981"/>
+
+  <!-- Subtle baseline line -->
+  <line x1="42" y1="104" x2="78" y2="104" stroke="#222F4D" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

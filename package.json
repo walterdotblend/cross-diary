@@ -1,0 +1,87 @@
+{
+  "name": "cross-diary",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "main": "electron-main.cjs",
+  "scripts": {
+    "start": "node ./node_modules/vite/bin/vite.js build && ./node_modules/electron/dist/electron.exe electron-main.cjs",
+    "app": "./node_modules/electron/dist/electron.exe electron-main.cjs",
+    "dev": "node ./node_modules/vite/bin/vite.js",
+    "build": "node ./node_modules/vite/bin/vite.js build",
+    "preview": "node ./node_modules/vite/bin/vite.js preview",
+    "pack-installer": "node ./node_modules/electron-builder/cli.js --win",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1161.0",
+    "@capacitor/android": "^6.2.3",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/cli": "^6.2.3",
+    "@capacitor/core": "^6.2.3",
+    "@capacitor/local-notifications": "^6.0.0",
+    "@tauri-apps/api": "^2.0.0",
+    "@tauri-apps/plugin-autostart": "^2.0.0",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "jsqr": "^1.4.0",
+    "lucide-react": "^0.460.0",
+    "mqtt": "^5.16.1",
+    "qrcode.react": "^4.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.4"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.12.4",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "electron": "^33.4.11",
+    "electron-builder": "^26.18.0",
+    "electron-packager": "^17.1.2",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  },
+  "build": {
+    "appId": "com.crossdiary.app",
+    "productName": "Cross-Diary",
+    "directories": {
+      "output": "dist-installer"
+    },
+    "files": [
+      "dist/**/*",
+      "electron-main.cjs",
+      "electron-preload.cjs",
+      "game-detector.exe",
+      "media-helper.ps1",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "game-detector.exe",
+      "media-helper.ps1"
+    ],
+    "extraResources": [
+      "game-detector.exe",
+      "media-helper.ps1"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Cross-Diary",
+      "runAfterFinish": true,
+      "include": "installer.nsh"
+    }
+  }
+}

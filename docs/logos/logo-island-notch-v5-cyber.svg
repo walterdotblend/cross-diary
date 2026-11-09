@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Minimalist Island Notch V5 - Cyberpunk Titanium Star -->
+  <defs>
+    <linearGradient id="cyberNeon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FF66"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#000000"/>
+  
+  <!-- Brutalist Notch Pill -->
+  <rect x="22" y="22" width="76" height="22" rx="6" fill="#0D1117" stroke="#00FF66" stroke-width="2"/>
+  <circle cx="36" cy="33" r="4.5" fill="#00FF66"/>
+  <rect x="47" y="31" width="36" height="4" rx="2" fill="#00F0FF" fill-opacity="0.8"/>
+  <circle cx="89" cy="33" r="2.5" fill="#FF0055"/>
+
+  <!-- Geometric 8-Point Diamond Star -->
+  <path d="M60 54L65 71L82 76L65 81L60 98L55 81L38 76L55 71Z" fill="#00FF66" fill-opacity="0.15" stroke="url(#cyberNeon)" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Inner Cross Reticle -->
+  <path d="M60 66V86M50 76H70" stroke="#00F0FF" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Matrix grid accents -->
+  <circle cx="34" cy="56" r="1.5" fill="#00FF66" fill-opacity="0.5"/>
+  <circle cx="86" cy="56" r="1.5" fill="#00FF66" fill-opacity="0.5"/>
+  <circle cx="34" cy="96" r="1.5" fill="#00FF66" fill-opacity="0.5"/>
+  <circle cx="86" cy="96" r="1.5" fill="#00FF66" fill-opacity="0.5"/>
+</svg>

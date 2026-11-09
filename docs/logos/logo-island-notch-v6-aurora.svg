@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Minimalist Island Notch V6 - Aurora Synthwave Crest -->
+  <defs>
+    <linearGradient id="auroraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF007F"/>
+      <stop offset="50%" stop-color="#9D4EDD"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#0B0614"/>
+  
+  <!-- Floating Curved Island Notch -->
+  <rect x="25" y="22" width="70" height="22" rx="11" fill="#180D2B" stroke="#3D236B" stroke-width="2"/>
+  <circle cx="39" cy="33" r="4.5" fill="#FF007F"/>
+  <rect x="50" y="30.5" width="24" height="5" rx="2.5" fill="#00F0FF" fill-opacity="0.8"/>
+  <circle cx="82" cy="33" r="2.5" fill="#FFE600"/>
+
+  <!-- Multi-layered Aurora Diamond Star -->
+  <path d="M60 52L68 70L86 76L68 82L60 100L52 82L34 76L52 70Z" fill="url(#auroraGrad)" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Inner Star Facet -->
+  <path d="M60 62L64 72L74 76L64 80L60 90L56 80L46 76L56 72Z" fill="#FFFFFF" fill-opacity="0.85"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Minimalist Quill Pen & Cross Bookmark -->
+  <rect width="120" height="120" rx="28" fill="#0A0D14"/>
+  <!-- Diagonal Pen Nib -->
+  <path d="M36 84L76 44L84 52L44 92L32 94L34 82L36 84Z" fill="#00D2FF" fill-opacity="0.15" stroke="#00D2FF" stroke-width="5" stroke-linejoin="round"/>
+  <line x1="42" y1="84" x2="62" y2="64" stroke="#00D2FF" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="63" cy="63" r="2.5" fill="#00D2FF"/>
+  <!-- Intersecting Ribbon Bookmark -->
+  <path d="M78 30V74L68 66L58 74V30" stroke="#FF007F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

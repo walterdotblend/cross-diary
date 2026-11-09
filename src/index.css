@@ -1,0 +1,408 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme="solar-flare"] {
+  --bg-main: #ffffff;
+  --bg-surface: #f4f4f2;
+  --bg-card: #ffffff;
+  --bg-pill: #ff2e00;
+  --text-main: #0a0a0a;
+  --text-muted: #525252;
+  --accent: #ff2e00;
+  --accent-secondary: #111111;
+  --accent-fg: #ffffff;
+  --border-color: #e2e2df;
+  --border-strong: #ff2e00;
+  --font-display: 'Archivo Black', 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'DotGothic16', 'JetBrains Mono', monospace;
+  --card-radius: 24px;
+  --pill-shadow: 0 6px 20px -2px rgba(255, 46, 0, 0.35);
+}
+
+[data-theme="milk-sakura"] {
+  --bg-main: #fff5f9;
+  --bg-surface: #ffe6f1;
+  --bg-card: #ffffff;
+  --bg-pill: #ff5c93;
+  --text-main: #4a152b;
+  --text-muted: #9d4c70;
+  --accent: #ff5c93;
+  --accent-secondary: #a855f7;
+  --accent-fg: #ffffff;
+  --border-color: #ffc2da;
+  --border-strong: #ff5c93;
+  --font-display: 'Fredoka', sans-serif;
+  --font-body: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --card-radius: 28px;
+  --pill-shadow: 0 6px 20px -2px rgba(255, 92, 147, 0.35);
+}
+
+[data-theme="velvet-nebula"] {
+  --bg-main: #11111b;
+  --bg-surface: #1e1e2e;
+  --bg-card: #181825;
+  --bg-pill: #cba6f7;
+  --text-main: #cdd6f4;
+  --text-muted: #9399b2;
+  --accent: #cba6f7;
+  --accent-secondary: #fab387;
+  --accent-fg: #11111b;
+  --border-color: #313244;
+  --border-strong: #cba6f7;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --card-radius: 18px;
+  --pill-shadow: 0 6px 22px -2px rgba(203, 166, 247, 0.3);
+}
+
+[data-theme="amber-oxide"] {
+  --bg-main: #1d2021;
+  --bg-surface: #282828;
+  --bg-card: #32302f;
+  --bg-pill: #fe8019;
+  --text-main: #ebdbb2;
+  --text-muted: #a89984;
+  --accent: #fe8019;
+  --accent-secondary: #fabd2f;
+  --accent-fg: #1d2021;
+  --border-color: #504945;
+  --border-strong: #fabd2f;
+  --font-display: 'Space Grotesk', monospace;
+  --font-body: 'JetBrains Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
+  --card-radius: 10px;
+  --pill-shadow: 4px 4px 0px #000000;
+}
+
+[data-theme="cyber-mirage"] {
+  --bg-main: #07090f;
+  --bg-surface: #0f1322;
+  --bg-card: #13192b;
+  --bg-pill: #ff0055;
+  --text-main: #e2f1ff;
+  --text-muted: #64748b;
+  --accent: #ff0055;
+  --accent-secondary: #00f0ff;
+  --accent-fg: #ffffff;
+  --border-color: #1e293b;
+  --border-strong: #00f0ff;
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'DotGothic16', monospace;
+  --card-radius: 16px;
+  --pill-shadow: 0 0 20px rgba(255, 0, 85, 0.45);
+}
+
+/* ==========================================================================
+   THEME-SPECIFIC HARMONIOUS RAINBOW SEQUENCES FOR FOLDERS & SHEETS
+   Each theme defines its tailored spectrum palette while remaining 100%
+   overridable by user Custom CSS via [data-rainbow-index="..."] or --item-color.
+   ========================================================================== */
+
+/* 1. Solar Flare: Fire Pulse / Solar Spectrum */
+[data-theme="solar-flare"] [data-rainbow-index="0"] { --item-color: #ff2e00; }
+[data-theme="solar-flare"] [data-rainbow-index="1"] { --item-color: #ff6b00; }
+[data-theme="solar-flare"] [data-rainbow-index="2"] { --item-color: #ffaa00; }
+[data-theme="solar-flare"] [data-rainbow-index="3"] { --item-color: #a6ff00; }
+[data-theme="solar-flare"] [data-rainbow-index="4"] { --item-color: #00e5a3; }
+[data-theme="solar-flare"] [data-rainbow-index="5"] { --item-color: #00d4ff; }
+[data-theme="solar-flare"] [data-rainbow-index="6"] { --item-color: #0066ff; }
+[data-theme="solar-flare"] [data-rainbow-index="7"] { --item-color: #e6007a; }
+
+/* 2. Milk Sakura: Kawaii Berry & Pastel Palette */
+[data-theme="milk-sakura"] [data-rainbow-index="0"] { --item-color: #ff5c93; }
+[data-theme="milk-sakura"] [data-rainbow-index="1"] { --item-color: #ff85b3; }
+[data-theme="milk-sakura"] [data-rainbow-index="2"] { --item-color: #ffb4a2; }
+[data-theme="milk-sakura"] [data-rainbow-index="3"] { --item-color: #ffe494; }
+[data-theme="milk-sakura"] [data-rainbow-index="4"] { --item-color: #9bf6ff; }
+[data-theme="milk-sakura"] [data-rainbow-index="5"] { --item-color: #a0c4ff; }
+[data-theme="milk-sakura"] [data-rainbow-index="6"] { --item-color: #bdb2ff; }
+[data-theme="milk-sakura"] [data-rainbow-index="7"] { --item-color: #ffc6ff; }
+
+/* 3. Velvet Nebula: Catppuccin Cyber Lavender / Orchid Horizon */
+[data-theme="velvet-nebula"] [data-rainbow-index="0"] { --item-color: #cba6f7; }
+[data-theme="velvet-nebula"] [data-rainbow-index="1"] { --item-color: #f38ba8; }
+[data-theme="velvet-nebula"] [data-rainbow-index="2"] { --item-color: #fab387; }
+[data-theme="velvet-nebula"] [data-rainbow-index="3"] { --item-color: #f9e2af; }
+[data-theme="velvet-nebula"] [data-rainbow-index="4"] { --item-color: #a6e3a1; }
+[data-theme="velvet-nebula"] [data-rainbow-index="5"] { --item-color: #94e2d5; }
+[data-theme="velvet-nebula"] [data-rainbow-index="6"] { --item-color: #89b4fa; }
+[data-theme="velvet-nebula"] [data-rainbow-index="7"] { --item-color: #b4befe; }
+
+/* 4. Amber Oxide: Retro Terminal Phosphor / Molten Oxide */
+[data-theme="amber-oxide"] [data-rainbow-index="0"] { --item-color: #fe8019; }
+[data-theme="amber-oxide"] [data-rainbow-index="1"] { --item-color: #fabd2f; }
+[data-theme="amber-oxide"] [data-rainbow-index="2"] { --item-color: #b8bb26; }
+[data-theme="amber-oxide"] [data-rainbow-index="3"] { --item-color: #8ec07c; }
+[data-theme="amber-oxide"] [data-rainbow-index="4"] { --item-color: #83a598; }
+[data-theme="amber-oxide"] [data-rainbow-index="5"] { --item-color: #d3869b; }
+[data-theme="amber-oxide"] [data-rainbow-index="6"] { --item-color: #fb4934; }
+[data-theme="amber-oxide"] [data-rainbow-index="7"] { --item-color: #ff5500; }
+
+/* 5. Cyber Mirage: Laser Acid Neon / Electric Horizon */
+[data-theme="cyber-mirage"] [data-rainbow-index="0"] { --item-color: #ff0055; }
+[data-theme="cyber-mirage"] [data-rainbow-index="1"] { --item-color: #ff5e00; }
+[data-theme="cyber-mirage"] [data-rainbow-index="2"] { --item-color: #ffe600; }
+[data-theme="cyber-mirage"] [data-rainbow-index="3"] { --item-color: #39ff14; }
+[data-theme="cyber-mirage"] [data-rainbow-index="4"] { --item-color: #00f0ff; }
+[data-theme="cyber-mirage"] [data-rainbow-index="5"] { --item-color: #0066ff; }
+[data-theme="cyber-mirage"] [data-rainbow-index="6"] { --item-color: #9d00ff; }
+[data-theme="cyber-mirage"] [data-rainbow-index="7"] { --item-color: #ff0099; }
+
+html,
+body,
+#root {
+  background: transparent !important;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+[data-font="brutalist"] {
+  --font-body: 'Archivo Black', 'Syne', sans-serif !important;
+  --font-display: 'Archivo Black', sans-serif !important;
+}
+[data-font="dot-matrix"] {
+  --font-body: 'DotGothic16', monospace !important;
+  --font-display: 'DotGothic16', monospace !important;
+}
+[data-font="serif"] {
+  --font-body: Georgia, 'Playfair Display', serif !important;
+  --font-display: Georgia, 'Playfair Display', serif !important;
+}
+[data-font="cyber-mono"] {
+  --font-body: 'JetBrains Mono', monospace !important;
+  --font-display: 'JetBrains Mono', monospace !important;
+}
+[data-font="kawaii-hand"] {
+  --font-body: 'Fredoka', cursive, sans-serif !important;
+  --font-display: 'Fredoka', cursive, sans-serif !important;
+}
+
+.font-display-brutal {
+  font-family: var(--font-display);
+}
+
+.font-dot-matrix {
+  font-family: var(--font-mono);
+}
+
+.dot-matrix-bg {
+  background-image: radial-gradient(var(--border-color) 1.25px, transparent 1.25px);
+  background-size: 14px 14px;
+}
+
+/* Hide scrollbars completely where requested */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+@keyframes springIslandIn {
+  0% {
+    opacity: 0;
+    transform: translateX(42px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes springIslandOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+}
+
+@keyframes springIslandInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-42px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes springIslandOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+}
+
+@keyframes folderUnfold {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sheetCascadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(14px) translateY(3px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+@keyframes extSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shakeVault {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+@keyframes springIslandInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-42px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes springIslandOutTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-48px);
+  }
+}
+
+@keyframes springIslandInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(42px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes springIslandOutBottom {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}
+
+.animate-island-right {
+  animation: springIslandIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-island-right-out {
+  animation: springIslandOut 0.13s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.animate-island-left {
+  animation: springIslandInLeft 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-island-left-out {
+  animation: springIslandOutLeft 0.13s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.animate-island-top {
+  animation: springIslandInTop 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-island-top-out {
+  animation: springIslandOutTop 0.13s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.animate-island-bottom {
+  animation: springIslandInBottom 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-island-bottom-out {
+  animation: springIslandOutBottom 0.13s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.animate-folder-unfold {
+  animation: folderUnfold 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-sheet-cascade {
+  animation: sheetCascadeIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-ext-slide {
+  animation: extSlideIn 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-shake-vault {
+  animation: shakeVault 0.35s ease-in-out;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
