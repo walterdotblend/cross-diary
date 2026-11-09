@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Minimalist Dynamic Island Notch with Attached Written Journal Sheet -->
+  
+  <!-- Outer Rounded Shield Card (Dynamic fill and stroke) -->
+  <rect width="120" height="120" rx="28" fill="var(--bg-elevated, #0E131F)" stroke="var(--border-main, rgba(255,255,255,0.1))" stroke-width="2"/>
+  
+  <!-- Attached Diary Notepad Container (Directly attached to the notch) -->
+  <rect x="28" y="34" width="64" height="68" rx="8" fill="var(--bg-paper, #141A28)" stroke="var(--border-main, rgba(255,255,255,0.2))" stroke-width="2"/>
+  
+  <!-- Top Dynamic Island Notch (Attached to top of notepad) -->
+  <rect x="22" y="16" width="76" height="24" rx="12" fill="var(--island-bg, #000000)" stroke="var(--accent, #FF5500)" stroke-width="2.5"/>
+  
+  <!-- Notch Interior Elements: Status Dot, Equalizer Wave, Right Sensor -->
+  <circle cx="36" cy="28" r="4.5" fill="var(--accent, #FF5500)"/>
+  
+  <!-- Mini Equalizer Audio Wave inside Notch -->
+  <line x1="48" y1="33" x2="48" y2="23" stroke="var(--accent, #FF5500)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="53" y1="34" x2="53" y2="22" stroke="var(--text-title, #FFFFFF)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="58" y1="32" x2="58" y2="24" stroke="var(--accent, #FF5500)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="63" y1="33" x2="63" y2="23" stroke="var(--text-title, #FFFFFF)" stroke-width="2" stroke-linecap="round"/>
+  
+  <circle cx="84" cy="28" r="3" fill="var(--accent, #FF5500)" fill-opacity="0.8"/>
+  
+  <!-- Simulated Written Diary Text Lines (Varying natural lengths) -->
+  <line x1="38" y1="52" x2="82" y2="52" stroke="var(--accent, #FF5500)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="38" y1="64" x2="74" y2="64" stroke="var(--text-title, #FFFFFF)" stroke-width="3" stroke-linecap="round" stroke-opacity="0.9"/>
+  <line x1="38" y1="76" x2="82" y2="76" stroke="var(--text-body, #94A3B8)" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.75"/>
+  <line x1="38" y1="88" x2="62" y2="88" stroke="var(--accent, #FF5500)" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Subtle Corner Page Fold Accent -->
+  <path d="M78 102L92 88H78V102Z" fill="var(--accent, #FF5500)" fill-opacity="0.25" stroke="var(--border-main, rgba(255,255,255,0.15))" stroke-width="1.5"/>
+</svg>

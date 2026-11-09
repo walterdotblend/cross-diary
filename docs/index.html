@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cyberpunk-terminal">
+<html lang="en" data-theme="obsidian-gold">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cross-Diary // Your Intelligent Journal with Dynamic Island & Modular NoteBlocks</title>
-  <meta name="description" content="Cross-Diary: Next-generation tactile personal diary with Dynamic Island HUD for Windows and Android, real-time sync, line-by-line modular NoteBlocks, and infinite aesthetic customization.">
+  <title>Cross-Diary // Next-Gen Journal with Desktop Dynamic Island & Modular NoteBlocks</title>
+  <meta name="description" content="Cross-Diary: The tactile personal journal with a desktop Dynamic Island HUD for Windows and Android, real-time sync, line-by-line modular NoteBlocks, and infinite aesthetic customization.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;600;800&family=Playfair+Display:ital,wght@0,600;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -27,143 +27,143 @@
   </script>
   <style>
     /* ==========================================================================
-       RADICAL THEME SYSTEM - 5 High-Personality Aesthetic Alterations
+       5 RADICAL HIGH-CONTRAST THEMES (Zero Low-Contrast Leaks)
        ========================================================================== */
 
-    /* 1. CYBERPUNK TERMINAL // Sci-Fi Netrunner Journal */
-    :root[data-theme="cyberpunk-terminal"] {
-      --bg-page: #06080D;
-      --bg-paper: #0B0F19;
-      --bg-card: rgba(14, 20, 32, 0.85);
-      --bg-elevated: #162035;
-      --border-main: rgba(0, 255, 102, 0.25);
-      --border-glow: #00FF66;
-      --accent: #00FF66;
-      --accent-secondary: #00F0FF;
-      --accent-badge: #FF0055;
-      --text-title: #F0FDF4;
-      --text-body: #94A3B8;
-      --text-hand: #00FF66;
-      --paper-grid: radial-gradient(#00FF66 1px, transparent 1px);
+    /* 1. MIDNIGHT OBSIDIAN & SOLAR GOLD (Replaced cyber with ultra-readable luxury) */
+    :root[data-theme="obsidian-gold"] {
+      --bg-page: #080B11;
+      --bg-paper: #0E1420;
+      --bg-card: #131B2A;
+      --bg-elevated: #1A2438;
+      --border-main: rgba(245, 158, 11, 0.28);
+      --border-glow: #F59E0B;
+      --accent: #F59E0B;
+      --accent-secondary: #FBBF24;
+      --accent-badge: #D97706;
+      --text-title: #FFFFFF;
+      --text-body: #CBD5E1;
+      --text-muted: #94A3B8;
+      --text-hand: #FBBF24;
+      --paper-grid: radial-gradient(rgba(245, 158, 11, 0.18) 1.5px, transparent 1.5px);
       --paper-grid-size: 24px 24px;
       --island-bg: #000000;
-      --island-border: #00FF66;
-      --washi-bg: rgba(0, 255, 102, 0.2);
-      --tape-border: #00FF66;
-      --font-heading: 'JetBrains Mono', monospace;
+      --island-border: #F59E0B;
+      --washi-bg: rgba(245, 158, 11, 0.22);
+      --tape-border: #F59E0B;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
-      --scanline-opacity: 0.04;
     }
 
     /* 2. KAWAII PASTEL // Cozy Bullet Journal & Washi Tape */
     :root[data-theme="kawaii-pastel"] {
       --bg-page: #FFF0F5;
       --bg-paper: #FFFDF9;
-      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card: #FFFFFF;
       --bg-elevated: #FFE4EC;
-      --border-main: rgba(255, 112, 166, 0.35);
-      --border-glow: #FF70A6;
+      --border-main: rgba(255, 112, 166, 0.4);
+      --border-glow: #FF5D8F;
       --accent: #FF5D8F;
       --accent-secondary: #9D4EDD;
       --accent-badge: #FFB703;
-      --text-title: #3D1E31;
-      --text-body: #6E5365;
-      --text-hand: #FF3377;
+      --text-title: #2B1527;
+      --text-body: #54374E;
+      --text-muted: #7E5976;
+      --text-hand: #D81B60;
       --paper-grid: radial-gradient(#FFB7C5 1.5px, transparent 1.5px);
       --paper-grid-size: 20px 20px;
-      --island-bg: #371B30;
-      --island-border: #FF70A6;
-      --washi-bg: rgba(255, 183, 197, 0.5);
-      --tape-border: #FF70A6;
+      --island-bg: #2B1527;
+      --island-border: #FF5D8F;
+      --washi-bg: rgba(255, 183, 197, 0.55);
+      --tape-border: #FF5D8F;
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
-      --scanline-opacity: 0;
     }
 
-    /* 3. VINTAGE PARCHMENT // Antique Leather & Wax-Sealed Journal */
+    /* 3. VINTAGE PARCHMENT // Antique Leather & Wax Seal */
     :root[data-theme="vintage-parchment"] {
-      --bg-page: #EFE4D1;
-      --bg-paper: #FBF4E6;
-      --bg-card: rgba(251, 244, 230, 0.95);
+      --bg-page: #EAE0CE;
+      --bg-paper: #FAF4E8;
+      --bg-card: #FFFFFF;
       --bg-elevated: #E5D5BC;
-      --border-main: rgba(142, 107, 72, 0.4);
+      --border-main: rgba(142, 107, 72, 0.45);
       --border-glow: #B8860B;
-      --accent: #A44A3F;
+      --accent: #9A3412;
       --accent-secondary: #B8860B;
       --accent-badge: #78290F;
-      --text-title: #2B1D0C;
-      --text-body: #5C4A36;
-      --text-hand: #A44A3F;
-      --paper-grid: linear-gradient(rgba(184, 134, 11, 0.08) 1px, transparent 1px);
+      --text-title: #291C0E;
+      --text-body: #4A3A29;
+      --text-muted: #745F4B;
+      --text-hand: #9A3412;
+      --paper-grid: linear-gradient(rgba(184, 134, 11, 0.12) 1px, transparent 1px);
       --paper-grid-size: 100% 28px;
       --island-bg: #1F150B;
       --island-border: #D4AF37;
-      --washi-bg: rgba(184, 134, 11, 0.25);
+      --washi-bg: rgba(184, 134, 11, 0.28);
       --tape-border: #B8860B;
       --font-heading: 'Playfair Display', serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
-      --scanline-opacity: 0;
     }
 
     /* 4. NORDIC MINIMAL // Architectural Moleskine Grid */
     :root[data-theme="nordic-minimal"] {
-      --bg-page: #F4F4F6;
+      --bg-page: #F1F3F5;
       --bg-paper: #FFFFFF;
-      --bg-card: rgba(255, 255, 255, 0.95);
-      --bg-elevated: #E5E7EB;
-      --border-main: rgba(17, 24, 39, 0.15);
+      --bg-card: #FFFFFF;
+      --bg-elevated: #E9ECEF;
+      --border-main: rgba(15, 23, 42, 0.18);
       --border-glow: #FF4500;
       --accent: #FF4500;
       --accent-secondary: #0F172A;
       --accent-badge: #2563EB;
       --text-title: #0F172A;
-      --text-body: #475569;
+      --text-body: #334155;
+      --text-muted: #64748B;
       --text-hand: #FF4500;
-      --paper-grid: linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+      --paper-grid: linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px);
       --paper-grid-size: 20px 20px;
       --island-bg: #0F172A;
       --island-border: #FF4500;
-      --washi-bg: rgba(255, 69, 0, 0.15);
+      --washi-bg: rgba(255, 69, 0, 0.18);
       --tape-border: #FF4500;
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
-      --scanline-opacity: 0;
     }
 
     /* 5. MIDNIGHT SYNTHWAVE // Neon Sunset 80s Journal */
     :root[data-theme="midnight-synthwave"] {
       --bg-page: #0B0218;
       --bg-paper: #120426;
-      --bg-card: rgba(26, 7, 51, 0.85);
-      --bg-elevated: #280C4F;
-      --border-main: rgba(255, 0, 127, 0.35);
+      --bg-card: #1C0A36;
+      --bg-elevated: #2A0E50;
+      --border-main: rgba(255, 0, 127, 0.4);
       --border-glow: #00F0FF;
       --accent: #FF007F;
       --accent-secondary: #00F0FF;
       --accent-badge: #FFE600;
       --text-title: #FFFFFF;
-      --text-body: #C4B5FD;
+      --text-body: #E0E7FF;
+      --text-muted: #A5B4FC;
       --text-hand: #00F0FF;
       --paper-grid: radial-gradient(rgba(255, 0, 127, 0.25) 1.5px, transparent 1.5px);
       --paper-grid-size: 28px 28px;
       --island-bg: #070010;
       --island-border: #00F0FF;
-      --washi-bg: rgba(0, 240, 255, 0.2);
+      --washi-bg: rgba(0, 240, 255, 0.22);
       --tape-border: #00F0FF;
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
-      --scanline-opacity: 0.03;
     }
 
     body {
       background-color: var(--bg-page);
       color: var(--text-title);
-      transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+      transition: background-color 0.4s ease, color 0.3s ease;
       font-family: var(--font-body);
     }
 
-    /* Textured Paper Background Layer */
+    /* Textured Paper Layer */
     .diary-paper-texture {
       background-color: var(--bg-paper);
       background-image: var(--paper-grid);
@@ -172,8 +172,8 @@
 
     /* Journal Book Spine Effect */
     .journal-spine-left {
-      box-shadow: inset 18px 0 25px -12px rgba(0, 0, 0, 0.35),
-                  -8px 0 16px -6px rgba(0, 0, 0, 0.25);
+      box-shadow: inset 18px 0 25px -12px rgba(0, 0, 0, 0.28),
+                  -8px 0 16px -6px rgba(0, 0, 0, 0.18);
     }
 
     /* Washi Tape Strip */
@@ -184,87 +184,83 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Dynamic Island Simulator States */
-    .island-pill {
-      background: var(--island-bg);
-      border: 1px solid var(--island-border);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .island-pill.is-expanded {
-      width: 440px !important;
-      height: 240px !important;
-      border-radius: 32px !important;
-    }
-
-    .island-pill.is-game-retracted {
-      transform: translateY(-90%) scale(0.65) !important;
-      opacity: 0.25 !important;
-    }
-
     /* Equalizer Bar Animation */
     @keyframes eqBounce {
       0%, 100% { height: 4px; }
-      50% { height: 18px; }
+      50% { height: 16px; }
     }
     .eq-bar-1 { animation: eqBounce 0.8s ease-in-out infinite; }
     .eq-bar-2 { animation: eqBounce 0.6s ease-in-out infinite 0.15s; }
     .eq-bar-3 { animation: eqBounce 1.0s ease-in-out infinite 0.3s; }
     .eq-bar-4 { animation: eqBounce 0.7s ease-in-out infinite 0.2s; }
-    .eq-bar-5 { animation: eqBounce 0.9s ease-in-out infinite 0.4s; }
 
-    /* Scanline overlay for cyberpunk */
-    .scanline-overlay {
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-                  linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-      background-size: 100% 4px, 6px 100%;
-      pointer-events: none;
+    /* Interactive Sticker Float */
+    .interactive-sticker {
+      user-select: none;
+      cursor: grab;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-
-    /* Stamped Badge */
-    .stamp-badge {
-      border: 2px dashed var(--accent);
-      transform: rotate(-3deg);
-      border-radius: 8px;
+    .interactive-sticker:hover {
+      transform: scale(1.15) rotate(3deg);
+    }
+    .interactive-sticker:active {
+      cursor: grabbing;
+      transform: scale(1.05);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-emerald-500/20 selection:text-emerald-400 relative overflow-x-hidden">
-
-  <!-- VIRTUAL SCREEN SCANLINE OVERLAY -->
-  <div class="fixed inset-0 scanline-overlay z-40" style="opacity: var(--scanline-opacity);"></div>
+<body class="min-h-screen flex flex-col relative overflow-x-hidden">
 
   <!-- STICKY TOP APP BAR (DIARY HEADER & THEME CRUISE CONTROLS) -->
   <header class="sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300"
           style="background: var(--bg-card); border-color: var(--border-main);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
       
-      <!-- Brand Logo + Monogram -->
+      <!-- Brand Logo with DYNAMIC THEME-ADAPTIVE SVG -->
       <a href="#" class="flex items-center gap-3.5 group shrink-0">
-        <div id="brand-logo-icon" class="w-10 h-10 rounded-2xl flex items-center justify-center shadow-lg transition-transform group-hover:scale-105"
-             style="background: var(--accent); color: #000000;">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+        <div id="brand-logo-icon" class="w-10 h-10 rounded-2xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105 overflow-hidden">
+          <!-- Dynamic Theme-Reactive SVG Logo: Island Notch + Attached Written Lines -->
+          <svg class="w-10 h-10" viewBox="0 0 120 120" fill="none">
+            <rect width="120" height="120" rx="26" fill="var(--bg-elevated)"/>
+            <!-- Attached Diary Sheet -->
+            <rect x="28" y="34" width="64" height="68" rx="8" fill="var(--bg-paper)" stroke="var(--border-main)" stroke-width="2"/>
+            <!-- Top Dynamic Notch -->
+            <rect x="22" y="16" width="76" height="24" rx="12" fill="var(--island-bg)" stroke="var(--accent)" stroke-width="2.5"/>
+            <!-- Notch indicator & audio waves -->
+            <circle cx="36" cy="28" r="4" fill="var(--accent)"/>
+            <line x1="48" y1="33" x2="48" y2="23" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="53" y1="34" x2="53" y2="22" stroke="var(--text-title)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="58" y1="32" x2="58" y2="24" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="63" y1="33" x2="63" y2="23" stroke="var(--text-title)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="84" cy="28" r="3" fill="var(--accent)"/>
+            <!-- Simulated handwritten lines -->
+            <line x1="38" y1="52" x2="82" y2="52" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+            <line x1="38" y1="64" x2="74" y2="64" stroke="var(--text-title)" stroke-width="3" stroke-linecap="round" stroke-opacity="0.9"/>
+            <line x1="38" y1="76" x2="82" y2="76" stroke="var(--text-muted)" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="38" y1="88" x2="62" y2="88" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M78 102L92 88H78V102Z" fill="var(--accent)" fill-opacity="0.3"/>
+          </svg>
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <span class="text-base font-black tracking-wider uppercase font-mono" id="app-title-display">Cross-Diary</span>
-            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border stamp-badge"
+            <span class="text-base font-black tracking-wider uppercase font-mono" style="color: var(--text-title);">Cross-Diary</span>
+            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border"
                   style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-glow);">
               v0.2.0
             </span>
           </div>
-          <p class="text-[11px] font-mono opacity-65" data-i18n="nav.subtitle">Dynamic Island // NoteBlocks // Sync</p>
+          <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="nav.subtitle">Dynamic Island // NoteBlocks // Sync</p>
         </div>
       </a>
 
-      <!-- AUTO-CYCLE THEME ORCHESTRATOR & THEME PILLS -->
+      <!-- AUTO-CYCLE THEME ORCHESTRATOR & CONTROLS -->
       <div class="hidden lg:flex items-center gap-2 p-1.5 rounded-2xl border transition-all"
            style="background: var(--bg-elevated); border-color: var(--border-main);">
         
         <!-- Auto-Cycle Play / Pause Button with Countdown Gauge -->
         <button id="btn-theme-timer-toggle" onclick="toggleThemeAutoCycle()"
-                class="flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-mono font-bold transition-all hover:scale-105 active:scale-95"
+                class="flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-mono font-bold transition-all hover:scale-105 active:scale-95 shadow-sm"
                 style="background: var(--accent); color: #000000;"
                 title="Pause or Resume Automatic Theme Rotation">
           <span id="theme-timer-icon">⏸</span>
@@ -272,38 +268,38 @@
           <span id="theme-countdown" class="ml-1 px-1.5 py-0.2 rounded-full text-[9px] bg-black/20 font-black">7s</span>
         </button>
 
-        <div class="h-4 w-[1px] bg-white/20 mx-1"></div>
+        <div class="h-4 w-[1px] bg-black/10 dark:bg-white/20 mx-1"></div>
 
-        <!-- 5 Extreme Theme Selectors -->
+        <!-- 5 Extreme Distinctive Themes -->
         <div class="flex items-center gap-1">
-          <button onclick="selectTheme('cyberpunk-terminal', true)" title="Cyberpunk Netrunner Terminal"
-                  class="px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border border-transparent hover:border-[#00FF66] flex items-center gap-1"
-                  style="background: #000000; color: #00FF66;">
-            <span>⚡</span><span class="hidden xl:inline">Cyber</span>
+          <button onclick="selectTheme('obsidian-gold', true)" title="Midnight Obsidian & Solar Gold"
+                  class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border flex items-center gap-1.5 hover:scale-105 active:scale-95"
+                  style="background: #0E1420; color: #F59E0B; border-color: rgba(245, 158, 11, 0.4);">
+            <span>⚡</span><span>Obsidian</span>
           </button>
           
           <button onclick="selectTheme('kawaii-pastel', true)" title="Kawaii Pastel Bullet Journal"
-                  class="px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border border-transparent hover:border-[#FF70A6] flex items-center gap-1"
-                  style="background: #FFE4EC; color: #FF3377;">
-            <span>🌸</span><span class="hidden xl:inline">Kawaii</span>
+                  class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border flex items-center gap-1.5 hover:scale-105 active:scale-95"
+                  style="background: #FFE4EC; color: #FF3377; border-color: rgba(255, 112, 166, 0.5);">
+            <span>🌸</span><span>Kawaii</span>
           </button>
 
           <button onclick="selectTheme('vintage-parchment', true)" title="Vintage Parchment & Leather Journal"
-                  class="px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border border-transparent hover:border-[#B8860B] flex items-center gap-1"
-                  style="background: #E5D5BC; color: #2B1D0C;">
-            <span>📜</span><span class="hidden xl:inline">Vintage</span>
+                  class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border flex items-center gap-1.5 hover:scale-105 active:scale-95"
+                  style="background: #E5D5BC; color: #2B1D0C; border-color: rgba(142, 107, 72, 0.5);">
+            <span>📜</span><span>Vintage</span>
           </button>
 
           <button onclick="selectTheme('nordic-minimal', true)" title="Nordic Architectural Moleskine"
-                  class="px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border border-transparent hover:border-[#FF4500] flex items-center gap-1"
-                  style="background: #FFFFFF; color: #0F172A;">
-            <span>📐</span><span class="hidden xl:inline">Nordic</span>
+                  class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border flex items-center gap-1.5 hover:scale-105 active:scale-95"
+                  style="background: #FFFFFF; color: #0F172A; border-color: rgba(15, 23, 42, 0.3);">
+            <span>📐</span><span>Nordic</span>
           </button>
 
           <button onclick="selectTheme('midnight-synthwave', true)" title="Midnight Synthwave Sunset 80s"
-                  class="px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border border-transparent hover:border-[#00F0FF] flex items-center gap-1"
-                  style="background: #1A0733; color: #00F0FF;">
-            <span>🌌</span><span class="hidden xl:inline">Synth</span>
+                  class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold transition-all border flex items-center gap-1.5 hover:scale-105 active:scale-95"
+                  style="background: #1C0A36; color: #00F0FF; border-color: rgba(255, 0, 127, 0.5);">
+            <span>🌌</span><span>Synth</span>
           </button>
         </div>
 
@@ -312,12 +308,20 @@
       <!-- RIGHT CONTROLS: LANGUAGE SELECTOR & REPO -->
       <div class="flex items-center gap-2.5">
         
+        <!-- Add Sticker Quick Button -->
+        <button onclick="spawnSticker()"
+                class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono font-bold transition-all hover:scale-105 active:scale-95 shadow-sm"
+                style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-main);">
+          <span>✨</span>
+          <span data-i18n="nav.addSticker">+ Sticker</span>
+        </button>
+
         <!-- Multi-Language Selector (Default: English) -->
         <div class="relative">
           <select id="lang-selector" onchange="switchLanguage(this.value)"
-                  class="px-2.5 py-1.5 rounded-xl border text-xs font-mono font-bold cursor-pointer transition-all focus:outline-none"
+                  class="px-2.5 py-1.5 rounded-xl border text-xs font-mono font-bold cursor-pointer transition-all focus:outline-none shadow-sm"
                   style="background: var(--bg-elevated); color: var(--text-title); border-color: var(--border-main);">
-            <option value="en">🇬🇧 English (US)</option>
+            <option value="en">🇬🇧 English</option>
             <option value="es">🇪🇸 Español</option>
             <option value="pt">🇧🇷 Português</option>
             <option value="fr">🇫🇷 Français</option>
@@ -326,7 +330,7 @@
 
         <!-- GitHub Repo Button -->
         <a href="https://github.com/walterdotblend/cross-diary" target="_blank" rel="noopener"
-           class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono font-bold transition-all hover:scale-105 active:scale-95"
+           class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono font-bold transition-all hover:scale-105 active:scale-95 shadow-sm"
            style="background: var(--bg-elevated); color: var(--text-title); border-color: var(--border-main);">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           <span class="hidden sm:inline">GitHub</span>
@@ -336,193 +340,197 @@
     </div>
   </header>
 
-  <!-- FLOATING INTERACTIVE DYNAMIC ISLAND DOCK (THE CORE SIGNATURE FEATURE) -->
-  <aside aria-label="Interactive Island Simulator" class="sticky top-20 z-40 w-full flex flex-col items-center pointer-events-none px-4">
-    <div class="pointer-events-auto relative">
-      
-      <!-- Subtle top hint label in handwriting font -->
-      <div id="island-top-hint" class="text-center mb-1 font-hand text-sm font-bold opacity-80 transition-opacity" style="color: var(--text-hand);">
-        ✍️ <span data-i18n="island.hint">Hover or click the floating Notch below to test live controls!</span>
-      </div>
+  <!-- MAIN JOURNAL SHOWCASE CONTAINER -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-24 w-full relative z-10">
 
-      <!-- The Real Island Notch Capsule -->
-      <div id="dynamic-island-dock"
-           onclick="toggleIslandExpand()"
-           class="island-pill cursor-pointer relative overflow-hidden flex flex-col items-center justify-between p-2 select-none"
-           style="width: 260px; height: 44px; border-radius: 9999px;">
-        
-        <!-- COMPACT DOCKED NOTCH BAR -->
-        <div id="island-compact-view" class="w-full h-full flex items-center justify-between px-3 text-xs font-mono font-bold text-white">
-          <div class="flex items-center gap-2">
-            <!-- Animated Equalizer Bars for Audio -->
-            <div class="flex items-end gap-0.5 h-4 w-4">
-              <span class="w-0.5 rounded-full bg-[var(--accent)] eq-bar-1"></span>
-              <span class="w-0.5 rounded-full bg-[var(--accent)] eq-bar-2"></span>
-              <span class="w-0.5 rounded-full bg-[var(--accent)] eq-bar-3"></span>
-              <span class="w-0.5 rounded-full bg-[var(--accent)] eq-bar-4"></span>
-              <span class="w-0.5 rounded-full bg-[var(--accent)] eq-bar-5"></span>
-            </div>
-            <span class="truncate max-w-[120px]" id="island-track-title">Lofi Focus Beats</span>
-          </div>
-
-          <!-- Pomodoro Mini Clock -->
-          <div class="flex items-center gap-2 text-[11px]">
-            <span class="font-bold text-[var(--accent)]" id="island-mini-timer">25:00</span>
-            <span class="text-[9px] px-1.5 py-0.5 rounded bg-white/10 text-gray-300">HUD</span>
-          </div>
-        </div>
-
-        <!-- FULLY EXPANDED ISLAND CONTROL DECK -->
-        <div id="island-expanded-view" class="hidden w-full h-full flex-col justify-between p-2 text-white">
-          
-          <!-- Header: Title + Game Mode Trigger -->
-          <div class="flex items-center justify-between pb-1.5 border-b border-white/10">
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-mono font-bold text-[var(--accent)]">⚡ CROSS-DIARY HUD</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">Desktop Island</span>
-            </div>
-
-            <!-- Game Mode Simulator Trigger -->
-            <button onclick="event.stopPropagation(); simulateGameModeToggle();"
-                    class="px-2 py-1 rounded-lg text-[10px] font-mono font-bold border border-yellow-500/40 bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-300 active:scale-95 transition-all"
-                    title="Simulate opening a fullscreen PC game">
-              🎮 <span data-i18n="island.gameBtn">Test Game Hide</span>
-            </button>
-          </div>
-
-          <!-- 3-Column Interactive Island Features -->
-          <div class="grid grid-cols-3 gap-2 my-auto text-xs font-mono">
-            
-            <!-- 1. Pulse Audio Controller -->
-            <div class="p-2 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
-              <div class="text-[10px] text-gray-400 font-bold uppercase truncate" data-i18n="island.audioTitle">Pulse Audio</div>
-              <div class="text-[11px] font-bold text-white truncate my-1" id="island-full-track-name">Raindrop Piano</div>
-              <div class="flex items-center justify-between pt-1">
-                <button onclick="event.stopPropagation(); toggleSynthAudio();"
-                        id="btn-play-synth"
-                        class="px-2.5 py-1 rounded bg-[var(--accent)] text-black font-black text-[10px] hover:scale-105 active:scale-95 transition-all">
-                  ▶ Play Tone
-                </button>
-                <span class="text-[9px] text-gray-400">01:24</span>
-              </div>
-            </div>
-
-            <!-- 2. Pomodoro Timer Controller -->
-            <div class="p-2 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
-              <div class="text-[10px] text-gray-400 font-bold uppercase truncate" data-i18n="island.pomoTitle">Pomodoro Timer</div>
-              <div class="text-base font-black text-[var(--accent)] tracking-wider my-0.5 text-center" id="pomo-clock-digits">25:00</div>
-              <div class="flex items-center justify-center gap-1.5">
-                <button onclick="event.stopPropagation(); togglePomo();" id="btn-pomo-start"
-                        class="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 text-[10px] font-bold active:scale-95">
-                  Start
-                </button>
-                <button onclick="event.stopPropagation(); resetPomo();"
-                        class="px-1.5 py-0.5 rounded bg-white/5 hover:bg-white/15 text-[10px] text-gray-400 active:scale-95">
-                  Reset
-                </button>
-              </div>
-            </div>
-
-            <!-- 3. Universal Clipboard Bridge -->
-            <div class="p-2 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
-              <div class="text-[10px] text-gray-400 font-bold uppercase truncate" data-i18n="island.clipTitle">Clipboard Sync</div>
-              <div class="text-[10px] text-gray-300 truncate my-1" id="mock-clip-content">"https://crossdiary.app"</div>
-              <button onclick="event.stopPropagation(); simulateClipCopy();" id="btn-clip-sync"
-                      class="px-2 py-1 rounded bg-white/10 hover:bg-white/20 text-[9px] font-bold text-center active:scale-95 truncate">
-                Sync to Android 📱
-              </button>
-            </div>
-
-          </div>
-
-          <!-- Footer status -->
-          <div class="flex items-center justify-between text-[10px] font-mono text-gray-400 pt-1 border-t border-white/10">
-            <span data-i18n="island.statusFooter">Active Screen: Primary Monitor (HUD Docked)</span>
-            <span class="text-[var(--accent)] font-bold cursor-pointer" onclick="toggleIslandExpand()">✕ Close</span>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- Edge Guide Line (Visible when Game Mode hides the Island) -->
-      <div id="game-edge-guide" onclick="restoreFromGameMode()"
-           class="hidden cursor-pointer mt-1 px-4 py-1 rounded-full bg-yellow-500/20 border border-yellow-500 text-yellow-300 font-mono text-xs font-bold animate-pulse">
-        🎮 Game Active: Island retracted to save FPS. Click here to restore.
-      </div>
-
-    </div>
-  </aside>
-
-  <!-- MAIN JOURNAL SHOWCASE CONTAINER (PHYSICAL BOOK MEETS DIGITAL SOFTWARE) -->
-  <main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-24 w-full relative z-10">
-
-    <!-- HERO BOOK SHEET (NOTEBOOK METAPHOR) -->
-    <section class="diary-paper-texture journal-spine-left rounded-3xl p-6 sm:p-12 md:p-16 border relative overflow-hidden shadow-2xl transition-all"
+    <!-- HERO BOOK SHEET (SPLIT LAYOUT: LEFT COPY + RIGHT REAL DESKTOP ISLAND DEMO) -->
+    <section class="diary-paper-texture journal-spine-left rounded-3xl p-6 sm:p-10 md:p-12 border relative overflow-hidden shadow-2xl transition-all"
              style="border-color: var(--border-main);">
       
       <!-- Washi Tape Accent on Top-Right Corner -->
       <div class="washi-tape absolute -top-2 right-12 w-36 h-7 rotate-3 rounded z-20 shadow-sm pointer-events-none"></div>
 
       <!-- Bookmark Ribbon Hanging at Top -->
-      <div class="absolute top-0 left-12 w-6 h-16 rounded-b-md shadow-md z-10 flex flex-col justify-end pb-1 items-center"
+      <div class="absolute top-0 left-10 w-6 h-14 rounded-b-md shadow-md z-10 flex flex-col justify-end pb-1 items-center"
            style="background: var(--accent);">
         <div class="w-0 h-0 border-x-3 border-x-transparent border-t-3 border-t-white/30"></div>
       </div>
 
-      <div class="space-y-8 max-w-4xl mx-auto text-left pl-4 sm:pl-8">
+      <!-- Interactive Stickers Container (Auto-populated in Kawaii mode, user-expandable) -->
+      <div id="sticker-canvas-layer" class="absolute inset-0 pointer-events-none z-30 overflow-hidden">
+        <!-- Pre-placed dynamic stickers -->
+      </div>
+
+      <!-- 2-COLUMN SPLIT GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pl-2 sm:pl-6">
         
-        <!-- Handwriting Annotation Stamp -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold border"
-             style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-glow);">
-          <span>✨</span>
-          <span data-i18n="hero.badge">The Personal Journal Reinvented for Power Users</span>
+        <!-- LEFT COLUMN: COPY & CALL TO ACTION (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6 text-left">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold border"
+               style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-glow);">
+            <span>✨</span>
+            <span data-i18n="hero.badge">The Personal Journal Reinvented for Power Users</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1]" style="color: var(--text-title);">
+            <span data-i18n="hero.titleLead">Your Thoughts, Docked on</span><br>
+            <span class="text-transparent bg-clip-text"
+                  style="background-image: linear-gradient(135deg, var(--accent), var(--accent-secondary));">
+              <span data-i18n="hero.titleAccent">Dynamic Island</span>
+            </span>
+            <span class="font-hand font-normal ml-2 block sm:inline text-2xl sm:text-4xl" style="color: var(--text-hand);" data-i18n="hero.handAnnotation">
+              &amp; Modular NoteBlocks ✍️
+            </span>
+          </h1>
+
+          <!-- Description Subtitle -->
+          <p class="text-sm sm:text-base font-medium leading-relaxed max-w-xl"
+             style="color: var(--text-body);"
+             data-i18n="hero.desc">
+            Cross-Diary bridges physical notebook aesthetics with modern desktop superpowers: an interactive HUD bar that stays out of your way when gaming, NoteBlocks that move strictly line by line, zero-friction sync between Windows and Android, and radical visual skins.
+          </p>
+
+          <!-- CTA Buttons Row -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            
+            <!-- Windows Binary -->
+            <a href="https://github.com/walterdotblend/cross-diary/releases" target="_blank"
+               class="px-6 py-3.5 rounded-2xl font-black text-xs uppercase tracking-wider flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95 shadow-xl"
+               style="background: var(--accent); color: #000000; box-shadow: 0 8px 24px var(--border-glow);">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/></svg>
+              <span data-i18n="hero.btnWindows">Download for Windows (.exe)</span>
+            </a>
+
+            <!-- Android APK -->
+            <a href="https://github.com/walterdotblend/cross-diary/releases" target="_blank"
+               class="px-6 py-3.5 rounded-2xl font-black text-xs uppercase tracking-wider flex items-center gap-2.5 border transition-all hover:scale-105 active:scale-95 shadow-sm"
+               style="background: var(--bg-card); color: var(--text-title); border-color: var(--border-main);">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.411 13.8533 8.083 12 8.083c-1.8534 0-3.5902.328-5.1367.8667L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>
+              <span data-i18n="hero.btnAndroid">Download Android APK</span>
+            </a>
+
+            <!-- Add Sticker Button -->
+            <button onclick="spawnSticker()"
+                    class="px-4 py-3.5 rounded-2xl border font-mono text-xs font-bold transition-all hover:scale-105 active:scale-95 shadow-sm"
+                    style="background: var(--bg-card); color: var(--accent); border-color: var(--border-main);">
+              ✨ <span data-i18n="hero.placeStickerBtn">+ Place Sticker</span>
+            </button>
+          </div>
+
         </div>
 
-        <!-- Headline with Mixed Editorial & Tech Typographies -->
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.08]">
-          <span data-i18n="hero.titleLead">Your Thoughts, Docked on</span><br>
-          <span class="text-transparent bg-clip-text"
-                style="background-image: linear-gradient(135deg, var(--accent), var(--accent-secondary));">
-            <span data-i18n="hero.titleAccent">Dynamic Island</span>
-          </span>
-          <span class="font-hand font-normal ml-2 block sm:inline text-3xl sm:text-5xl opacity-90" style="color: var(--text-hand);" data-i18n="hero.handAnnotation">
-            &amp; Modular NoteBlocks ✍️
-          </span>
-        </h1>
-
-        <!-- Subtitle Paragraph -->
-        <p class="text-base sm:text-lg md:text-xl font-medium leading-relaxed max-w-2xl"
-           style="color: var(--text-body);"
-           data-i18n="hero.desc">
-          Cross-Diary bridges physical notebook aesthetics with modern desktop superpowers: an interactive HUD bar that stays out of your way when gaming, NoteBlocks that move strictly line by line, zero-friction sync between Windows and Android, and radical visual skins.
-        </p>
-
-        <!-- CTA Download Row -->
-        <div class="flex flex-wrap items-center gap-4 pt-4">
+        <!-- RIGHT COLUMN: REAL LATERAL DESKTOP ISLAND DEMO (5 Cols) -->
+        <div class="lg:col-span-5 relative">
           
-          <!-- Windows Binary -->
-          <a href="https://github.com/walterdotblend/cross-diary/releases" target="_blank"
-             class="px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-wider flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-2xl"
-             style="background: var(--accent); color: #000000; box-shadow: 0 10px 30px var(--border-glow);">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/></svg>
-            <span data-i18n="hero.btnWindows">Download for Windows (.exe)</span>
-          </a>
+          <div class="text-right mb-2">
+            <span class="text-[11px] font-mono font-bold uppercase tracking-wider" style="color: var(--accent);" data-i18n="lateral.liveDemoBadge">
+              ● REAL DESKTOP HUD DEMO
+            </span>
+          </div>
 
-          <!-- Android APK -->
-          <a href="https://github.com/walterdotblend/cross-diary/releases" target="_blank"
-             class="px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-wider flex items-center gap-3 border transition-all hover:scale-105 active:scale-95"
-             style="background: var(--bg-card); color: var(--text-title); border-color: var(--border-main);">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.411 13.8533 8.083 12 8.083c-1.8534 0-3.5902.328-5.1367.8667L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>
-            <span data-i18n="hero.btnAndroid">Download Android APK</span>
-          </a>
+          <!-- Realistic Desktop Monitor Bezel -->
+          <div class="rounded-2xl border p-2 sm:p-3 shadow-2xl relative transition-all"
+               style="background: #000000; border-color: var(--border-main);">
+            
+            <!-- Top Bezel with DOCKED DYNAMIC ISLAND OVERLAY -->
+            <div class="w-full flex justify-center pb-2 relative z-20">
+              
+              <div id="lateral-island-pill"
+                   onclick="toggleLateralIsland()"
+                   class="cursor-pointer border rounded-full px-3 py-1 flex items-center justify-between gap-3 shadow-lg transition-all duration-300 select-none hover:scale-105"
+                   style="background: var(--island-bg); border-color: var(--border-glow); width: 220px;">
+                
+                <div class="flex items-center gap-1.5">
+                  <div class="flex items-end gap-0.5 h-3 w-3">
+                    <span class="w-0.5 bg-[var(--accent)] eq-bar-1"></span>
+                    <span class="w-0.5 bg-[var(--accent)] eq-bar-2"></span>
+                    <span class="w-0.5 bg-[var(--accent)] eq-bar-3"></span>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold text-white truncate max-w-[85px]" id="lateral-track-title">Lofi Beats</span>
+                </div>
 
-          <!-- Confetti Fun Sticker Button -->
-          <button onclick="shootConfetti()"
-                  class="px-4 py-4 rounded-2xl border font-mono text-xs font-bold transition-all hover:scale-105 active:scale-95"
-                  style="background: var(--bg-card); color: var(--accent); border-color: var(--border-main);">
-            🎉 <span data-i18n="hero.celebrateBtn">Stickers &amp; Joy</span>
-          </button>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[10px] font-mono font-black text-[var(--accent)]" id="lateral-timer-digits">25:00</span>
+                  <span class="w-2 h-2 rounded-full animate-ping" style="background: var(--accent);"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Simulated Desktop Workspace Screen -->
+            <div class="rounded-xl p-3.5 space-y-3 font-mono text-[11px] min-h-[260px] relative flex flex-col justify-between"
+                 style="background: var(--bg-paper); border: 1px solid var(--border-main);">
+              
+              <!-- Simulated Folder Tabs Header -->
+              <div class="flex items-center gap-1.5 border-b pb-2" style="border-color: var(--border-main);">
+                <span class="px-2 py-0.5 rounded text-[9px] font-bold" style="background: var(--accent); color: #000000;">
+                  📁 Daily Notes
+                </span>
+                <span class="px-2 py-0.5 rounded text-[9px]" style="background: var(--bg-elevated); color: var(--text-body);">
+                  Ideas
+                </span>
+                <span class="px-2 py-0.5 rounded text-[9px]" style="background: var(--bg-elevated); color: var(--text-body);">
+                  🔒 Vault
+                </span>
+              </div>
+
+              <!-- Sheet Body with NoteBlock -->
+              <div class="space-y-2 py-1">
+                <div class="font-bold text-xs truncate" style="color: var(--text-title);">
+                  # Today's Goals // Real-time Cross-Diary
+                </div>
+
+                <!-- Simulated Checklist NoteBlock inside desktop -->
+                <div class="p-2.5 rounded-xl border flex items-center justify-between shadow-sm"
+                     style="background: var(--bg-card); border-color: var(--accent);">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" checked class="accent-[var(--accent)] w-3.5 h-3.5">
+                    <span class="text-[10px] font-bold" style="color: var(--text-title);">Review pull request</span>
+                  </div>
+                  <span class="text-[8px] font-mono px-1 rounded bg-[var(--accent)] text-black font-black">NoteBlock</span>
+                </div>
+
+                <div class="p-2 rounded-lg border text-[10px]" style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);">
+                  Syncing with Android Pixel (Universal Clipboard ready)
+                </div>
+              </div>
+
+              <!-- Interactive Controls for the Demo Screen -->
+              <div class="pt-2 border-t flex items-center justify-between text-[9px] font-mono" style="border-color: var(--border-main);">
+                <!-- Tone Audio Button -->
+                <button onclick="toggleSynthAudio()" id="btn-lateral-tone"
+                        class="px-2 py-1 rounded font-bold transition-all hover:scale-105 active:scale-95"
+                        style="background: var(--accent); color: #000000;">
+                  ▶ Play Tone
+                </button>
+
+                <!-- Pomodoro Start Button -->
+                <button onclick="togglePomo()" id="btn-lateral-pomo"
+                        class="px-2 py-1 rounded font-bold border hover:bg-black/10 active:scale-95"
+                        style="color: var(--text-title); border-color: var(--border-main);">
+                  Start Pomo
+                </button>
+
+                <!-- Game Mode Retract -->
+                <button onclick="simulateGameMode()" id="btn-lateral-game"
+                        class="px-2 py-1 rounded font-bold border border-yellow-500/40 text-yellow-600 dark:text-yellow-400 hover:bg-yellow-500/10 active:scale-95">
+                  🎮 Game Mode
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Game Retract Guide Bar -->
+            <div id="lateral-game-banner" onclick="restoreLateralGameMode()"
+                 class="hidden cursor-pointer mt-1.5 p-1 rounded-lg bg-yellow-500/15 border border-yellow-500 text-yellow-500 font-mono text-[10px] font-bold text-center animate-pulse">
+              🎮 Fullscreen Game Detected: Island retracted. Click to restore.
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -541,7 +549,7 @@
           <span class="text-xs font-mono font-bold uppercase tracking-widest" style="color: var(--accent);" data-i18n="demo.kicker">
             TACTILE ENGINE FEATURE
           </span>
-          <h2 class="text-2xl sm:text-4xl font-black mt-1" data-i18n="demo.title">
+          <h2 class="text-2xl sm:text-4xl font-black mt-1" style="color: var(--text-title);" data-i18n="demo.title">
             NoteBlocks Move Strictly Line-by-Line
           </h2>
           <p class="text-sm font-medium mt-1 max-w-xl" style="color: var(--text-body);" data-i18n="demo.desc">
@@ -551,12 +559,12 @@
 
         <div class="flex items-center gap-2">
           <button onclick="stepBlock('up')"
-                  class="px-4 py-2 rounded-xl font-mono text-xs font-black uppercase flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 border"
+                  class="px-4 py-2 rounded-xl font-mono text-xs font-black uppercase flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 border shadow-sm"
                   style="background: var(--accent); color: #000000; border-color: var(--border-glow);">
             ▲ <span data-i18n="demo.btnUp">Move Up 1 Line</span>
           </button>
           <button onclick="stepBlock('down')"
-                  class="px-4 py-2 rounded-xl font-mono text-xs font-black uppercase flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 border"
+                  class="px-4 py-2 rounded-xl font-mono text-xs font-black uppercase flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 border shadow-sm"
                   style="background: var(--accent); color: #000000; border-color: var(--border-glow);">
             ▼ <span data-i18n="demo.btnDown">Move Down 1 Line</span>
           </button>
@@ -564,53 +572,57 @@
       </div>
 
       <!-- Interactive Sheet Canvas Simulator -->
-      <div id="demo-sheet-container" class="rounded-2xl border p-4 sm:p-6 font-mono text-xs space-y-2.5 transition-all"
+      <div id="demo-sheet-container" class="rounded-2xl border p-4 sm:p-6 font-mono text-xs space-y-2.5 transition-all shadow-inner"
            style="background: var(--bg-card); border-color: var(--border-main);">
         
-        <div class="line-row p-2.5 rounded-xl border border-transparent bg-white/5 text-gray-300 flex items-center justify-between" data-line="0">
+        <div class="line-row p-2.5 rounded-xl border flex items-center justify-between"
+             style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-title);" data-line="0">
           <span>01. # Cross-Diary Project Roadmap // Morning Notes</span>
-          <span class="text-[10px] text-gray-500 font-bold">Line 1</span>
+          <span class="text-[10px] font-bold" style="color: var(--text-muted);">Line 1</span>
         </div>
 
-        <div class="line-row p-2.5 rounded-xl border border-transparent bg-white/5 text-gray-500 italic flex items-center justify-between" data-line="1">
+        <div class="line-row p-2.5 rounded-xl border italic flex items-center justify-between"
+             style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-muted);" data-line="1">
           <span>02. [Empty Blank Line]</span>
-          <span class="text-[10px] text-gray-600 font-bold">Line 2</span>
+          <span class="text-[10px] font-bold" style="color: var(--text-muted);">Line 2</span>
         </div>
 
         <!-- The Interactive Widget Block -->
         <div id="interactive-noteblock"
              class="line-row p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xl transition-all duration-300"
-             style="background: var(--bg-elevated); border-color: var(--accent);">
+             style="background: var(--bg-paper); border-color: var(--accent);">
           <div class="flex items-center gap-3">
             <span class="text-xl">☑️</span>
             <div>
-              <div class="font-bold text-white flex items-center gap-2">
+              <div class="font-bold flex items-center gap-2" style="color: var(--text-title);">
                 <span data-i18n="demo.blockName">Checklist NoteBlock (Interactive)</span>
                 <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[var(--accent)] text-black font-black">Active Widget</span>
               </div>
-              <p class="text-[11px] text-gray-400 font-sans" data-i18n="demo.blockSub">Supports multi-state checkboxes and instant drag-and-drop</p>
+              <p class="text-[11px] font-sans" style="color: var(--text-body);" data-i18n="demo.blockSub">Supports multi-state checkboxes and instant drag-and-drop</p>
             </div>
           </div>
           <div class="flex items-center gap-2 text-xs">
             <label class="flex items-center gap-1.5 cursor-pointer">
               <input type="checkbox" checked class="accent-[var(--accent)] w-4 h-4 cursor-pointer">
-              <span class="text-gray-300">Reviewed code</span>
+              <span style="color: var(--text-title);">Reviewed code</span>
             </label>
             <label class="flex items-center gap-1.5 cursor-pointer ml-2">
               <input type="checkbox" class="accent-[var(--accent)] w-4 h-4 cursor-pointer">
-              <span class="text-gray-300">Sync with phone</span>
+              <span style="color: var(--text-title);">Sync with phone</span>
             </label>
           </div>
         </div>
 
-        <div class="line-row p-2.5 rounded-xl border border-transparent bg-white/5 text-gray-500 italic flex items-center justify-between" data-line="3">
+        <div class="line-row p-2.5 rounded-xl border italic flex items-center justify-between"
+             style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-muted);" data-line="3">
           <span>04. [Empty Blank Line]</span>
-          <span class="text-[10px] text-gray-600 font-bold">Line 4</span>
+          <span class="text-[10px] font-bold" style="color: var(--text-muted);">Line 4</span>
         </div>
 
-        <div class="line-row p-2.5 rounded-xl border border-transparent bg-white/5 text-gray-300 flex items-center justify-between" data-line="4">
+        <div class="line-row p-2.5 rounded-xl border flex items-center justify-between"
+             style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-title);" data-line="4">
           <span>05. Evening reflection: Flow state achieved with lo-fi Pulse Audio.</span>
-          <span class="text-[10px] text-gray-500 font-bold">Line 5</span>
+          <span class="text-[10px] font-bold" style="color: var(--text-muted);">Line 5</span>
         </div>
 
       </div>
@@ -619,7 +631,7 @@
         <span id="demo-pos-status" class="font-bold" style="color: var(--accent);">
           Current NoteBlock Position: Line 3 of 5
         </span>
-        <span class="text-gray-400 font-hand text-base" data-i18n="demo.handTip">
+        <span class="font-hand text-base" style="color: var(--text-hand);" data-i18n="demo.handTip">
           Try moving it over the blank lines — notice it steps one line at a time! 📌
         </span>
       </div>
@@ -632,7 +644,7 @@
         <span class="text-xs font-mono font-black uppercase tracking-widest" style="color: var(--accent);" data-i18n="feat.kicker">
           EVERYTHING YOU NEED
         </span>
-        <h2 class="text-3xl sm:text-5xl font-black" data-i18n="feat.heading">
+        <h2 class="text-3xl sm:text-5xl font-black" style="color: var(--text-title);" data-i18n="feat.heading">
           Handcrafted Capabilities for Mindful Writing
         </h2>
       </div>
@@ -646,7 +658,7 @@
                style="background: var(--bg-elevated); color: var(--accent);">
             🏝️
           </div>
-          <h3 class="text-lg font-bold" data-i18n="feat.1.title">Dynamic Island HUD</h3>
+          <h3 class="text-lg font-bold" style="color: var(--text-title);" data-i18n="feat.1.title">Dynamic Island HUD</h3>
           <p class="text-xs leading-relaxed" style="color: var(--text-body);" data-i18n="feat.1.desc">
             A permanent interactive command pill docked at the top screen edge on Windows and Android. Access playback, scratchpad, and timer instantly.
           </p>
@@ -659,7 +671,7 @@
                style="background: var(--bg-elevated); color: var(--accent);">
             🎮
           </div>
-          <h3 class="text-lg font-bold" data-i18n="feat.2.title">Smart Game Mode</h3>
+          <h3 class="text-lg font-bold" style="color: var(--text-title);" data-i18n="feat.2.title">Smart Game Mode</h3>
           <p class="text-xs leading-relaxed" style="color: var(--text-body);" data-i18n="feat.2.desc">
             Seamlessly retracts into a discreet 1px edge guideline when fullscreen video games or borderless apps launch, never blocking your crosshair or FPS.
           </p>
@@ -672,7 +684,7 @@
                style="background: var(--bg-elevated); color: var(--accent);">
             🧩
           </div>
-          <h3 class="text-lg font-bold" data-i18n="feat.3.title">Modular NoteBlocks</h3>
+          <h3 class="text-lg font-bold" style="color: var(--text-title);" data-i18n="feat.3.title">Modular NoteBlocks</h3>
           <p class="text-xs leading-relaxed" style="color: var(--text-body);" data-i18n="feat.3.desc">
             Embed interactive checklists, Pomodoro clocks, and word counters right inside your sheets with exact line-by-line keyboard and button controls.
           </p>
@@ -685,7 +697,7 @@
                style="background: var(--bg-elevated); color: var(--accent);">
             ☁️
           </div>
-          <h3 class="text-lg font-bold" data-i18n="feat.4.title">Real-Time Cloud Sync</h3>
+          <h3 class="text-lg font-bold" style="color: var(--text-title);" data-i18n="feat.4.title">Real-Time Cloud Sync</h3>
           <p class="text-xs leading-relaxed" style="color: var(--text-body);" data-i18n="feat.4.desc">
             Write on your desktop machine and watch it appear instantaneously on your phone. Clean encrypted vaults with automatic 30-day inactivity protection.
           </p>
@@ -698,7 +710,7 @@
                style="background: var(--bg-elevated); color: var(--accent);">
             📋
           </div>
-          <h3 class="text-lg font-bold" data-i18n="feat.5.title">Universal Clipboard</h3>
+          <h3 class="text-lg font-bold" style="color: var(--text-title);" data-i18n="feat.5.title">Universal Clipboard</h3>
           <p class="text-xs leading-relaxed" style="color: var(--text-body);" data-i18n="feat.5.desc">
             Copy snippets or links on PC and tap to paste directly from your Android push notification buttons, labelled with custom device names.
           </p>
@@ -711,7 +723,7 @@
                style="background: var(--bg-elevated); color: var(--accent);">
             🔒
           </div>
-          <h3 class="text-lg font-bold" data-i18n="feat.6.title">Encrypted Vaults</h3>
+          <h3 class="text-lg font-bold" style="color: var(--text-title);" data-i18n="feat.6.title">Encrypted Vaults</h3>
           <p class="text-xs leading-relaxed" style="color: var(--text-body);" data-i18n="feat.6.desc">
             Password-protected diary partitions with client-side encryption. Keep private personal thoughts protected offline and over the wire.
           </p>
@@ -724,7 +736,7 @@
                style="background: var(--bg-elevated); color: var(--accent);">
             🎨
           </div>
-          <h3 class="text-lg font-bold" data-i18n="feat.7.title">AI Prompts &amp; Custom CSS</h3>
+          <h3 class="text-lg font-bold" style="color: var(--text-title);" data-i18n="feat.7.title">AI Prompts &amp; Custom CSS</h3>
           <p class="text-xs leading-relaxed" style="color: var(--text-body);" data-i18n="feat.7.desc">
             Skin your journal with Neon Brutalism, Kawaii Glow or Borderless Tiling. Click the AI Prompt button to craft bespoke CSS with any LLM.
           </p>
@@ -737,91 +749,13 @@
                style="background: var(--bg-elevated); color: var(--accent);">
             🎵
           </div>
-          <h3 class="text-lg font-bold" data-i18n="feat.8.title">Pulse Audio</h3>
+          <h3 class="text-lg font-bold" style="color: var(--text-title);" data-i18n="feat.8.title">Pulse Audio</h3>
           <p class="text-xs leading-relaxed" style="color: var(--text-body);" data-i18n="feat.8.desc">
             Integrated lo-fi audio player and ambient generator. Listen to rain, cafe sounds or your voice recordings right from the top notch.
           </p>
         </div>
 
       </div>
-    </section>
-
-    <!-- MINIMALIST LOGOS & BRAND SHOWCASE -->
-    <section class="diary-paper-texture rounded-3xl p-6 sm:p-10 border shadow-xl space-y-8"
-             style="border-color: var(--border-main);">
-      
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div>
-          <span class="text-xs font-mono font-bold uppercase tracking-widest" style="color: var(--accent);" data-i18n="logos.kicker">
-            MINIMALIST VECTOR ICONOGRAPHY
-          </span>
-          <h2 class="text-2xl sm:text-4xl font-black mt-1" data-i18n="logos.title">
-            Dynamic Island Notch Logo Collection
-          </h2>
-          <p class="text-sm font-medium mt-1 max-w-xl" style="color: var(--text-body);" data-i18n="logos.desc">
-            Explore 6 distinctive minimalist editions of the signature Dynamic Island &amp; Star emblem. Click any emblem to preview it in the app header or download the vector SVG.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3.5">
-        
-        <!-- Logo 1: Classic Island Notch Star -->
-        <div onclick="setAppLogo('logo-island-notch.svg', 'Classic Notch Star')"
-             class="cursor-pointer p-3.5 rounded-2xl border flex flex-col items-center gap-2.5 transition-all hover:scale-105 active:scale-95 group"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <img src="./logos/logo-island-notch.svg" alt="Classic Notch Star" class="w-13 h-13 rounded-xl shadow-md">
-          <span class="text-[11px] font-mono font-bold text-center">Classic Notch</span>
-          <a href="./logos/logo-island-notch.svg" download class="text-[9px] font-mono text-[var(--accent)] underline" onclick="event.stopPropagation()">SVG</a>
-        </div>
-
-        <!-- Logo 2: Neon Pulse & Sync Ripple -->
-        <div onclick="setAppLogo('logo-island-notch-v2-glow.svg', 'Neon Pulse & Ripple')"
-             class="cursor-pointer p-3.5 rounded-2xl border flex flex-col items-center gap-2.5 transition-all hover:scale-105 active:scale-95 group"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <img src="./logos/logo-island-notch-v2-glow.svg" alt="Neon Pulse Notch" class="w-13 h-13 rounded-xl shadow-md">
-          <span class="text-[11px] font-mono font-bold text-center">Neon Pulse</span>
-          <a href="./logos/logo-island-notch-v2-glow.svg" download class="text-[9px] font-mono text-[var(--accent)] underline" onclick="event.stopPropagation()">SVG</a>
-        </div>
-
-        <!-- Logo 3: Pen Quill & Audio Notch -->
-        <div onclick="setAppLogo('logo-island-notch-v3-quill.svg', 'Quill & Audio Notch')"
-             class="cursor-pointer p-3.5 rounded-2xl border flex flex-col items-center gap-2.5 transition-all hover:scale-105 active:scale-95 group"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <img src="./logos/logo-island-notch-v3-quill.svg" alt="Quill Notch" class="w-13 h-13 rounded-xl shadow-md">
-          <span class="text-[11px] font-mono font-bold text-center">Quill Stylus</span>
-          <a href="./logos/logo-island-notch-v3-quill.svg" download class="text-[9px] font-mono text-[var(--accent)] underline" onclick="event.stopPropagation()">SVG</a>
-        </div>
-
-        <!-- Logo 4: Open Book & Notch Clip -->
-        <div onclick="setAppLogo('logo-island-notch-v4-book.svg', 'Open Book Notch')"
-             class="cursor-pointer p-3.5 rounded-2xl border flex flex-col items-center gap-2.5 transition-all hover:scale-105 active:scale-95 group"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <img src="./logos/logo-island-notch-v4-book.svg" alt="Open Book Notch" class="w-13 h-13 rounded-xl shadow-md">
-          <span class="text-[11px] font-mono font-bold text-center">Open Book</span>
-          <a href="./logos/logo-island-notch-v4-book.svg" download class="text-[9px] font-mono text-[var(--accent)] underline" onclick="event.stopPropagation()">SVG</a>
-        </div>
-
-        <!-- Logo 5: Cyberpunk Titanium -->
-        <div onclick="setAppLogo('logo-island-notch-v5-cyber.svg', 'Cyber Titanium Notch')"
-             class="cursor-pointer p-3.5 rounded-2xl border flex flex-col items-center gap-2.5 transition-all hover:scale-105 active:scale-95 group"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <img src="./logos/logo-island-notch-v5-cyber.svg" alt="Cyber Titanium Notch" class="w-13 h-13 rounded-xl shadow-md">
-          <span class="text-[11px] font-mono font-bold text-center">Cyber Star</span>
-          <a href="./logos/logo-island-notch-v5-cyber.svg" download class="text-[9px] font-mono text-[var(--accent)] underline" onclick="event.stopPropagation()">SVG</a>
-        </div>
-
-        <!-- Logo 6: Aurora Synthwave -->
-        <div onclick="setAppLogo('logo-island-notch-v6-aurora.svg', 'Aurora Synthwave Notch')"
-             class="cursor-pointer p-3.5 rounded-2xl border flex flex-col items-center gap-2.5 transition-all hover:scale-105 active:scale-95 group"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <img src="./logos/logo-island-notch-v6-aurora.svg" alt="Aurora Notch" class="w-13 h-13 rounded-xl shadow-md">
-          <span class="text-[11px] font-mono font-bold text-center">Aurora Crest</span>
-          <a href="./logos/logo-island-notch-v6-aurora.svg" download class="text-[9px] font-mono text-[var(--accent)] underline" onclick="event.stopPropagation()">SVG</a>
-        </div>
-
-      </div>
-
     </section>
 
     <!-- DOWNLOAD / GITHUB RELEASES CTA -->
@@ -834,7 +768,7 @@
         <span data-i18n="cta.badge">Zero telemetry tracking. Your notes belong to you.</span>
       </div>
 
-      <h2 class="text-3xl sm:text-5xl font-black max-w-2xl mx-auto" data-i18n="cta.title">
+      <h2 class="text-3xl sm:text-5xl font-black max-w-2xl mx-auto" style="color: var(--text-title);" data-i18n="cta.title">
         Start Capturing Life with Cross-Diary Today
       </h2>
 
@@ -857,26 +791,26 @@
 
   <!-- FOOTER WITH ADMIN ACCESS & ATTRIBUTION -->
   <footer class="border-t py-12 text-xs font-mono transition-colors"
-          style="background: var(--bg-card); border-color: var(--border-main); color: var(--text-body);">
+          style="background: var(--bg-card); border-color: var(--border-main); color: var(--text-muted);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       
       <div class="flex items-center gap-2.5">
-        <span class="font-bold text-white">Cross-Diary</span>
+        <span class="font-bold" style="color: var(--text-title);">Cross-Diary</span>
         <span>&bull;</span>
         <span data-i18n="footer.builtBy">Crafted with passion by @walterdotblend</span>
       </div>
 
       <div class="flex items-center gap-6">
-        <a href="https://github.com/walterdotblend/cross-diary" target="_blank" class="hover:text-white transition-colors">
+        <a href="https://github.com/walterdotblend/cross-diary" target="_blank" class="hover:underline transition-colors" style="color: var(--text-title);">
           GitHub Repo
         </a>
-        <a href="https://github.com/walterdotblend/cross-diary/issues" target="_blank" class="hover:text-white transition-colors">
+        <a href="https://github.com/walterdotblend/cross-diary/issues" target="_blank" class="hover:underline transition-colors" style="color: var(--text-title);">
           Issues &amp; Support
         </a>
 
         <!-- Discreet Hidden Admin Portal Link -->
         <a href="./admin.html"
-           class="opacity-30 hover:opacity-100 transition-opacity flex items-center gap-1.5"
+           class="opacity-40 hover:opacity-100 transition-opacity flex items-center gap-1.5"
            title="Admin Ads & Telemetry Portal (Ctrl + Shift + A)">
           <span>🔒</span>
           <span>Admin Portal</span>
@@ -887,7 +821,7 @@
   </footer>
 
   <!-- ==========================================================================
-       LOGIC: AUTO-CYCLE THEMES, TRANSLATIONS, NOTEBLOCK STEPS, AUDIO & CONFETTI
+       LOGIC: AUTO-CYCLE THEMES, TRANSLATIONS, NOTEBLOCK STEPS, AUDIO & STICKERS
        ========================================================================== -->
   <script>
     // 1. COMPREHENSIVE MULTI-LANGUAGE DICTIONARY (DEFAULT: ENGLISH)
@@ -895,12 +829,8 @@
       en: {
         'nav.subtitle': 'Dynamic Island // NoteBlocks // Sync',
         'nav.autoTheme': 'Auto-Theme',
-        'island.hint': 'Hover or click the floating Notch below to test live controls! ✍️',
-        'island.gameBtn': 'Test Game Hide',
-        'island.audioTitle': 'Pulse Audio',
-        'island.pomoTitle': 'Pomodoro Timer',
-        'island.clipTitle': 'Clipboard Sync',
-        'island.statusFooter': 'Active Screen: Primary Monitor (HUD Docked)',
+        'nav.addSticker': '+ Sticker',
+        'lateral.liveDemoBadge': '● REAL DESKTOP HUD DEMO',
         'hero.badge': 'The Personal Journal Reinvented for Power Users',
         'hero.titleLead': 'Your Thoughts, Docked on',
         'hero.titleAccent': 'Dynamic Island',
@@ -908,7 +838,7 @@
         'hero.desc': 'Cross-Diary bridges physical notebook aesthetics with modern desktop superpowers: an interactive HUD bar that stays out of your way when gaming, NoteBlocks that move strictly line by line, zero-friction sync between Windows and Android, and radical visual skins.',
         'hero.btnWindows': 'Download for Windows (.exe)',
         'hero.btnAndroid': 'Download Android APK',
-        'hero.celebrateBtn': 'Stickers & Joy',
+        'hero.placeStickerBtn': '+ Place Sticker',
         'demo.kicker': 'TACTILE ENGINE FEATURE',
         'demo.title': 'NoteBlocks Move Strictly Line-by-Line',
         'demo.desc': 'No unexpected jumping over blank lines. Each click on Up or Down moves the widget precisely to the adjacent line index. Test it live below!',
@@ -935,9 +865,6 @@
         'feat.7.desc': 'Skin your journal with Neon Brutalism, Kawaii Glow or Borderless Tiling. Click the AI Prompt button to craft bespoke CSS with any LLM.',
         'feat.8.title': 'Pulse Audio',
         'feat.8.desc': 'Integrated lo-fi audio player and ambient generator. Listen to rain, cafe sounds or your voice recordings right from the top notch.',
-        'logos.kicker': 'MINIMALIST VECTOR ICONOGRAPHY',
-        'logos.title': 'Crafted Minimalist Logos',
-        'logos.desc': 'Explore 5 distinctive minimalist icons created for Cross-Diary. Click any emblem to preview it in the app header or download the vector SVG.',
         'cta.badge': 'Zero telemetry tracking. Your notes belong to you.',
         'cta.title': 'Start Capturing Life with Cross-Diary Today',
         'cta.desc': 'Lightweight, lightning fast, and deeply tailored for people who value privacy, aesthetics, and true focus.',
@@ -947,20 +874,16 @@
       es: {
         'nav.subtitle': 'Isla Dinámica // NoteBlocks // Sync',
         'nav.autoTheme': 'Auto-Tema',
-        'island.hint': '¡Pasa el ratón o haz clic en la cápsula para probar controles en vivo! ✍️',
-        'island.gameBtn': 'Probar Modo Juego',
-        'island.audioTitle': 'Pulse Audio',
-        'island.pomoTitle': 'Temporizador Pomodoro',
-        'island.clipTitle': 'Sincronizar Portapapeles',
-        'island.statusFooter': 'Pantalla activa: Monitor Principal (HUD Acoplado)',
+        'nav.addSticker': '+ Pegatina',
+        'lateral.liveDemoBadge': '● DEMO REAL DEL HUD DE ESCRITORIO',
         'hero.badge': 'El Diario Personal Reinventado para Usuarios Exigentes',
         'hero.titleLead': 'Tus pensamientos, anclados en',
         'hero.titleAccent': 'Isla Dinámica',
         'hero.handAnnotation': '& NoteBlocks Modulares ✍️',
-        'hero.desc': 'Cross-Diary une la estética táctil de un diario físico con superpoderes de escritorio: barra HUD que no estorba en juegos, NoteBlocks que se mueven línea por línea, sincronización sin fricción entre Windows y Android y pieles visuales radicales.',
+        'hero.desc': 'Cross-Diary une la estética táctil de un diario físico con superpoderes de escritorio: barra HUD que no estorba en juegos, NoteBlocks que se mueven línea por línea, sincronización sin fricción entre Windows y Android y pieles visuales únicas.',
         'hero.btnWindows': 'Descargar para Windows (.exe)',
         'hero.btnAndroid': 'Descargar APK Android',
-        'hero.celebrateBtn': 'Pegatinas & Confeti',
+        'hero.placeStickerBtn': '+ Colocar Pegatina',
         'demo.kicker': 'MOTOR TÁCTIL DESTACADO',
         'demo.title': 'NoteBlocks se mueven Estrictamente Línea por Línea',
         'demo.desc': 'Sin saltos inesperados sobre renglones vacíos. Cada clic en Subir o Bajar traslada el bloque exactamente al renglón adyacente. ¡Pruébalo abajo!',
@@ -987,9 +910,6 @@
         'feat.7.desc': 'Diseña tu diario con estilos Neón, Kawaii o Brutalistas. Pulsa el botón de Prompt IA para generar código CSS personalizado con cualquier IA.',
         'feat.8.title': 'Pulse Audio',
         'feat.8.desc': 'Reproductor integrado de música lo-fi y generador ambiental. Escucha lluvia, cafeterías o grabaciones de voz desde la barra superior.',
-        'logos.kicker': 'ICONOGRAFÍA VECTORIAL MINIMALISTA',
-        'logos.title': 'Logos Minimalistas Creados',
-        'logos.desc': 'Descubre 5 emblemas minimalistas diseñados para Cross-Diary. Haz clic en cualquiera para probarlo en el encabezado o descarga el archivo SVG.',
         'cta.badge': 'Cero rastreo invasivo. Tus notas te pertenecen.',
         'cta.title': 'Empieza a Capturar tu Vida con Cross-Diary Hoy',
         'cta.desc': 'Ligero, ultrarrápido y profundamente diseñado para quienes valoran la privacidad, la belleza y la concentración.',
@@ -999,12 +919,8 @@
       pt: {
         'nav.subtitle': 'Ilha Dinâmica // NoteBlocks // Sync',
         'nav.autoTheme': 'Auto-Tema',
-        'island.hint': 'Passe o cursor ou clique no Notch para testar controles ao vivo! ✍️',
-        'island.gameBtn': 'Testar Modo Jogo',
-        'island.audioTitle': 'Pulse Audio',
-        'island.pomoTitle': 'Timer Pomodoro',
-        'island.clipTitle': 'Sincronizar Transferência',
-        'island.statusFooter': 'Tela ativa: Monitor Principal (HUD Conectado)',
+        'nav.addSticker': '+ Adesivo',
+        'lateral.liveDemoBadge': '● DEMO REAL DO HUD DE DESKTOP',
         'hero.badge': 'O Diário Pessoal Reinventado para Usuários Avançados',
         'hero.titleLead': 'Seus pensamentos, ancorados na',
         'hero.titleAccent': 'Ilha Dinâmica',
@@ -1012,7 +928,7 @@
         'hero.desc': 'Cross-Diary combina a sensação de um diário físico com recursos modernos de desktop: barra HUD inteligente, NoteBlocks linha por linha e sincronização em tempo real.',
         'hero.btnWindows': 'Baixar para Windows (.exe)',
         'hero.btnAndroid': 'Baixar APK Android',
-        'hero.celebrateBtn': 'Adesivos & Festa',
+        'hero.placeStickerBtn': '+ Colocar Adesivo',
         'demo.kicker': 'MOTOR TÁTIL EXCLUSIVO',
         'demo.title': 'NoteBlocks Movem Estritamente Linha por Linha',
         'demo.desc': 'Sem pular linhas vazias indesejadas. Cada clique move exatamente para o índice adjacente.',
@@ -1036,12 +952,9 @@
         'feat.6.title': 'Cofres Criptografados',
         'feat.6.desc': 'Proteja seus diários íntimos com senhas fortes e criptografia ponta a ponta.',
         'feat.7.title': 'Customização & CSS IA',
-        'feat.7.desc': 'Estilos cyberpunk, kawaii e temas gerados com inteligência artificial.',
+        'feat.7.desc': 'Estilos variados e temas gerados com inteligência artificial.',
         'feat.8.title': 'Pulse Audio',
         'feat.8.desc': 'Ouça áudios relaxantes ou música ambiente enquanto escreve.',
-        'logos.kicker': 'ICONOGRAFIA MINIMALISTA',
-        'logos.title': 'Logotipos Minimalistas',
-        'logos.desc': 'Explore 5 símbolos vetoriais exclusivos criados para Cross-Diary.',
         'cta.badge': 'Sem telemetria invasiva. Suas notas são suas.',
         'cta.title': 'Comece a Registrar sua Vida com Cross-Diary Hoje',
         'cta.desc': 'Leve, veloz e sob medida para quem valoriza privacidade e estilo.',
@@ -1051,12 +964,8 @@
       fr: {
         'nav.subtitle': 'Île Dynamique // NoteBlocks // Sync',
         'nav.autoTheme': 'Auto-Thème',
-        'island.hint': 'Survolez ou cliquez sur le Notch pour tester les contrôles en direct ! ✍️',
-        'island.gameBtn': 'Tester Mode Jeu',
-        'island.audioTitle': 'Pulse Audio',
-        'island.pomoTitle': 'Minuteur Pomodoro',
-        'island.clipTitle': 'Presse-papiers Partagé',
-        'island.statusFooter': 'Écran actif : Moniteur Principal (HUD Fixé)',
+        'nav.addSticker': '+ Autocollant',
+        'lateral.liveDemoBadge': '● DÉMO RÉELLE DU HUD BUREAU',
         'hero.badge': 'Le Journal Intime Réinventé pour les Passionnés',
         'hero.titleLead': 'Vos réflexions, ancrées dans',
         'hero.titleAccent': 'L\'Île Dynamique',
@@ -1064,7 +973,7 @@
         'hero.desc': 'Cross-Diary associe l\'élégance tactile d\'un carnet de notes aux superpouvoirs d\'une application moderne : barre HUD discrète en jeu et synchronisation temps réel.',
         'hero.btnWindows': 'Télécharger pour Windows (.exe)',
         'hero.btnAndroid': 'Télécharger APK Android',
-        'hero.celebrateBtn': 'Autocollants & Fête',
+        'hero.placeStickerBtn': '+ Ajouter Autocollant',
         'demo.kicker': 'MOTEUR TACTILE UNIQUE',
         'demo.title': 'Les NoteBlocks se déplacent Ligne par Ligne',
         'demo.desc': 'Aucun saut intempestif par-dessus les lignes vides. Chaque clic déplace exactement d\'une ligne.',
@@ -1088,12 +997,9 @@
         'feat.6.title': 'Coffres Chiffrés',
         'feat.6.desc': 'Protégez vos pensées secrètes grâce au chiffrement local et cloud sécurisé.',
         'feat.7.title': 'Personnalisation & CSS IA',
-        'feat.7.desc': 'Thèmes cyberpunk, kawaii et créations assistées par IA en un clic.',
+        'feat.7.desc': 'Thèmes variés et créations assistées par IA en un clic.',
         'feat.8.title': 'Pulse Audio',
         'feat.8.desc': 'Écoutez des ambiances sonores ou vos pistes préférées pendant la rédaction.',
-        'logos.kicker': 'ICONOGRAPHIE MINIMALISTE',
-        'logos.title': 'Logos Minimalistes Uniques',
-        'logos.desc': 'Explorez 5 logos vectoriels créés spécialement pour Cross-Diary.',
         'cta.badge': 'Aucune télémétrie intrusive. Vos notes vous appartiennent.',
         'cta.title': 'Commencez à Écrire Votre Vie avec Cross-Diary',
         'cta.desc': 'Fluide, rapide et conçu pour ceux qui chérissent l\'intimité et le style.',
@@ -1119,13 +1025,13 @@
       if (selector) selector.value = currentLang;
 
       try {
-        localStorage.setItem('crossdiary_lang_v2', currentLang);
+        localStorage.setItem('crossdiary_lang_v3', currentLang);
       } catch {}
     }
 
-    // 2. RADICAL THEMES & AUTOMATIC THEME CRUISE ENGINE
+    // 2. RADICAL HIGH-CONTRAST THEMES ENGINE
     const THEME_LIST = [
-      'cyberpunk-terminal',
+      'obsidian-gold',
       'kawaii-pastel',
       'vintage-parchment',
       'nordic-minimal',
@@ -1142,14 +1048,18 @@
       currentThemeIdx = THEME_LIST.indexOf(themeName);
       document.documentElement.setAttribute('data-theme', themeName);
 
+      // Handle sticker auto-population for Kawaii theme
+      if (themeName === 'kawaii-pastel') {
+        populateKawaiiStickers();
+      }
+
       if (manualUserClick) {
-        // Reset countdown timer when user explicitly chooses a theme
         countdownSeconds = 7;
         updateCountdownDisplay();
       }
 
       try {
-        localStorage.setItem('crossdiary_theme_pref', themeName);
+        localStorage.setItem('crossdiary_theme_pref_v3', themeName);
       } catch {}
     }
 
@@ -1190,66 +1100,45 @@
       }, 1000);
     }
 
-    // 3. INTERACTIVE DYNAMIC ISLAND SIMULATOR
-    let isIslandExpanded = false;
-    let isGameModeSimulated = false;
+    // 3. REAL LATERAL DESKTOP DYNAMIC ISLAND DEMO LOGIC
+    let isLateralIslandOpen = false;
 
-    function toggleIslandExpand() {
-      if (isGameModeSimulated) return;
-      const dock = document.getElementById('dynamic-island-dock');
-      const compact = document.getElementById('island-compact-view');
-      const expanded = document.getElementById('island-expanded-view');
-      const topHint = document.getElementById('island-top-hint');
+    function toggleLateralIsland() {
+      const pill = document.getElementById('lateral-island-pill');
+      isLateralIslandOpen = !isLateralIslandOpen;
 
-      isIslandExpanded = !isIslandExpanded;
-
-      if (isIslandExpanded) {
-        dock.classList.add('is-expanded');
-        compact.classList.add('hidden');
-        expanded.classList.remove('hidden');
-        if (topHint) topHint.style.opacity = '0';
+      if (isLateralIslandOpen) {
+        pill.style.width = '290px';
+        document.getElementById('lateral-track-title').innerText = 'Raindrop Lo-Fi (Focus)';
       } else {
-        dock.classList.remove('is-expanded');
-        compact.classList.remove('hidden');
-        expanded.classList.add('hidden');
-        if (topHint) topHint.style.opacity = '0.8';
+        pill.style.width = '220px';
+        document.getElementById('lateral-track-title').innerText = 'Lofi Beats';
       }
     }
 
-    function simulateGameModeToggle() {
-      isGameModeSimulated = true;
-      const dock = document.getElementById('dynamic-island-dock');
-      const guide = document.getElementById('game-edge-guide');
-      const compact = document.getElementById('island-compact-view');
-      const expanded = document.getElementById('island-expanded-view');
-
-      // Retract dock away smoothly
-      dock.classList.remove('is-expanded');
-      compact.classList.remove('hidden');
-      expanded.classList.add('hidden');
-      dock.classList.add('is-game-retracted');
-
-      // Surface edge guide
-      guide.classList.remove('hidden');
-      isIslandExpanded = false;
+    function simulateGameMode() {
+      const pill = document.getElementById('lateral-island-pill');
+      const banner = document.getElementById('lateral-game-banner');
+      pill.style.transform = 'translateY(-100%) scale(0.5)';
+      pill.style.opacity = '0';
+      banner.classList.remove('hidden');
     }
 
-    function restoreFromGameMode() {
-      isGameModeSimulated = false;
-      const dock = document.getElementById('dynamic-island-dock');
-      const guide = document.getElementById('game-edge-guide');
-
-      dock.classList.remove('is-game-retracted');
-      guide.classList.add('hidden');
+    function restoreLateralGameMode() {
+      const pill = document.getElementById('lateral-island-pill');
+      const banner = document.getElementById('lateral-game-banner');
+      pill.style.transform = 'none';
+      pill.style.opacity = '1';
+      banner.classList.add('hidden');
     }
 
-    // 4. GENERATIVE WEB AUDIO TONE GENERATOR (0 EXTERNAL SOUND FILES NEEDED)
+    // 4. GENERATIVE WEB AUDIO TONE (0 EXTERNAL SOUND FILES NEEDED)
     let audioCtx = null;
     let isPlayingTone = false;
     let toneOsc = null;
 
     function toggleSynthAudio() {
-      const btn = document.getElementById('btn-play-synth');
+      const btn = document.getElementById('btn-lateral-tone');
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       }
@@ -1264,7 +1153,6 @@
         btn.innerText = '▶ Play Tone';
         btn.style.background = 'var(--accent)';
       } else {
-        // Create peaceful harmonic chord
         toneOsc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         toneOsc.type = 'sine';
@@ -1279,7 +1167,7 @@
       }
     }
 
-    // 5. INTERACTIVE POMODORO CLOCK ENGINE
+    // 5. POMODORO TIMER ENGINE
     let pomoSeconds = 25 * 60;
     let isPomoRunning = false;
     let pomoInterval = null;
@@ -1291,56 +1179,30 @@
     }
 
     function togglePomo() {
-      const btn = document.getElementById('btn-pomo-start');
+      const btn = document.getElementById('btn-lateral-pomo');
       if (isPomoRunning) {
         clearInterval(pomoInterval);
         isPomoRunning = false;
-        btn.innerText = 'Start';
+        btn.innerText = 'Start Pomo';
       } else {
         isPomoRunning = true;
-        btn.innerText = 'Pause';
+        btn.innerText = 'Pause Pomo';
         pomoInterval = setInterval(() => {
           if (pomoSeconds > 0) {
             pomoSeconds--;
             const formatted = formatTime(pomoSeconds);
-            document.getElementById('pomo-clock-digits').innerText = formatted;
-            document.getElementById('island-mini-timer').innerText = formatted;
+            document.getElementById('lateral-timer-digits').innerText = formatted;
           } else {
             clearInterval(pomoInterval);
             isPomoRunning = false;
-            btn.innerText = 'Start';
-            shootConfetti();
+            btn.innerText = 'Start Pomo';
+            if (typeof confetti === 'function') confetti({ particleCount: 35 });
           }
         }, 1000);
       }
     }
 
-    function resetPomo() {
-      clearInterval(pomoInterval);
-      isPomoRunning = false;
-      pomoSeconds = 25 * 60;
-      const formatted = formatTime(pomoSeconds);
-      document.getElementById('pomo-clock-digits').innerText = formatted;
-      document.getElementById('island-mini-timer').innerText = formatted;
-      document.getElementById('btn-pomo-start').innerText = 'Start';
-    }
-
-    // 6. CLIPBOARD SYNC SIMULATOR
-    function simulateClipCopy() {
-      const btn = document.getElementById('btn-clip-sync');
-      const originalText = btn.innerText;
-      btn.innerText = '✓ Pushed to Pixel 8!';
-      btn.style.background = 'var(--accent)';
-      btn.style.color = '#000000';
-      setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.background = '';
-        btn.style.color = '';
-      }, 2000);
-    }
-
-    // 7. NOTEBLOCK LINE-BY-LINE MOVEMENT SIMULATOR
-    let noteblockIndex = 2; // lines: [0, 1, block(2), 3, 4]
+    // 6. NOTEBLOCK LINE-BY-LINE STEPPER
     function stepBlock(direction) {
       const container = document.getElementById('demo-sheet-container');
       const block = document.getElementById('interactive-noteblock');
@@ -1359,50 +1221,100 @@
       status.innerText = `Current NoteBlock Position: Line ${newIdx} of ${total}`;
     }
 
-    // 8. BRAND LOGO SWITCHER PREVIEW
-    function setAppLogo(svgPath, name) {
-      const iconContainer = document.getElementById('brand-logo-icon');
-      iconContainer.innerHTML = `<img src="./logos/${svgPath}" alt="${name}" class="w-7 h-7 object-contain rounded-lg">`;
-      shootConfetti();
+    // 7. STICKER CANVAS ENGINE (Auto-populated in Kawaii mode, user-expandable)
+    const STICKER_POOL = [
+      { emoji: '🐱', text: 'Meow Focus', rot: '-5deg' },
+      { emoji: '✨', text: 'Pure Magic', rot: '4deg' },
+      { emoji: '☕', text: 'Late Coffee', rot: '-2deg' },
+      { emoji: '💖', text: 'Gratitude', rot: '6deg' },
+      { emoji: '⭐', text: 'Top Priority', rot: '-4deg' },
+      { emoji: '🍓', text: 'Sweet Ideas', rot: '3deg' },
+      { emoji: '🎀', text: 'Diary Pin', rot: '-6deg' },
+      { emoji: '☁️', text: 'Cloud Zen', rot: '5deg' }
+    ];
+
+    function createStickerElement(sticker, xPercent, yPercent) {
+      const el = document.createElement('div');
+      el.className = 'interactive-sticker absolute flex items-center gap-1.5 px-3 py-1.5 rounded-full border shadow-md font-mono text-[11px] font-bold pointer-events-auto';
+      el.style.left = `${xPercent}%`;
+      el.style.top = `${yPercent}%`;
+      el.style.transform = `rotate(${sticker.rot})`;
+      el.style.background = 'var(--bg-elevated)';
+      el.style.borderColor = 'var(--accent)';
+      el.style.color = 'var(--text-title)';
+
+      el.innerHTML = `<span>${sticker.emoji}</span><span>${sticker.text}</span>`;
+      
+      // Interactive pop & remove on double click or celebration
+      el.onclick = () => {
+        if (typeof confetti === 'function') confetti({ particleCount: 20, origin: { x: xPercent / 100, y: yPercent / 100 } });
+      };
+
+      return el;
     }
 
-    // 9. CONFETTI CELEBRATION
-    function shootConfetti() {
+    function populateKawaiiStickers() {
+      const layer = document.getElementById('sticker-canvas-layer');
+      if (!layer || layer.children.length > 0) return;
+
+      const prePlaced = [
+        { sticker: STICKER_POOL[0], x: 8, y: 78 },
+        { sticker: STICKER_POOL[1], x: 74, y: 12 },
+        { sticker: STICKER_POOL[2], x: 88, y: 68 },
+        { sticker: STICKER_POOL[3], x: 5, y: 22 }
+      ];
+
+      prePlaced.forEach((item) => {
+        layer.appendChild(createStickerElement(item.sticker, item.x, item.y));
+      });
+    }
+
+    function spawnSticker() {
+      const layer = document.getElementById('sticker-canvas-layer');
+      if (!layer) return;
+
+      const randomSticker = STICKER_POOL[Math.floor(Math.random() * STICKER_POOL.length)];
+      const randX = Math.floor(Math.random() * 75) + 5;
+      const randY = Math.floor(Math.random() * 75) + 10;
+
+      const newEl = createStickerElement(randomSticker, randX, randY);
+      layer.appendChild(newEl);
+
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 45,
-          spread: 60,
-          origin: { y: 0.7 }
+          particleCount: 30,
+          spread: 50,
+          origin: { x: randX / 100, y: randY / 100 }
         });
       }
     }
 
-    // 10. SECRET ADMIN SHORTCUT (Ctrl + Shift + A)
+    // 8. SECRET ADMIN SHORTCUT (Ctrl + Shift + A)
     window.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
         window.location.href = './admin.html';
       }
     });
 
-    // 11. INITIALIZATION ON PAGE LOAD
+    // 9. INITIALIZATION ON DOM READY
     window.addEventListener('DOMContentLoaded', () => {
       // Load saved language or default to ENGLISH
       try {
-        const savedLang = localStorage.getItem('crossdiary_lang_v2');
+        const savedLang = localStorage.getItem('crossdiary_lang_v3');
         switchLanguage(savedLang || 'en');
       } catch {
         switchLanguage('en');
       }
 
-      // Load saved theme or start with Cyberpunk
+      // Load saved theme or start with Obsidian Gold
       try {
-        const savedTheme = localStorage.getItem('crossdiary_theme_pref');
+        const savedTheme = localStorage.getItem('crossdiary_theme_pref_v3');
         selectTheme(savedTheme || THEME_LIST[0], false);
       } catch {
         selectTheme(THEME_LIST[0], false);
       }
 
-      // Start automatic theme cycle clock
+      // Start automatic theme cruise
       startAutoThemeInterval();
     });
   </script>
