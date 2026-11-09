@@ -116,8 +116,8 @@ const NoteDrawingCanvas: React.FC<{
   const [lineWidth, setLineWidth] = useState(3);
 
   const isSquare = widget.shape === 'square';
-  const canvasW = isSquare ? 180 : 340;
-  const canvasH = isSquare ? 150 : 165;
+  const canvasW = isSquare ? 200 : 340;
+  const canvasH = isSquare ? 200 : 165;
   const transparentBg = widget.transparentBg !== false; // Default transparent Excalidraw feel
 
   // Load saved drawing onto canvas when entering edit mode
@@ -408,7 +408,7 @@ const NoteDrawingCanvas: React.FC<{
           backgroundColor: transparentBg ? 'transparent' : '#FFFFFF',
         }}
         className={`w-full rounded-xl border-2 border-dashed cursor-crosshair touch-none ${
-          isSquare ? 'h-[145px]' : 'h-[160px]'
+          isSquare ? 'aspect-square h-[180px] max-h-[180px]' : 'h-[160px]'
         }`}
       />
     </div>
@@ -497,8 +497,10 @@ const SingleNoteWidgetCard: React.FC<{
           onDragWidget?.(src, widget.id);
         }
       }}
-      className={`p-2.5 rounded-2xl border-2 space-y-2 transition-all flex flex-col justify-between ${
-        isSquare ? 'min-h-[155px]' : ''
+      className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col justify-between ${
+        isSquare
+          ? 'aspect-square w-full h-full min-h-[210px] max-h-[250px] overflow-hidden'
+          : 'w-full space-y-2'
       }`}
       style={{
         background: 'var(--bg-surface)',
@@ -885,7 +887,7 @@ const SingleNoteWidgetCard: React.FC<{
       {widget.type === 'checklist' && (() => {
         const items = widget.checklistItems || [];
         return (
-          <div className="space-y-1">
+          <div className={`space-y-1 ${isSquare ? 'max-h-[120px] overflow-y-auto no-scrollbar' : ''}`}>
             {items.map((item) => (
               <div
                 key={item.id}
@@ -1923,8 +1925,9 @@ export const NotionEditor: React.FC<NotionEditorProps> = ({
                     key={`wdg-${w.id}-${pIdx}`}
                     style={{
                       float: isSq ? (isRight ? 'right' : 'left') : 'none',
-                      width: isSq ? '48%' : '100%',
-                      margin: isSq ? (isRight ? '2px 0 8px 12px' : '2px 12px 8px 0') : '8px 0',
+                      width: isSq ? '210px' : '100%',
+                      height: isSq ? '210px' : 'auto',
+                      margin: isSq ? (isRight ? '4px 0 10px 14px' : '4px 14px 10px 0') : '8px 0',
                       clear: isSq ? (isRight ? 'right' : 'left') : 'both',
                     }}
                   >
@@ -1951,10 +1954,11 @@ export const NotionEditor: React.FC<NotionEditorProps> = ({
                 <div
                   key={`wdg-${w.id}-${pIdx}`}
                   className={`my-2.5 transition-all ${
-                    isSq ? 'max-w-[340px]' : 'w-full'
+                    isSq ? 'w-[230px] max-w-full aspect-square' : 'w-full'
                   }`}
                   style={{
                     marginLeft: isSq && isRight ? 'auto' : undefined,
+                    marginRight: isSq && !isRight ? 'auto' : undefined,
                   }}
                 >
                   <SingleNoteWidgetCard

@@ -88,9 +88,27 @@ export const ClipboardExtension: React.FC<ExtensionProps> = (props) => {
   }, [safeHistory]);
 
   const pinnedIds = useMemo(() => new Set(pinnedByDevice.map((p) => p.id)), [pinnedByDevice]);
+
+  // Configurable history limit (default 10, persisted in localStorage)
+  const [historyLimit, setHistoryLimit] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('crossdiary_clip_history_limit');
+      return saved ? Math.max(3, parseInt(saved, 10)) : 10;
+    } catch {
+      return 10;
+    }
+  });
+
+  const handleLimitChange = (val: number) => {
+    setHistoryLimit(val);
+    try {
+      localStorage.setItem('crossdiary_clip_history_limit', String(val));
+    } catch {}
+  };
+
   const olderItems = useMemo(
-    () => safeHistory.filter((item) => !pinnedIds.has(item.id)).slice(0, 40),
-    [safeHistory, pinnedIds]
+    () => safeHistory.filter((item) => !pinnedIds.has(item.id)).slice(0, historyLimit),
+    [safeHistory, pinnedIds, historyLimit]
   );
 
   const handleCopyText = (id: string, text: string) => {
@@ -287,13 +305,41 @@ export const ClipboardExtension: React.FC<ExtensionProps> = (props) => {
         </button>
       </form>
 
-      {/* Previous Clipboard History List - Expands naturally to bottom without artificial max-h cut-off */}
+      {/* Previous Clipboard History List - Configurable limit and scrollable */}
       {olderItems.length > 0 && (
         <div className="space-y-1.5 pt-1">
-          <div className="text-[9px] font-black uppercase tracking-wider opacity-65 px-0.5">
-            {isEnglish ? `Synced History (${olderItems.length})` : `Historial Sincronizado (${olderItems.length})`}
+          <div className="flex items-center justify-between px-0.5 pb-0.5">
+            <div className="text-[9px] font-black uppercase tracking-wider opacity-65 flex items-center gap-1.5">
+              <span>{isEnglish ? 'Synced History' : 'Historial Sincronizado'}</span>
+              <span className="px-1.5 py-0.2 rounded-full bg-black/10 dark:bg-white/10 text-[8px] font-mono font-bold">
+                {olderItems.length}
+              </span>
+            </div>
+
+            {/* Configurable Limit Selector */}
+            <div className="flex items-center gap-1 text-[9px] font-mono">
+              <span className="opacity-50">{isEnglish ? 'Limit:' : 'Límite:'}</span>
+              <select
+                value={historyLimit}
+                onChange={(e) => handleLimitChange(Number(e.target.value))}
+                className="px-1.5 py-0.5 rounded-lg border text-[9px] font-bold focus:outline-none cursor-pointer transition-colors"
+                style={{
+                  background: 'var(--bg-surface)',
+                  borderColor: 'var(--border-color)',
+                  color: 'var(--text-main)',
+                }}
+                title={isEnglish ? 'Configure how many synced clips to display' : 'Configura cuántos clips sincronizados mostrar'}
+              >
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={15}>15</option>
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+              </select>
+            </div>
           </div>
-          <div className="space-y-1.5">
+
+          <div className="space-y-1.5 max-h-[220px] overflow-y-auto pr-1">
             {olderItems.map((item) => {
               const isItemCopied = copiedId === item.id;
               return (

@@ -825,7 +825,7 @@
             </div>
             <h3 class="font-bold text-sm" style="color: var(--text-title);">Universal Clipboard</h3>
             <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              Instant multi-device copy &amp; paste sync between PC and Android, with custom device names and push actions.
+              Instant multi-device copy &amp; paste sync between PC and Android, with configurable history limit, clean scrolling, and push actions.
             </p>
           </div>
           <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
@@ -1004,7 +1004,11 @@
               <div class="flex items-center gap-1.5 text-xs">
                 <button type="button" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Word wrap: Float left">⫷</button>
                 <button type="button" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Word wrap: Float right">⫸</button>
-                <button type="button" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Switch layout">▭</button>
+                <button id="btn-demo-shape" type="button" onclick="toggleBlockShape()"
+                        class="px-2 py-0.5 rounded-lg border text-[11px] font-bold hover:bg-black/10 transition-all flex items-center gap-1"
+                        title="Switch between Wide banner and True 1:1 Square layout">
+                  <span id="btn-demo-shape-icon">▭</span> <span id="btn-demo-shape-label">Wide</span>
+                </button>
                 <button type="button" onclick="stepBlock('up')"
                         class="px-2 py-0.5 rounded-lg border text-xs font-black transition-all hover:scale-105 active:scale-95"
                         style="background: var(--accent); color: #000000;"
@@ -1491,6 +1495,37 @@
       const total = container.children.length;
       if (status) {
         status.innerText = `📍 NoteBlock Position: Line ${newIdx} of ${total} (Steps strictly 1 line per click)`;
+      }
+    }
+
+    // 6. TOGGLE NOTEBLOCK SHAPE (WIDE BANNER VS TRUE 1:1 SQUARE)
+    let isBlockSquare = false;
+    function toggleBlockShape() {
+      isBlockSquare = !isBlockSquare;
+      const block = document.getElementById('interactive-noteblock');
+      const label = document.getElementById('btn-demo-shape-label');
+      const icon = document.getElementById('btn-demo-shape-icon');
+      const btn = document.getElementById('btn-demo-shape');
+      if (!block) return;
+
+      if (isBlockSquare) {
+        block.classList.remove('w-full');
+        block.classList.add('aspect-square', 'w-[250px]', 'max-w-full', 'mx-auto', 'overflow-hidden');
+        if (label) label.innerText = 'Square';
+        if (icon) icon.innerText = '⬝';
+        if (btn) {
+          btn.style.background = 'var(--accent)';
+          btn.style.color = '#000000';
+        }
+      } else {
+        block.classList.remove('aspect-square', 'w-[250px]', 'max-w-full', 'mx-auto', 'overflow-hidden');
+        block.classList.add('w-full');
+        if (label) label.innerText = 'Wide';
+        if (icon) icon.innerText = '▭';
+        if (btn) {
+          btn.style.background = 'transparent';
+          btn.style.color = 'inherit';
+        }
       }
     }
 
