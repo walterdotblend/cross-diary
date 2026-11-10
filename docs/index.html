@@ -212,6 +212,38 @@
       text-decoration: line-through !important;
       opacity: 0.5 !important;
     }
+    .font-hand {
+      font-family: 'Caveat', cursive;
+    }
+    /* Authentic Physical Notebook Sheet Styling */
+    .notebook-ruled-paper {
+      background-color: var(--bg-paper);
+      background-image: repeating-linear-gradient(to bottom, transparent, transparent 31px, var(--border-main) 31px, var(--border-main) 32px);
+      background-size: 100% 32px;
+      line-height: 32px;
+    }
+    .notebook-red-margin {
+      border-left: 2px solid rgba(239, 68, 68, 0.45);
+    }
+    .binder-ring-hole {
+      width: 14px;
+      height: 14px;
+      border-radius: 9999px;
+      background-color: var(--bg-page);
+      border: 1.5px solid rgba(0, 0, 0, 0.28);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.45);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: var(--border-main);
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col relative overflow-x-hidden">
@@ -395,7 +427,7 @@
   <!-- MAIN JOURNAL SHOWCASE CONTAINER -->
   <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-24 w-full relative z-10">
 
-    <!-- HERO BOOK SHEET (SPLIT LAYOUT: COPY + REAL DESKTOP APP UI CAPTURE) -->
+    <!-- HERO BOOK SHEET (SPLIT LAYOUT: COPY ON LEFT, AUTHENTIC DESKTOP ISLAND ON RIGHT) -->
     <section class="diary-paper-texture journal-spine-left rounded-3xl p-6 sm:p-10 md:p-12 border relative overflow-hidden shadow-2xl transition-all"
              style="border-color: var(--border-main);">
       
@@ -408,14 +440,14 @@
         <div class="w-0 h-0 border-x-3 border-x-transparent border-t-3 border-t-white/30"></div>
       </div>
 
-      <!-- 2-COLUMN SPLIT GRID -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pl-2 sm:pl-6">
+      <!-- 2-COLUMN SPLIT GRID (LEFT 7 COLS, RIGHT 5 COLS) -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-12 items-start pl-2 sm:pl-4">
         
-        <!-- LEFT COLUMN: COPY & CALL TO ACTION (6 Cols) -->
-        <div class="lg:col-span-6 space-y-6 text-left">
+        <!-- LEFT COLUMN: COPY & CALL TO ACTION (Pinned Left, 7 Cols) -->
+        <div class="col-span-1 xl:col-span-7 space-y-7 text-left">
           
           <!-- Badge -->
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold border"
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold border shadow-sm"
                style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-glow);">
             <span>✨</span>
             <span data-i18n="hero.badge">The Personal Journal Reinvented for Power Users</span>
@@ -439,6 +471,30 @@
              data-i18n="hero.desc">
             Cross-Diary bridges physical notebook aesthetics with modern desktop superpowers: an interactive HUD bar that stays out of your way when gaming, NoteBlocks that move strictly line by line, zero-friction sync between Windows and Android, and radical visual skins.
           </p>
+
+          <!-- Key Architectural Highlights Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 max-w-lg font-mono text-xs">
+            <div class="flex items-center gap-2 p-2.5 rounded-xl border"
+                 style="background: var(--bg-card); border-color: var(--border-main); color: var(--text-title);">
+              <span class="text-base" style="color: var(--accent);">📌</span>
+              <span class="font-bold">Floating Island HUD</span>
+            </div>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl border"
+                 style="background: var(--bg-card); border-color: var(--border-main); color: var(--text-title);">
+              <span class="text-base" style="color: var(--accent);">🧩</span>
+              <span class="font-bold">Line-by-Line NoteBlocks</span>
+            </div>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl border"
+                 style="background: var(--bg-card); border-color: var(--border-main); color: var(--text-title);">
+              <span class="text-base" style="color: var(--accent);">🎨</span>
+              <span class="font-bold">5 High-Contrast Skins</span>
+            </div>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl border"
+                 style="background: var(--bg-card); border-color: var(--border-main); color: var(--text-title);">
+              <span class="text-base" style="color: var(--accent);">⚡</span>
+              <span class="font-bold">P2P Windows + Android Sync</span>
+            </div>
+          </div>
 
           <!-- CTA Buttons Row -->
           <div class="flex flex-wrap items-center gap-3 pt-2">
@@ -467,261 +523,195 @@
 
         </div>
 
-        <!-- RIGHT COLUMN: INTERACTIVE DESKTOP DYNAMIC ISLAND SIMULATION (6 Cols) -->
-        <div class="lg:col-span-6 relative">
+        <!-- RIGHT COLUMN: AUTHENTIC FULL-FORMAT DESKTOP DYNAMIC ISLAND (5 Cols, HIDDEN ON SMALL SCREENS!) -->
+        <div class="hidden xl:flex xl:col-span-5 justify-end items-start relative select-none">
           
-          <!-- Desktop Screen Simulator Frame -->
-          <div class="rounded-3xl border shadow-2xl overflow-hidden font-mono transition-all flex flex-col"
-               style="background: #0B0E14; border-color: var(--border-glow); box-shadow: 0 25px 60px rgba(0,0,0,0.65);">
+          <!-- Authentic Desktop Dynamic Island Frame (w-[412px] h-[760px]) -->
+          <div class="w-[412px] h-[760px] rounded-[32px] border-2 shadow-2xl flex flex-col overflow-hidden text-left relative transition-all duration-300"
+               style="background: #0B0E14; border-color: var(--island-border, var(--accent)); box-shadow: 0 25px 65px rgba(0,0,0,0.7), 0 0 20px var(--border-glow);">
             
-            <!-- Desktop Screen Top HUD / Controls -->
-            <div class="h-11 px-4 border-b flex items-center justify-between text-xs select-none shrink-0"
-                 style="background: #06080D; border-color: rgba(255,255,255,0.1);">
+            <!-- TOP ISLAND NOTCH (AUTHENTIC NOTCH WITH STYLUS + WRITTEN LINES SIMULATION) -->
+            <div class="w-full pt-2.5 pb-1 flex flex-col items-center justify-center shrink-0"
+                 style="background: #06090F;">
               
-              <!-- Screen Label -->
-              <div class="flex items-center gap-2 text-gray-300 font-bold text-[11px]">
-                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                <span>DESKTOP SCREEN // DYNAMIC ISLAND HUD</span>
+              <!-- The Notch Capsule Pill -->
+              <div class="px-4 py-1.5 rounded-full border shadow-md flex items-center gap-3 transition-transform hover:scale-105 cursor-pointer"
+                   style="background: #000000; border-color: var(--accent); box-shadow: 0 4px 14px var(--border-glow);">
+                
+                <!-- Dynamic theme-reactive stylus notch glyph -->
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-green-400 animate-ping"></span>
+                  <!-- Stylus Pen + Written lines SVG -->
+                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                    <circle cx="12" cy="12" r="1.5" fill="var(--accent)"/>
+                  </svg>
+                  <span class="text-[10px] font-mono font-bold text-gray-200">CROSS-ISLAND</span>
+                </div>
+
+                <span class="text-gray-600 text-[10px]">|</span>
+
+                <!-- Audio / Status Pill Indicator -->
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[10px] font-bold" style="color: var(--accent);">🎵 Lo-Fi 120 BPM</span>
+                  <div class="flex items-end gap-0.5 h-2.5">
+                    <span class="w-0.5 h-1.5 bg-green-400 animate-pulse"></span>
+                    <span class="w-0.5 h-2.5 bg-green-400 animate-pulse" style="animation-delay: 0.2s"></span>
+                    <span class="w-0.5 h-2 bg-green-400 animate-pulse" style="animation-delay: 0.1s"></span>
+                  </div>
+                </div>
+
               </div>
 
-              <!-- Interactive State Switcher -->
-              <div class="flex items-center gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10 text-[10px]">
-                <button id="btn-docked" onclick="setIslandState('docked')"
-                        class="px-2.5 py-1 rounded-lg transition-all font-bold flex items-center gap-1 opacity-70 hover:opacity-100"
-                        title="Simulate Docked State (Minimal edge guide)">
-                  <span>🤏</span> <span data-i18n="island.btnDocked">Docked Edge</span>
-                </button>
-                <button id="btn-expanded" onclick="setIslandState('expanded')"
-                        class="px-2.5 py-1 rounded-lg transition-all font-bold flex items-center gap-1"
-                        style="background: var(--accent); color: #000000;"
-                        title="Simulate Expanded State (Dual-Panel Desktop Overlay)">
-                  <span>⚡</span> <span data-i18n="island.btnExpanded">Expanded Island</span>
-                </button>
+              <!-- Lines simulation attached to notch -->
+              <div class="w-20 h-1.5 flex items-center justify-center gap-1 mt-1 opacity-60">
+                <span class="w-6 h-[2px] rounded-full" style="background: var(--accent);"></span>
+                <span class="w-3 h-[2px] rounded-full bg-white/40"></span>
+                <span class="w-5 h-[2px] rounded-full" style="background: var(--accent);"></span>
+              </div>
+            </div>
+
+            <!-- APP TITLEBAR (DIARY NAME PILL & CONTROLS) -->
+            <div class="px-4 py-2.5 border-b flex items-center justify-between bg-[#080C14] shrink-0"
+                 style="border-color: rgba(255,255,255,0.1);">
+              
+              <!-- Diary Name Pill -->
+              <div class="px-3 py-1 rounded-full text-xs font-black uppercase flex items-center gap-1.5 text-black shadow-md cursor-pointer transition-transform hover:scale-105"
+                   style="background: var(--accent);">
+                <span>⚡</span>
+                <span>DIARIO</span>
+              </div>
+
+              <!-- Action controls -->
+              <div class="flex items-center gap-1 text-gray-400 text-xs">
+                <span class="p-1.5 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Companion Hub">◫</span>
+                <span class="p-1.5 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Themes">🎨</span>
+                <span class="p-1.5 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Search">🔍</span>
+                <span class="p-1.5 rounded-lg bg-white/5 hover:text-white cursor-pointer text-amber-400" title="Always on top pinned">📌</span>
+                <span class="p-1.5 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Settings">⚙️</span>
               </div>
 
             </div>
 
-            <!-- Simulated Desktop Canvas Area (With dark wallpaper and edge guide) -->
-            <div id="desktop-viewport" class="relative min-h-[520px] p-4 flex flex-col items-center justify-start overflow-hidden transition-all duration-300"
-                 style="background: radial-gradient(circle at 50% 15%, #182234 0%, #0A0D14 70%);">
+            <!-- WHEEL FOLDER NAVIGATOR (HORIZONTAL TAB STRIP) -->
+            <div class="px-3 py-2 bg-[#0B0F18] border-b border-white/10 flex items-center gap-1.5 text-[10px] font-mono overflow-x-auto no-scrollbar shrink-0">
+              <span class="px-2.5 py-1 rounded-xl font-bold flex items-center gap-1 text-black shrink-0 shadow-sm" style="background: var(--accent);">
+                <span>🔥</span><span data-i18n="app.folder1">DAILY LOG</span>
+              </span>
+              <span class="px-2.5 py-1 rounded-xl text-gray-300 bg-white/5 flex items-center gap-1 border border-white/5 shrink-0 cursor-pointer hover:bg-white/10">
+                <span>💼</span><span data-i18n="app.folder2">PROJECTS</span>
+              </span>
+              <span class="px-2.5 py-1 rounded-xl text-gray-300 bg-white/5 flex items-center gap-1 border border-white/5 shrink-0 cursor-pointer hover:bg-white/10">
+                <span>🔐</span><span data-i18n="app.folder3">VAULT</span>
+              </span>
+              <span class="px-2.5 py-1 rounded-xl text-gray-300 bg-white/5 flex items-center gap-1 border border-white/5 shrink-0 cursor-pointer hover:bg-white/10">
+                <span>💡</span><span data-i18n="app.folder4">IDEAS</span>
+              </span>
+            </div>
+
+            <!-- NOTION-STYLE EDITOR CANVAS INSIDE ISLAND -->
+            <div class="flex-1 p-4 space-y-3 bg-[#080B12] text-xs overflow-y-auto custom-scroll">
               
-              <!-- Subtle Desktop Icons on Background (Proves overlay nature!) -->
-              <div class="absolute top-14 left-5 flex flex-col items-center gap-1 pointer-events-none opacity-30 select-none">
-                <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-base">📁</div>
-                <span class="text-[9px] text-gray-400">Projects</span>
-              </div>
-              <div class="absolute top-32 left-5 flex flex-col items-center gap-1 pointer-events-none opacity-30 select-none">
-                <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-base">🎮</div>
-                <span class="text-[9px] text-gray-400">Cyberpunk</span>
-              </div>
-              <div class="absolute top-14 right-5 flex flex-col items-center gap-1 pointer-events-none opacity-30 select-none">
-                <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-base">🎧</div>
-                <span class="text-[9px] text-gray-400">Spotify</span>
-              </div>
-
-              <!-- DOCKED ISLAND GUIDE (Shown at Top Screen Edge in Docked State) -->
-              <div id="island-docked-notch" onclick="setIslandState('expanded')" onmouseenter="setIslandState('expanded')"
-                   class="cursor-pointer transition-all duration-300 group z-30 flex flex-col items-center pt-1"
-                   title="Click or hover to expand Dynamic Island!">
-                <div class="px-4 py-1.5 rounded-full border shadow-2xl flex items-center gap-3 transition-transform group-hover:scale-105"
-                     style="background: #000000; border-color: var(--accent); box-shadow: 0 8px 24px var(--border-glow);">
-                  <div class="flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-green-400 animate-ping"></span>
-                    <span class="text-[10px] font-bold text-gray-200">🎵 Lo-Fi Beats</span>
-                  </div>
-                  <span class="text-gray-600 text-[10px]">|</span>
-                  <span class="text-[10px] font-black" style="color: var(--accent);">25:00 HUD</span>
-                  <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-white/15 text-gray-300">▼ OPEN</span>
+              <!-- Sheet Header -->
+              <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                <div class="font-bold text-white text-xs flex items-center gap-1.5">
+                  <span style="color: var(--accent);">⚡</span>
+                  <span data-i18n="app.sheetTitle">DAILY NOTES // 01</span>
                 </div>
-                <span class="text-[10px] text-gray-400 font-sans mt-2 animate-bounce opacity-80" data-i18n="island.hoverHint">
-                  👆 Hover or click guide to expand Dynamic Island
-                </span>
+                <div class="flex items-center gap-1 text-[9px] font-mono">
+                  <span class="px-2 py-0.5 rounded bg-white/10 text-gray-300">#journal</span>
+                  <span class="px-2 py-0.5 rounded text-black font-bold" style="background: var(--accent);">↺ Sync</span>
+                </div>
               </div>
 
-              <!-- EXPANDED DUAL-PANEL DYNAMIC ISLAND OVERLAY -->
-              <div id="island-expanded-container"
-                   class="w-full flex flex-col lg:flex-row items-start justify-center gap-3 transition-all duration-300 z-20">
+              <!-- REAL NOTEBLOCK WIDGET: CHECKLIST NOTEBLOCK -->
+              <div class="p-3 rounded-2xl border-2 space-y-2.5 bg-[#121A28] shadow-lg transition-all"
+                   style="border-color: var(--accent);">
                 
-                <!-- 1. LEFT PANEL: EXTERNAL COMPANION MODULE (320px) -->
-                <div class="w-full lg:w-[260px] flex flex-col gap-2.5 shrink-0">
-                  
-                  <!-- Clock & Status Pill -->
-                  <div class="p-3 rounded-2xl border flex items-center justify-between shadow-lg"
-                       style="background: #111726; border-color: var(--border-main);">
-                    <div>
-                      <div class="text-2xl font-black leading-none tracking-tight" style="color: var(--accent);">
-                        16:20
-                      </div>
-                      <div class="text-[9px] uppercase tracking-widest text-gray-400 mt-1">
-                        NOV 09, 2026
-                      </div>
-                    </div>
-                    <div class="px-2.5 py-1 rounded-xl text-[9px] font-bold flex items-center gap-1 text-black"
-                         style="background: var(--accent);">
-                      <span>☀️</span> <span>ONLINE</span>
-                    </div>
+                <!-- NoteBlock Header: Badge & Controls -->
+                <div class="flex items-center justify-between pb-1.5 border-b border-white/10 font-mono">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider" style="color: var(--accent);">
+                    <span>☑️</span>
+                    <span data-i18n="app.checklistTitle">CHECKLIST</span>
                   </div>
-
-                  <!-- Companion Widget: Pulse Audio -->
-                  <div class="p-3.5 rounded-2xl border space-y-3 shadow-lg"
-                       style="background: #111726; border-color: var(--border-main);">
-                    <div class="flex items-center justify-between pb-1.5 border-b border-white/10">
-                      <div class="flex items-center gap-1.5 text-[10px] font-bold" style="color: var(--accent);">
-                        <span>🎵</span> <span>PULSE AUDIO</span>
-                      </div>
-                      <span class="text-[8px] px-1.5 py-0.5 rounded bg-green-500/20 text-green-400 font-bold">LIVE</span>
-                    </div>
-
-                    <!-- Animated Audio Visualizer Frequency Bars -->
-                    <div class="h-10 flex items-end justify-between gap-1 px-1 py-1 rounded-xl bg-black/40 border border-white/5">
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-6 animate-pulse"></span>
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-9 animate-pulse" style="animation-delay: 0.1s"></span>
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-4 animate-pulse" style="animation-delay: 0.3s"></span>
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-8 animate-pulse" style="animation-delay: 0.2s"></span>
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-10 animate-pulse" style="animation-delay: 0.4s"></span>
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-5 animate-pulse" style="animation-delay: 0.15s"></span>
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-7 animate-pulse" style="animation-delay: 0.35s"></span>
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-9 animate-pulse" style="animation-delay: 0.25s"></span>
-                      <span class="w-1.5 rounded-full bg-[var(--accent)] h-4 animate-pulse" style="animation-delay: 0.05s"></span>
-                    </div>
-
-                    <div class="text-[10px] text-gray-300 font-bold truncate">
-                      🎧 Midnight Chill Lo-Fi (BPM 120)
-                    </div>
-
-                    <!-- Ambient Sound Chips -->
-                    <div class="flex items-center gap-1 text-[9px]">
-                      <span class="px-2 py-0.5 rounded-lg bg-white/10 text-gray-300 cursor-pointer hover:bg-white/20">🌧 Rain</span>
-                      <span class="px-2 py-0.5 rounded-lg bg-white/10 text-gray-300 cursor-pointer hover:bg-white/20">☕ Cafe</span>
-                      <span class="px-2 py-0.5 rounded-lg text-black font-bold cursor-pointer" style="background: var(--accent);">🔥 Camp</span>
-                    </div>
+                  <div class="flex items-center gap-1 text-[9px] text-gray-400">
+                    <button class="px-1.5 py-0.5 rounded bg-white/5 hover:text-white" title="Float Left">⫷</button>
+                    <button class="px-1.5 py-0.5 rounded bg-white/5 hover:text-white" title="Float Right">⫸</button>
+                    <button class="px-1.5 py-0.5 rounded bg-white/5 hover:text-white" title="Toggle Layout">▭</button>
+                    <button class="px-1.5 py-0.5 rounded bg-white/10 text-white font-bold hover:bg-[var(--accent)] hover:text-black transition-colors" title="Move Up">▲</button>
+                    <button class="px-1.5 py-0.5 rounded bg-white/10 text-white font-bold hover:bg-[var(--accent)] hover:text-black transition-colors" title="Move Down">▼</button>
+                    <button class="px-1.5 py-0.5 rounded text-red-400 hover:bg-red-500/20" title="Delete">✕</button>
                   </div>
-
                 </div>
 
-                <!-- 2. RIGHT PANEL: MAIN DYNAMIC ISLAND CARD (380px) -->
-                <div class="w-full lg:w-[380px] rounded-3xl border-2 shadow-2xl flex flex-col overflow-hidden text-left"
-                     style="background: #0E1420; border-color: var(--accent); box-shadow: 0 15px 45px rgba(0,0,0,0.6);">
-                  
-                  <!-- Card Header Bar -->
-                  <div class="px-3.5 py-2.5 border-b flex items-center justify-between bg-[#080C14]"
-                       style="border-color: rgba(255,255,255,0.1);">
-                    
-                    <!-- Diary Name Pill -->
-                    <div class="px-3 py-1 rounded-full text-xs font-black uppercase flex items-center gap-1.5 text-black shadow-md"
-                         style="background: var(--accent);">
-                      <span>⚡</span>
-                      <span>DIARIO</span>
-                    </div>
-
-                    <!-- Top Quick Action Icons -->
-                    <div class="flex items-center gap-1.5 text-gray-400 text-xs">
-                      <span class="p-1 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Toggle Companion">◫</span>
-                      <span class="p-1 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Themes">🎨</span>
-                      <span class="p-1 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Search">🔍</span>
-                      <span class="p-1 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Pin">📌</span>
-                      <span class="p-1 rounded-lg bg-white/5 hover:text-white cursor-pointer" title="Settings">⚙️</span>
-                    </div>
-
+                <!-- Checklist Items (Clickable Strikethrough) -->
+                <div class="space-y-1.5 text-[11px] font-sans">
+                  <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl bg-black/30 border border-white/5 cursor-pointer transition-all">
+                    <input type="checkbox" checked class="accent-orange-500 rounded pointer-events-none">
+                    <span class="line-through opacity-50 text-gray-300" data-i18n="app.check1">Scroll wheel over tabs to cycle folders</span>
                   </div>
-
-                  <!-- WheelFolderNavigator (Horizontal Pill Wheel Tabs) -->
-                  <div class="px-3 py-2 bg-[#0B0F18] border-b border-white/10 flex items-center gap-1.5 text-[10px] overflow-x-auto no-scrollbar">
-                    <span class="px-2.5 py-1 rounded-xl font-bold flex items-center gap-1 text-black shrink-0" style="background: var(--accent);">
-                      <span>🔥</span><span data-i18n="app.folder1">DAILY LOG</span>
-                    </span>
-                    <span class="px-2.5 py-1 rounded-xl text-gray-300 bg-white/5 flex items-center gap-1 border border-white/5 shrink-0">
-                      <span>💼</span><span data-i18n="app.folder2">PROJECTS</span>
-                    </span>
-                    <span class="px-2.5 py-1 rounded-xl text-gray-300 bg-white/5 flex items-center gap-1 border border-white/5 shrink-0">
-                      <span>🔐</span><span data-i18n="app.folder3">VAULT</span>
-                    </span>
-                    <span class="px-2.5 py-1 rounded-xl text-gray-300 bg-white/5 flex items-center gap-1 border border-white/5 shrink-0">
-                      <span>💡</span><span data-i18n="app.folder4">IDEAS</span>
-                    </span>
+                  <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl bg-black/30 border border-white/5 cursor-pointer transition-all">
+                    <input type="checkbox" checked class="accent-orange-500 rounded pointer-events-none">
+                    <span class="line-through opacity-50 text-gray-300" data-i18n="app.check2">Click any blank line to start writing instantly</span>
                   </div>
-
-                  <!-- Inside The NotionEditor Sheet -->
-                  <div class="p-4 space-y-3 bg-[#080B12] text-xs">
-                    
-                    <!-- Note Sheet Header -->
-                    <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                      <div class="font-bold text-white text-xs flex items-center gap-1.5">
-                        <span>⚡</span>
-                        <span data-i18n="app.sheetTitle">DAILY NOTES // 01</span>
-                      </div>
-                      <div class="flex items-center gap-1 text-[9px]">
-                        <span class="px-2 py-0.5 rounded bg-white/10 text-gray-300">#journal</span>
-                        <span class="px-2 py-0.5 rounded text-black font-bold" style="background: var(--accent);">↺ Diary</span>
-                      </div>
-                    </div>
-
-                    <!-- REAL NOTEBLOCK WIDGET (SingleNoteWidgetCard Replica) -->
-                    <div class="p-3 rounded-2xl border-2 space-y-2.5 bg-[#121A28] shadow-lg transition-all"
-                         style="border-color: var(--accent);">
-                      
-                      <!-- NoteBlock Header: Badge & Controls -->
-                      <div class="flex items-center justify-between pb-1 border-b border-white/10">
-                        <div class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider" style="color: var(--accent);">
-                          <span>☑️</span>
-                          <span data-i18n="app.checklistTitle">CHECKLIST</span>
-                        </div>
-                        <div class="flex items-center gap-1 text-[9px] text-gray-400">
-                          <button class="px-1.5 py-0.5 rounded bg-white/5 hover:text-white" title="Word Wrap Left">⫷</button>
-                          <button class="px-1.5 py-0.5 rounded bg-white/5 hover:text-white" title="Word Wrap Right">⫸</button>
-                          <button class="px-1.5 py-0.5 rounded bg-white/5 hover:text-white" title="Toggle Layout">▭</button>
-                          <button onclick="stepBlock('up')" class="px-1.5 py-0.5 rounded bg-white/10 text-white font-bold hover:bg-[var(--accent)] hover:text-black transition-colors" title="Move Up 1 Line">▲</button>
-                          <button onclick="stepBlock('down')" class="px-1.5 py-0.5 rounded bg-white/10 text-white font-bold hover:bg-[var(--accent)] hover:text-black transition-colors" title="Move Down 1 Line">▼</button>
-                          <button class="px-1.5 py-0.5 rounded text-red-400 hover:bg-red-500/20" title="Delete">✕</button>
-                        </div>
-                      </div>
-
-                      <!-- Checklist Items (Clickable Strikethrough) -->
-                      <div class="space-y-1.5 text-[11px] font-sans">
-                        <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl bg-black/30 border border-white/5 cursor-pointer transition-all">
-                          <input type="checkbox" checked class="accent-orange-500 rounded pointer-events-none">
-                          <span class="line-through opacity-50 text-gray-300" data-i18n="app.check1">Scroll wheel over tabs to cycle folders</span>
-                        </div>
-                        <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl bg-black/30 border border-white/5 cursor-pointer transition-all">
-                          <input type="checkbox" checked class="accent-orange-500 rounded pointer-events-none">
-                          <span class="line-through opacity-50 text-gray-300" data-i18n="app.check2">Click any blank line to start writing instantly</span>
-                        </div>
-                        <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl bg-black/30 border border-white/5 cursor-pointer transition-all">
-                          <input type="checkbox" class="accent-orange-500 rounded pointer-events-none">
-                          <span class="text-white font-medium" data-i18n="app.check3">Insert NoteBlocks via menu or by typing /</span>
-                        </div>
-                      </div>
-
-                      <!-- Real Add Task Input Row -->
-                      <div class="flex items-center gap-1.5 pt-1">
-                        <input type="text" placeholder="Add task..." class="flex-1 px-2.5 py-1 rounded-lg text-[10px] bg-black/40 border border-white/10 text-white focus:outline-none" />
-                        <button class="px-2.5 py-1 rounded-lg text-[10px] font-bold text-black" style="background: var(--accent);">+ Add</button>
-                      </div>
-
-                    </div>
-
-                    <!-- REAL POMODORO NOTEBLOCK -->
-                    <div class="p-2.5 rounded-2xl border bg-[#121A28] flex items-center justify-between shadow-md"
-                         style="border-color: rgba(255,255,255,0.12);">
-                      <div class="flex items-center gap-2">
-                        <span class="text-sm" style="color: var(--accent);">⏱</span>
-                        <div>
-                          <div class="text-[10px] font-bold text-white" data-i18n="app.pomoTitle">FOCUS // 25 MIN</div>
-                          <div class="text-[8px] text-gray-400 font-sans" data-i18n="app.pomoSub">Linked to Island HUD</div>
-                        </div>
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <span class="text-xs font-black text-orange-400">25:00</span>
-                        <button class="px-2 py-0.5 rounded-lg text-[9px] font-bold bg-white/10 text-white hover:bg-white/20">▶ Start</button>
-                      </div>
-                    </div>
-
+                  <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl bg-black/30 border border-white/5 cursor-pointer transition-all">
+                    <input type="checkbox" class="accent-orange-500 rounded pointer-events-none">
+                    <span class="text-white font-medium" data-i18n="app.check3">Insert NoteBlocks via menu or by typing /</span>
                   </div>
+                </div>
 
+                <!-- Add Task Row -->
+                <div class="flex items-center gap-1.5 pt-1">
+                  <input type="text" placeholder="Add task..." class="flex-1 px-2.5 py-1 rounded-lg text-[10px] bg-black/40 border border-white/10 text-white focus:outline-none" />
+                  <button class="px-2.5 py-1 rounded-lg text-[10px] font-bold text-black" style="background: var(--accent);">+ Add</button>
                 </div>
 
               </div>
 
+              <!-- REAL POMODORO NOTEBLOCK WIDGET -->
+              <div class="p-2.5 rounded-2xl border bg-[#121A28] flex items-center justify-between shadow-md"
+                   style="border-color: rgba(255,255,255,0.12);">
+                <div class="flex items-center gap-2">
+                  <span class="text-base" style="color: var(--accent);">⏱</span>
+                  <div>
+                    <div class="text-[10px] font-bold text-white font-mono" data-i18n="app.pomoTitle">FOCUS // 25 MIN</div>
+                    <div class="text-[8px] text-gray-400 font-sans" data-i18n="app.pomoSub">Linked to Island HUD</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono font-black text-amber-400">25:00</span>
+                  <button class="px-2 py-0.5 rounded-lg text-[9px] font-bold bg-white/10 text-white hover:bg-white/20">▶ Start</button>
+                </div>
+              </div>
+
+              <!-- Ruled lines note writing simulation -->
+              <div class="p-2.5 rounded-xl border border-white/5 bg-black/20 text-gray-400 text-[11px] font-sans italic">
+                <span>"Today's workflow: zero friction writing, note blocks anchored on line 4 without drifting..."</span>
+              </div>
+
+            </div>
+
+            <!-- BOTTOM DOCK AUDIO PLAYER BAR -->
+            <div class="px-3.5 py-2.5 border-t bg-[#080B12] flex items-center justify-between shrink-0 text-xs font-mono"
+                 style="border-color: rgba(255,255,255,0.1);">
+              <div class="flex items-center gap-2 text-gray-300">
+                <span class="text-xs" style="color: var(--accent);">🎵</span>
+                <div class="text-[10px] truncate max-w-[170px] text-white">
+                  Midnight Chill Lo-Fi
+                </div>
+              </div>
+              <!-- Mini Frequency Visualizer Bars -->
+              <div class="flex items-end gap-1 h-4">
+                <span class="w-1 bg-[var(--accent)] rounded-full h-3 animate-pulse"></span>
+                <span class="w-1 bg-[var(--accent)] rounded-full h-4 animate-pulse" style="animation-delay: 0.1s"></span>
+                <span class="w-1 bg-[var(--accent)] rounded-full h-2 animate-pulse" style="animation-delay: 0.3s"></span>
+                <span class="w-1 bg-[var(--accent)] rounded-full h-3.5 animate-pulse" style="animation-delay: 0.2s"></span>
+              </div>
+              <div class="flex items-center gap-1 text-[9px]">
+                <span class="px-2 py-0.5 rounded bg-white/10 text-gray-300 cursor-pointer hover:bg-white/20">🌧 Rain</span>
+                <span class="px-2 py-0.5 rounded bg-white/10 text-gray-300 cursor-pointer hover:bg-white/20">☕ Cafe</span>
+              </div>
             </div>
 
           </div>
@@ -732,7 +722,7 @@
 
     </section>
 
-    <!-- DEDICATED SECTION: EXTENSIONS HUB & PLUGIN ECOSYSTEM -->
+    <!-- DEDICATED SECTION: EXTENSIONS HUB WITH RIGHT-DOCKED COMPANION AT MATCHING HEIGHT -->
     <section class="diary-paper-texture rounded-3xl p-6 sm:p-10 md:p-12 border shadow-xl space-y-10"
              style="border-color: var(--border-main);">
       
@@ -751,165 +741,394 @@
         </div>
 
         <div class="flex items-center gap-2 shrink-0">
-          <span class="text-xs font-mono font-bold px-3 py-1.5 rounded-xl border"
+          <span class="text-xs font-mono font-bold px-3 py-1.5 rounded-xl border shadow-sm"
                 style="background: var(--bg-card); color: var(--accent); border-color: var(--border-main);">
             ⚡ 8 Built-in Extensions Active
           </span>
         </div>
       </div>
 
-      <!-- 8 EXTENSIONS CARDS (MATCHING THE REAL CROSS-DIARY EXTENSIONS REGISTRY) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- 2-COLUMN SPLIT GRID (EXTENSIONS ON LEFT, COMPANION MODULE ON RIGHT AT MATCHING HEIGHT) -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
         
-        <!-- Ext 1: Pulse Audio -->
-        <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">🎵</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+        <!-- LEFT COLUMN: 8 EXTENSIONS CARDS (7 COLS) -->
+        <div class="col-span-1 xl:col-span-7 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Ext 1: Pulse Audio -->
+            <div onclick="switchCompanionTab('pulse')"
+                 class="p-5 rounded-2xl border transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md flex flex-col justify-between cursor-pointer group"
+                 style="background: var(--bg-card); border-color: var(--border-main);">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="p-2.5 rounded-xl text-xl transition-transform group-hover:scale-110" style="background: var(--bg-elevated); color: var(--accent);">🎵</span>
+                  <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+                </div>
+                <h3 class="font-bold text-sm" style="color: var(--text-title);">Pulse Audio</h3>
+                <p class="text-xs leading-relaxed" style="color: var(--text-body);">
+                  Integrated music player, ambient sound generator (rain, lo-fi, cafe), and real-time audio waveform.
+                </p>
+              </div>
+              <div class="pt-3 flex items-center justify-between text-[10px] font-mono" style="color: var(--text-muted);">
+                <span>Type: music_waveform</span>
+                <span class="text-xs font-bold" style="color: var(--accent);">Inspect →</span>
+              </div>
             </div>
-            <h3 class="font-bold text-sm" style="color: var(--text-title);">Pulse Audio</h3>
-            <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              Integrated music player, ambient sound generator (rain, lo-fi, cafe), and real-time audio waveform.
-            </p>
-          </div>
-          <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
-            Type: music_waveform
+
+            <!-- Ext 2: NoteBlocks Engine -->
+            <div onclick="switchCompanionTab('chrono')"
+                 class="p-5 rounded-2xl border transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md flex flex-col justify-between cursor-pointer group"
+                 style="background: var(--bg-card); border-color: var(--border-main);">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="p-2.5 rounded-xl text-xl transition-transform group-hover:scale-110" style="background: var(--bg-elevated); color: var(--accent);">🧩</span>
+                  <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">CORE</span>
+                </div>
+                <h3 class="font-bold text-sm" style="color: var(--text-title);">NoteBlocks Engine</h3>
+                <p class="text-xs leading-relaxed" style="color: var(--text-body);">
+                  Embed interactive widgets (checklists, counters, timers) anywhere in your text. Moves strictly line by line.
+                </p>
+              </div>
+              <div class="pt-3 flex items-center justify-between text-[10px] font-mono" style="color: var(--text-muted);">
+                <span>Type: note_widgets</span>
+                <span class="text-xs font-bold" style="color: var(--accent);">Inspect →</span>
+              </div>
+            </div>
+
+            <!-- Ext 3: Encrypted Vaults -->
+            <div onclick="switchCompanionTab('vault')"
+                 class="p-5 rounded-2xl border transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md flex flex-col justify-between cursor-pointer group"
+                 style="background: var(--bg-card); border-color: var(--border-main);">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="p-2.5 rounded-xl text-xl transition-transform group-hover:scale-110" style="background: var(--bg-elevated); color: var(--accent);">🔐</span>
+                  <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+                </div>
+                <h3 class="font-bold text-sm" style="color: var(--text-title);">Encrypted Vaults</h3>
+                <p class="text-xs leading-relaxed" style="color: var(--text-body);">
+                  Password-protected private partitions with decoy notes, auto-lock timeout, and client-side encryption.
+                </p>
+              </div>
+              <div class="pt-3 flex items-center justify-between text-[10px] font-mono" style="color: var(--text-muted);">
+                <span>Type: vault_boveda</span>
+                <span class="text-xs font-bold" style="color: var(--accent);">Inspect →</span>
+              </div>
+            </div>
+
+            <!-- Ext 4: Universal Clipboard -->
+            <div onclick="switchCompanionTab('clip')"
+                 class="p-5 rounded-2xl border transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md flex flex-col justify-between cursor-pointer group"
+                 style="background: var(--bg-card); border-color: var(--border-main);">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="p-2.5 rounded-xl text-xl transition-transform group-hover:scale-110" style="background: var(--bg-elevated); color: var(--accent);">📋</span>
+                  <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+                </div>
+                <h3 class="font-bold text-sm" style="color: var(--text-title);">Universal Clipboard</h3>
+                <p class="text-xs leading-relaxed" style="color: var(--text-body);">
+                  Instant multi-device copy &amp; paste sync between PC and Android, with configurable history limit and clean scrolling.
+                </p>
+              </div>
+              <div class="pt-3 flex items-center justify-between text-[10px] font-mono" style="color: var(--text-muted);">
+                <span>Type: clipboard_hub</span>
+                <span class="text-xs font-bold" style="color: var(--accent);">Inspect →</span>
+              </div>
+            </div>
+
+            <!-- Ext 5: Custom CSS & AI Prompts -->
+            <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
+                 style="background: var(--bg-card); border-color: var(--border-main);">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">💻</span>
+                  <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+                </div>
+                <h3 class="font-bold text-sm" style="color: var(--text-title);">Custom CSS &amp; AI Prompt</h3>
+                <p class="text-xs leading-relaxed" style="color: var(--text-body);">
+                  Direct CSS code injection with ready-made brutalist snippets and prompt helper for custom styling with any AI.
+                </p>
+              </div>
+              <div class="pt-3 text-[10px] font-mono" style="color: var(--text-muted);">
+                Type: custom_css
+              </div>
+            </div>
+
+            <!-- Ext 6: Sticker Studio -->
+            <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
+                 style="background: var(--bg-card); border-color: var(--border-main);">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">🎨</span>
+                  <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+                </div>
+                <h3 class="font-bold text-sm" style="color: var(--text-title);">Sticker Studio</h3>
+                <p class="text-xs leading-relaxed" style="color: var(--text-body);">
+                  Drag-and-drop freeform sticker canvas layer over notes with custom PNG/SVG uploads and multi-pack management.
+                </p>
+              </div>
+              <div class="pt-3 text-[10px] font-mono" style="color: var(--text-muted);">
+                Type: sticker_studio
+              </div>
+            </div>
+
+            <!-- Ext 7: Chrono & Stopwatch -->
+            <div onclick="switchCompanionTab('chrono')"
+                 class="p-5 rounded-2xl border transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md flex flex-col justify-between cursor-pointer group"
+                 style="background: var(--bg-card); border-color: var(--border-main);">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="p-2.5 rounded-xl text-xl transition-transform group-hover:scale-110" style="background: var(--bg-elevated); color: var(--accent);">⏱</span>
+                  <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+                </div>
+                <h3 class="font-bold text-sm" style="color: var(--text-title);">Chrono &amp; Stopwatch</h3>
+                <p class="text-xs leading-relaxed" style="color: var(--text-body);">
+                  High-precision millisecond stopwatch with split lap logging and persistent countdown timers for sprint sessions.
+                </p>
+              </div>
+              <div class="pt-3 flex items-center justify-between text-[10px] font-mono" style="color: var(--text-muted);">
+                <span>Type: chrono_calc</span>
+                <span class="text-xs font-bold" style="color: var(--accent);">Inspect →</span>
+              </div>
+            </div>
+
+            <!-- Ext 8: Calculator Pro -->
+            <div onclick="switchCompanionTab('calc')"
+                 class="p-5 rounded-2xl border transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md flex flex-col justify-between cursor-pointer group"
+                 style="background: var(--bg-card); border-color: var(--border-main);">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="p-2.5 rounded-xl text-xl transition-transform group-hover:scale-110" style="background: var(--bg-elevated); color: var(--accent);">🧮</span>
+                  <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+                </div>
+                <h3 class="font-bold text-sm" style="color: var(--text-title);">Calculator Pro</h3>
+                <p class="text-xs leading-relaxed" style="color: var(--text-body);">
+                  Quick floating expression solver and history ledger for budgeting, calculations, and tracking figures.
+                </p>
+              </div>
+              <div class="pt-3 flex items-center justify-between text-[10px] font-mono" style="color: var(--text-muted);">
+                <span>Type: calculator_pro</span>
+                <span class="text-xs font-bold" style="color: var(--accent);">Inspect →</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Ext 2: NoteBlocks Engine -->
-        <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">🧩</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">CORE</span>
+        <!-- RIGHT COLUMN: EXTERNAL EXTENSIONS COMPANION MODULE (DOCKED STRICTLY AT EXTENSIONS HEIGHT, 5 COLS) -->
+        <div class="hidden xl:flex xl:col-span-5 justify-end items-start select-none">
+          
+          <div class="w-[360px] rounded-3xl border-2 shadow-2xl p-5 space-y-4 font-mono transition-all"
+               style="background: #0E1420; border-color: var(--accent); box-shadow: 0 15px 45px rgba(0,0,0,0.6);">
+            
+            <!-- Companion Clock & Status Header -->
+            <div class="p-3.5 rounded-2xl border flex items-center justify-between shadow-md"
+                 style="background: #111726; border-color: var(--border-main);">
+              <div>
+                <div class="text-2xl font-black leading-none tracking-tight" style="color: var(--accent);">
+                  16:20
+                </div>
+                <div class="text-[9px] uppercase tracking-widest text-gray-400 mt-1 font-sans">
+                  NOV 10, 2026 // HUB
+                </div>
+              </div>
+              <div class="px-2.5 py-1 rounded-xl text-[9px] font-bold flex items-center gap-1 text-black"
+                   style="background: var(--accent);">
+                <span>☀️</span> <span>ONLINE</span>
+              </div>
             </div>
-            <h3 class="font-bold text-sm" style="color: var(--text-title);">NoteBlocks Engine</h3>
-            <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              Embed interactive widgets (checklists, counters, timers) anywhere in your text. Moves strictly line by line.
-            </p>
-          </div>
-          <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
-            Type: note_widgets
-          </div>
-        </div>
 
-        <!-- Ext 3: Encrypted Vaults -->
-        <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">🔐</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+            <!-- Companion Extension Tabs -->
+            <div class="flex items-center gap-1 p-1 rounded-xl bg-black/40 border border-white/10 text-[10px] overflow-x-auto no-scrollbar">
+              <button id="comp-tab-btn-pulse" onclick="switchCompanionTab('pulse')"
+                      class="px-2.5 py-1 rounded-lg font-bold transition-all text-black"
+                      style="background: var(--accent);">
+                🎵 Pulse
+              </button>
+              <button id="comp-tab-btn-chrono" onclick="switchCompanionTab('chrono')"
+                      class="px-2.5 py-1 rounded-lg font-bold transition-all text-gray-400 hover:text-white">
+                ⏱ Chrono
+              </button>
+              <button id="comp-tab-btn-calc" onclick="switchCompanionTab('calc')"
+                      class="px-2.5 py-1 rounded-lg font-bold transition-all text-gray-400 hover:text-white">
+                🧮 Calc
+              </button>
+              <button id="comp-tab-btn-vault" onclick="switchCompanionTab('vault')"
+                      class="px-2.5 py-1 rounded-lg font-bold transition-all text-gray-400 hover:text-white">
+                🔐 Vault
+              </button>
+              <button id="comp-tab-btn-clip" onclick="switchCompanionTab('clip')"
+                      class="px-2.5 py-1 rounded-lg font-bold transition-all text-gray-400 hover:text-white">
+                📋 Clip
+              </button>
             </div>
-            <h3 class="font-bold text-sm" style="color: var(--text-title);">Encrypted Vaults</h3>
-            <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              Password-protected private partitions with decoy notes, auto-lock timeout, and client-side encryption.
-            </p>
-          </div>
-          <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
-            Type: vault_boveda
-          </div>
-        </div>
 
-        <!-- Ext 4: Universal Clipboard -->
-        <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">📋</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
-            </div>
-            <h3 class="font-bold text-sm" style="color: var(--text-title);">Universal Clipboard</h3>
-            <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              Instant multi-device copy &amp; paste sync between PC and Android, with configurable history limit, clean scrolling, and push actions.
-            </p>
-          </div>
-          <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
-            Type: clipboard_hub
-          </div>
-        </div>
+            <!-- COMPANION TAB 1: PULSE AUDIO -->
+            <div id="comp-panel-pulse" class="p-4 rounded-2xl border space-y-3 shadow-md"
+                 style="background: #111726; border-color: var(--border-main);">
+              <div class="flex items-center justify-between pb-1.5 border-b border-white/10">
+                <div class="flex items-center gap-1.5 text-[11px] font-bold" style="color: var(--accent);">
+                  <span>🎵</span> <span>PULSE AUDIO</span>
+                </div>
+                <span class="text-[8px] px-1.5 py-0.5 rounded bg-green-500/20 text-green-400 font-bold">STREAMING</span>
+              </div>
 
-        <!-- Ext 5: Custom CSS & AI Prompts -->
-        <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">💻</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
-            </div>
-            <h3 class="font-bold text-sm" style="color: var(--text-title);">Custom CSS &amp; AI Prompt</h3>
-            <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              Direct CSS code injection with ready-made brutalist snippets and prompt helper for custom styling with any AI.
-            </p>
-          </div>
-          <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
-            Type: custom_css
-          </div>
-        </div>
+              <!-- Animated Frequency Waveform -->
+              <div class="h-10 flex items-end justify-between gap-1 px-1.5 py-1 rounded-xl bg-black/40 border border-white/5">
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-6 animate-pulse"></span>
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-9 animate-pulse" style="animation-delay: 0.1s"></span>
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-4 animate-pulse" style="animation-delay: 0.3s"></span>
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-8 animate-pulse" style="animation-delay: 0.2s"></span>
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-10 animate-pulse" style="animation-delay: 0.4s"></span>
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-5 animate-pulse" style="animation-delay: 0.15s"></span>
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-7 animate-pulse" style="animation-delay: 0.35s"></span>
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-9 animate-pulse" style="animation-delay: 0.25s"></span>
+                <span class="w-1.5 rounded-full bg-[var(--accent)] h-4 animate-pulse" style="animation-delay: 0.05s"></span>
+              </div>
 
-        <!-- Ext 6: Sticker Studio -->
-        <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">🎨</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
-            </div>
-            <h3 class="font-bold text-sm" style="color: var(--text-title);">Sticker Studio</h3>
-            <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              Drag-and-drop freeform sticker canvas layer over notes with custom PNG/SVG uploads and multi-pack management.
-            </p>
-          </div>
-          <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
-            Type: sticker_studio
-          </div>
-        </div>
+              <div class="text-[11px] text-gray-200 font-bold truncate">
+                🎧 Midnight Chill Lo-Fi (BPM 120)
+              </div>
 
-        <!-- Ext 7: Chrono & Stopwatch -->
-        <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">⏱</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+              <!-- Ambient Sound Chips -->
+              <div class="flex items-center gap-1.5 text-[9px] pt-1">
+                <span class="px-2 py-1 rounded-lg bg-white/10 text-gray-300 cursor-pointer hover:bg-white/20">🌧 Rain</span>
+                <span class="px-2 py-1 rounded-lg bg-white/10 text-gray-300 cursor-pointer hover:bg-white/20">☕ Cafe</span>
+                <span class="px-2 py-1 rounded-lg text-black font-bold cursor-pointer" style="background: var(--accent);">🔥 Camp</span>
+                <span class="px-2 py-1 rounded-lg bg-white/10 text-gray-300 cursor-pointer hover:bg-white/20">🌊 Ocean</span>
+              </div>
             </div>
-            <h3 class="font-bold text-sm" style="color: var(--text-title);">Chrono &amp; Stopwatch</h3>
-            <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              High-precision millisecond stopwatch with split lap logging and persistent countdown timers for sprint sessions.
-            </p>
-          </div>
-          <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
-            Type: chrono_calc
-          </div>
-        </div>
 
-        <!-- Ext 8: Calculator Pro -->
-        <div class="p-5 rounded-2xl border transition-all hover:scale-[1.02] shadow-md flex flex-col justify-between"
-             style="background: var(--bg-card); border-color: var(--border-main);">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="p-2.5 rounded-xl text-xl" style="background: var(--bg-elevated); color: var(--accent);">🧮</span>
-              <span class="text-[9px] font-mono px-2 py-0.5 rounded font-bold bg-green-500/20 text-green-400">ACTIVE</span>
+            <!-- COMPANION TAB 2: CHRONO & STOPWATCH -->
+            <div id="comp-panel-chrono" class="hidden p-4 rounded-2xl border space-y-3 shadow-md"
+                 style="background: #111726; border-color: var(--border-main);">
+              <div class="flex items-center justify-between pb-1.5 border-b border-white/10">
+                <div class="flex items-center gap-1.5 text-[11px] font-bold" style="color: var(--accent);">
+                  <span>⏱</span> <span>CHRONOMETER PRO</span>
+                </div>
+                <span class="text-[8px] px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-400 font-bold">PRECISION</span>
+              </div>
+              <div class="text-center py-2">
+                <div class="text-3xl font-black font-mono tracking-wider text-white">
+                  00:14:28<span class="text-lg opacity-70" style="color: var(--accent);">.92</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-center gap-2 pt-1">
+                <button class="px-4 py-1.5 rounded-xl text-[10px] font-bold text-black" style="background: var(--accent);">▶ Start</button>
+                <button class="px-3 py-1.5 rounded-xl text-[10px] font-bold bg-white/10 text-white hover:bg-white/20">⏱ Lap</button>
+                <button class="px-3 py-1.5 rounded-xl text-[10px] font-bold bg-white/10 text-gray-400 hover:text-white">↺ Reset</button>
+              </div>
+              <div class="text-[10px] text-gray-400 space-y-1 border-t border-white/5 pt-2">
+                <div class="flex justify-between"><span>Lap 1: 00:04:12.18</span><span class="text-green-400">+4m</span></div>
+                <div class="flex justify-between"><span>Lap 2: 00:10:16.74</span><span class="text-green-400">+6m</span></div>
+              </div>
             </div>
-            <h3 class="font-bold text-sm" style="color: var(--text-title);">Calculator Pro</h3>
-            <p class="text-xs leading-relaxed" style="color: var(--text-body);">
-              Quick floating expression solver and history ledger for budgeting, calculations, and tracking figures.
-            </p>
+
+            <!-- COMPANION TAB 3: CALCULATOR PRO -->
+            <div id="comp-panel-calc" class="hidden p-4 rounded-2xl border space-y-2.5 shadow-md"
+                 style="background: #111726; border-color: var(--border-main);">
+              <div class="flex items-center justify-between pb-1.5 border-b border-white/10">
+                <div class="flex items-center gap-1.5 text-[11px] font-bold" style="color: var(--accent);">
+                  <span>🧮</span> <span>CALCULATOR PRO</span>
+                </div>
+                <span class="text-[8px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-400 font-bold">SOLVER</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-black/50 border border-white/10 text-right text-base font-black" style="color: var(--accent);">
+                240 * 1.16 = 278.40
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 text-[10px] font-bold pt-1">
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">7</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">8</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">9</button>
+                <button class="p-1.5 rounded-lg text-black" style="background: var(--accent);">/</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">4</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">5</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">6</button>
+                <button class="p-1.5 rounded-lg text-black" style="background: var(--accent);">*</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">1</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">2</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">3</button>
+                <button class="p-1.5 rounded-lg text-black" style="background: var(--accent);">-</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">0</button>
+                <button class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300">.</button>
+                <button class="p-1.5 rounded-lg bg-green-500/20 text-green-400 font-black">=</button>
+                <button class="p-1.5 rounded-lg text-black" style="background: var(--accent);">+</button>
+              </div>
+            </div>
+
+            <!-- COMPANION TAB 4: ENCRYPTED VAULTS -->
+            <div id="comp-panel-vault" class="hidden p-4 rounded-2xl border space-y-3 shadow-md"
+                 style="background: #111726; border-color: var(--border-main);">
+              <div class="flex items-center justify-between pb-1.5 border-b border-white/10">
+                <div class="flex items-center gap-1.5 text-[11px] font-bold" style="color: var(--accent);">
+                  <span>🔐</span> <span>VAULT SECURITY</span>
+                </div>
+                <span class="text-[8px] px-1.5 py-0.5 rounded bg-red-500/20 text-red-400 font-bold">AES-256</span>
+              </div>
+              <div class="text-center py-2 space-y-2">
+                <span class="text-3xl">🔒</span>
+                <div class="text-xs font-bold text-white">Partition #01 Encrypted</div>
+                <div class="flex items-center justify-center gap-2 pt-1">
+                  <span class="w-3 h-3 rounded-full bg-[var(--accent)]"></span>
+                  <span class="w-3 h-3 rounded-full bg-[var(--accent)]"></span>
+                  <span class="w-3 h-3 rounded-full bg-[var(--accent)]"></span>
+                  <span class="w-3 h-3 rounded-full border border-white/30"></span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-gray-400 border-t border-white/5 pt-2">
+                <span>Decoy Notes Trigger</span>
+                <span class="text-green-400 font-bold">ENABLED</span>
+              </div>
+            </div>
+
+            <!-- COMPANION TAB 5: UNIVERSAL CLIPBOARD -->
+            <div id="comp-panel-clip" class="hidden p-4 rounded-2xl border space-y-2.5 shadow-md"
+                 style="background: #111726; border-color: var(--border-main);">
+              <div class="flex items-center justify-between pb-1.5 border-b border-white/10">
+                <div class="flex items-center gap-1.5 text-[11px] font-bold" style="color: var(--accent);">
+                  <span>📋</span> <span>UNIVERSAL CLIPBOARD</span>
+                </div>
+                <!-- Configurable limit selector -->
+                <div class="flex items-center gap-1 text-[9px]">
+                  <span class="text-gray-400">Limit:</span>
+                  <select class="bg-black/60 text-white rounded px-1.5 py-0.5 border border-white/10 text-[9px] focus:outline-none">
+                    <option>5</option>
+                    <option selected>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Scrollable synchronized history list -->
+              <div class="max-h-[170px] overflow-y-auto space-y-1.5 pr-1 text-[10px] custom-scroll">
+                <div class="p-2 rounded-xl bg-black/30 border border-white/5 flex items-center justify-between cursor-pointer hover:border-[var(--accent)]">
+                  <span class="truncate max-w-[220px] text-white">git clone https://github.com/walterdotblend...</span>
+                  <span class="text-[8px] text-gray-500">Just now</span>
+                </div>
+                <div class="p-2 rounded-xl bg-black/30 border border-white/5 flex items-center justify-between cursor-pointer hover:border-[var(--accent)]">
+                  <span class="truncate max-w-[220px] text-white">#F59E0B (Accent Gold Hex Code)</span>
+                  <span class="text-[8px] text-gray-500">2m ago</span>
+                </div>
+                <div class="p-2 rounded-xl bg-black/30 border border-white/5 flex items-center justify-between cursor-pointer hover:border-[var(--accent)]">
+                  <span class="truncate max-w-[220px] text-white">Cross-Diary Android APK Release v0.2</span>
+                  <span class="text-[8px] text-gray-500">10m ago</span>
+                </div>
+              </div>
+
+              <button class="w-full py-1.5 rounded-xl text-[10px] font-bold text-black" style="background: var(--accent);">
+                ⚡ Push Selected to Android
+              </button>
+            </div>
+
           </div>
-          <div class="pt-4 text-[10px] font-mono" style="color: var(--text-muted);">
-            Type: calculator_pro
-          </div>
+
         </div>
 
       </div>
 
     </section>
 
-    <!-- LIVE DEMONSTRATION OF NOTEBLOCKS (STRICT LINE-BY-LINE STEPPING) -->
+    <!-- LIVE DEMONSTRATION OF NOTEBLOCKS EMBEDDED IN A REAL NOTEBOOK SHEET (HOJA REAL) -->
     <section class="diary-paper-texture rounded-3xl p-6 sm:p-10 border shadow-xl relative overflow-hidden"
              style="border-color: var(--border-main);">
       
@@ -919,13 +1138,13 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-widest" style="color: var(--accent);" data-i18n="demo.kicker">
-            TACTILE ENGINE FEATURE
+            TACTILE PHYSICAL NOTEBOOK ENGINE
           </span>
           <h2 class="text-2xl sm:text-4xl font-black mt-1" style="color: var(--text-title);" data-i18n="demo.title">
-            NoteBlocks Move Strictly Line-by-Line
+            Modular NoteBlocks Embedded in Real Ruled Paper
           </h2>
           <p class="text-sm font-medium mt-1 max-w-xl" style="color: var(--text-body);" data-i18n="demo.desc">
-            No unexpected jumping over blank lines. Each click on Up or Down moves the widget precisely to the adjacent line index. Test it live below!
+            NoteBlocks live directly on physical lined paper and move strictly line-by-line without jumping over blank lines. Try stepping, toggling square mode, timing focus, or doodling below!
           </p>
         </div>
 
@@ -943,181 +1162,284 @@
         </div>
       </div>
 
-      <!-- Live NotionEditor Note Simulation Container -->
-      <div class="rounded-3xl border p-5 sm:p-7 font-mono transition-all shadow-inner space-y-4"
-           style="background: var(--bg-card); border-color: var(--border-main);">
+      <!-- AUTHENTIC PHYSICAL NOTEBOOK SHEET (HOJA REAL) -->
+      <div class="rounded-3xl border shadow-2xl relative overflow-hidden transition-all"
+           style="background: var(--bg-paper); border-color: var(--border-main); box-shadow: 0 20px 50px rgba(0,0,0,0.25);">
         
-        <!-- Document Canvas Header (Exact NotionEditor Header) -->
-        <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--border-main);">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">📓</span>
-            <span class="font-black text-sm uppercase tracking-tight" style="color: var(--text-title);">
-              bitacora_01_arquitectura.cross
-            </span>
-          </div>
-          <div class="flex items-center gap-2 text-xs">
-            <span class="px-2.5 py-1 rounded-xl text-[10px] font-bold border"
-                  style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-glow);">
-              ✍️ EDIT MODE (ESCRIBIR)
-            </span>
-          </div>
+        <!-- Top Sheet Accent Ribbon & Page Clip -->
+        <div class="w-full h-3 border-b flex items-center justify-between px-6"
+             style="background: var(--bg-elevated); border-color: var(--border-main);">
+          <div class="w-20 h-1.5 rounded-full" style="background: var(--accent);"></div>
+          <div class="text-[9px] font-mono tracking-widest opacity-50 uppercase">RULED PAPER // ARCHIVAL GRADE</div>
         </div>
 
-        <!-- The Document Lines (NoteBlocks Interleaved between Text Lines) -->
-        <div id="demo-sheet-container" class="space-y-2 text-xs">
+        <!-- Sheet Flex Body: Margin Rings + Red Margin + Ruled Canvas -->
+        <div class="flex items-stretch min-h-[640px]">
           
-          <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
-               style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-title);" data-line="0">
-            <div class="flex items-center gap-2">
-              <span class="opacity-40 font-mono text-[10px]">01</span>
-              <span class="font-bold text-sm">## Morning Session // Cross-Diary Desktop & Mobile Sync</span>
-            </div>
-            <span class="text-[10px] font-bold opacity-60">Line 1</span>
+          <!-- LEFT MARGIN: BINDER HOLES (PUNCHED RINGS) -->
+          <div class="w-10 sm:w-14 flex flex-col justify-around items-center py-8 shrink-0 select-none opacity-80"
+               style="background: var(--bg-paper);">
+            <div class="binder-ring-hole"></div>
+            <div class="binder-ring-hole"></div>
+            <div class="binder-ring-hole"></div>
+            <div class="binder-ring-hole"></div>
+            <div class="binder-ring-hole"></div>
+            <div class="binder-ring-hole"></div>
           </div>
 
-          <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
-               style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="1">
-            <div class="flex items-center gap-2">
-              <span class="opacity-40 font-mono text-[10px]">02</span>
-              <span>All encrypted partition vaults loaded smoothly with decoy note triggers active.</span>
-            </div>
-            <span class="text-[10px] font-bold opacity-60">Line 2</span>
-          </div>
+          <!-- VERTICAL RED MARGIN LINE -->
+          <div class="notebook-red-margin shrink-0"></div>
 
-          <!-- THE AUTHENTIC SingleNoteWidgetCard NOTEBLOCK -->
-          <div id="interactive-noteblock"
-               class="line-row p-4 rounded-2xl border-2 space-y-3 shadow-xl transition-all duration-300"
-               style="background: var(--bg-paper); border-color: var(--accent);">
+          <!-- MAIN RULED PAPER BODY -->
+          <div class="notebook-ruled-paper flex-1 p-4 sm:p-8 space-y-4">
             
-            <!-- Real NoteBlock Header: Badge & Brutalist Controls -->
-            <div class="flex items-center justify-between pb-2 border-b" style="border-color: var(--border-main);">
-              <div class="flex items-center gap-2 text-xs font-mono font-black uppercase tracking-wider"
-                   style="color: var(--accent);">
-                <span>☑️</span>
-                <span data-i18n="demo.blockName">CHECKLIST NOTEBLOCK</span>
-                <span class="text-[9px] px-2 py-0.5 rounded-full text-black font-bold" style="background: var(--accent);">
-                  WIDGET
+            <!-- Real Handwritten Sheet Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 mb-2 gap-2"
+                 style="border-color: var(--border-main);">
+              <div>
+                <div class="font-hand text-2xl sm:text-3xl font-bold tracking-wide" style="color: var(--text-hand);">
+                  Tuesday, November 10, 2026 — Daily Notes
+                </div>
+                <div class="font-mono text-[10px] tracking-wider uppercase opacity-60">
+                  PAGE 01 // ARCHITECTURE &amp; PHYSICAL WORKFLOW
+                </div>
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs">
+                <span class="px-2.5 py-1 rounded-xl text-[10px] font-bold border"
+                      style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-glow);">
+                  ✍️ ESCRIBIR (LINE ENGINE)
                 </span>
               </div>
-
-              <!-- Controls exactly matching NotionEditor.tsx SingleNoteWidgetCard -->
-              <div class="flex items-center gap-1.5 text-xs">
-                <button type="button" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Word wrap: Float left">⫷</button>
-                <button type="button" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Word wrap: Float right">⫸</button>
-                <button id="btn-demo-shape" type="button" onclick="toggleBlockShape()"
-                        class="px-2 py-0.5 rounded-lg border text-[11px] font-bold hover:bg-black/10 transition-all flex items-center gap-1"
-                        title="Switch between Wide banner and True 1:1 Square layout">
-                  <span id="btn-demo-shape-icon">▭</span> <span id="btn-demo-shape-label">Wide</span>
-                </button>
-                <button type="button" onclick="stepBlock('up')"
-                        class="px-2 py-0.5 rounded-lg border text-xs font-black transition-all hover:scale-105 active:scale-95"
-                        style="background: var(--accent); color: #000000;"
-                        title="Move Up 1 Line">
-                  ▲ Up
-                </button>
-                <button type="button" onclick="stepBlock('down')"
-                        class="px-2 py-0.5 rounded-lg border text-xs font-black transition-all hover:scale-105 active:scale-95"
-                        style="background: var(--accent); color: #000000;"
-                        title="Move Down 1 Line">
-                  ▼ Down
-                </button>
-                <button type="button" class="p-1 rounded-lg text-red-500 hover:bg-red-500/20 text-xs" title="Delete block">✕</button>
-              </div>
             </div>
 
-            <!-- Authentic Checklist Items with Toggle Strikethrough -->
-            <div id="demo-checklist-items" class="space-y-1.5 font-sans text-xs">
-              <div onclick="this.classList.toggle('task-checked')"
-                   class="flex items-center justify-between p-2 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
-                   style="background: var(--bg-card); border-color: var(--border-main);">
-                <div class="flex items-center gap-2">
-                  <input type="checkbox" checked class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
-                  <span class="line-through opacity-50 font-medium" style="color: var(--text-title);" data-i18n="demo.check1">
-                    Scroll mouse wheel over folders or extensions to rotate tabs
-                  </span>
+            <!-- THE DOCUMENT LINES CONTAINER (INTERLEAVED NOTEBLOCKS BETWEEN RULED LINES) -->
+            <div id="demo-sheet-container" class="space-y-3 font-sans text-xs">
+              
+              <!-- Ruled Line 1 -->
+              <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
+                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-title);" data-line="0">
+                <div class="flex items-center gap-3">
+                  <span class="opacity-40 font-mono text-[11px]">01</span>
+                  <span class="font-bold text-sm">## Morning Session // Antigravity &amp; Cross-Diary Sync</span>
                 </div>
-                <span class="text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
+                <span class="font-mono text-[10px] font-bold opacity-60">Line 1</span>
               </div>
 
-              <div onclick="this.classList.toggle('task-checked')"
-                   class="flex items-center justify-between p-2 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
-                   style="background: var(--bg-card); border-color: var(--border-main);">
-                <div class="flex items-center gap-2">
-                  <input type="checkbox" checked class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
-                  <span class="line-through opacity-50 font-medium" style="color: var(--text-title);" data-i18n="demo.check2">
-                    Click any empty line in the document to write freely
-                  </span>
+              <!-- Ruled Line 2 -->
+              <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
+                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="1">
+                <div class="flex items-center gap-3">
+                  <span class="opacity-40 font-mono text-[11px]">02</span>
+                  <span>All encrypted partition vaults loaded smoothly with decoy note triggers active.</span>
                 </div>
-                <span class="text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
+                <span class="font-mono text-[10px] font-bold opacity-60">Line 2</span>
               </div>
 
-              <div onclick="this.classList.toggle('task-checked')"
-                   class="flex items-center justify-between p-2 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
-                   style="background: var(--bg-card); border-color: var(--accent);">
-                <div class="flex items-center gap-2">
-                  <input type="checkbox" class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
-                  <span class="font-bold" style="color: var(--text-title);" data-i18n="demo.check3">
-                    Insert interactive NoteBlocks via menu or by typing /
-                  </span>
+              <!-- REAL FUNCTIONAL NOTEBLOCK 1: CHECKLIST NOTEBLOCK -->
+              <div id="interactive-noteblock"
+                   class="line-row p-4 rounded-2xl border-2 space-y-3 shadow-xl transition-all duration-300"
+                   style="background: var(--bg-paper); border-color: var(--accent);">
+                
+                <!-- Real NoteBlock Header: Badge & Brutalist Controls -->
+                <div class="flex items-center justify-between pb-2 border-b" style="border-color: var(--border-main);">
+                  <div class="flex items-center gap-2 text-xs font-mono font-black uppercase tracking-wider"
+                       style="color: var(--accent);">
+                    <span>☑️</span>
+                    <span data-i18n="demo.blockName">CHECKLIST NOTEBLOCK</span>
+                    <span class="text-[9px] px-2 py-0.5 rounded-full text-black font-bold" style="background: var(--accent);">
+                      WIDGET
+                    </span>
+                  </div>
+
+                  <!-- Controls exactly matching NotionEditor.tsx SingleNoteWidgetCard -->
+                  <div class="flex items-center gap-1.5 text-xs font-mono">
+                    <button type="button" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Word wrap: Float left">⫷</button>
+                    <button type="button" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Word wrap: Float right">⫸</button>
+                    <button id="btn-demo-shape" type="button" onclick="toggleBlockShape()"
+                            class="px-2 py-0.5 rounded-lg border text-[11px] font-bold hover:bg-black/10 transition-all flex items-center gap-1"
+                            title="Switch between Wide banner and True 1:1 Square layout">
+                      <span id="btn-demo-shape-icon">▭</span> <span id="btn-demo-shape-label">Wide</span>
+                    </button>
+                    <button type="button" onclick="stepBlock('up')"
+                            class="px-2 py-0.5 rounded-lg border text-xs font-black transition-all hover:scale-105 active:scale-95"
+                            style="background: var(--accent); color: #000000;"
+                            title="Move Up 1 Line">
+                      ▲ Up
+                    </button>
+                    <button type="button" onclick="stepBlock('down')"
+                            class="px-2 py-0.5 rounded-lg border text-xs font-black transition-all hover:scale-105 active:scale-95"
+                            style="background: var(--accent); color: #000000;"
+                            title="Move Down 1 Line">
+                      ▼ Down
+                    </button>
+                    <button type="button" class="p-1 rounded-lg text-red-500 hover:bg-red-500/20 text-xs" title="Delete block">✕</button>
+                  </div>
                 </div>
-                <span class="text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
+
+                <!-- Authentic Checklist Items with Toggle Strikethrough -->
+                <div id="demo-checklist-items" class="space-y-1.5 font-sans text-xs">
+                  <div onclick="this.classList.toggle('task-checked')"
+                       class="flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
+                       style="background: var(--bg-card); border-color: var(--border-main);">
+                    <div class="flex items-center gap-2.5">
+                      <input type="checkbox" checked class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
+                      <span class="line-through opacity-50 font-medium" style="color: var(--text-title);" data-i18n="demo.check1">
+                        Scroll mouse wheel over folders or extensions to rotate tabs
+                      </span>
+                    </div>
+                    <span class="text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
+                  </div>
+
+                  <div onclick="this.classList.toggle('task-checked')"
+                       class="flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
+                       style="background: var(--bg-card); border-color: var(--border-main);">
+                    <div class="flex items-center gap-2.5">
+                      <input type="checkbox" checked class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
+                      <span class="line-through opacity-50 font-medium" style="color: var(--text-title);" data-i18n="demo.check2">
+                        Click any empty line in the document to write freely
+                      </span>
+                    </div>
+                    <span class="text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
+                  </div>
+
+                  <div onclick="this.classList.toggle('task-checked')"
+                       class="flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
+                       style="background: var(--bg-card); border-color: var(--accent);">
+                    <div class="flex items-center gap-2.5">
+                      <input type="checkbox" class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
+                      <span class="font-bold" style="color: var(--text-title);" data-i18n="demo.check3">
+                        Insert interactive NoteBlocks via menu or by typing /
+                      </span>
+                    </div>
+                    <span class="text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
+                  </div>
+                </div>
+
+                <!-- Authentic Add Task Form -->
+                <form onsubmit="addDemoTask(event)" class="flex items-center gap-2 pt-1 font-sans">
+                  <input id="demo-new-task-input" type="text" placeholder="Type new task and press Add..."
+                         class="flex-1 px-3 py-1.5 rounded-xl text-xs border focus:outline-none"
+                         style="background: var(--bg-card); color: var(--text-title); border-color: var(--border-main);" />
+                  <button type="submit"
+                          class="px-4 py-1.5 rounded-xl text-xs font-bold transition-transform hover:scale-105 active:scale-95"
+                          style="background: var(--accent); color: #000000;">
+                    + Add Task
+                  </button>
+                </form>
+
+              </div>
+
+              <!-- Ruled Line 4 -->
+              <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
+                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="3">
+                <div class="flex items-center gap-3">
+                  <span class="opacity-40 font-mono text-[11px]">04</span>
+                  <span>Remember to commit all extensions to the local R2 backup cache before shutdown.</span>
+                </div>
+                <span class="font-mono text-[10px] font-bold opacity-60">Line 4</span>
+              </div>
+
+              <!-- Empty Blank Line (Crucial to demonstrate NoteBlocks DO NOT skip!) -->
+              <div class="line-row p-3 rounded-xl border italic flex items-center justify-between transition-all"
+                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-muted);" data-line="4">
+                <div class="flex items-center gap-3">
+                  <span class="opacity-40 font-mono text-[11px]">05</span>
+                  <span>[Empty Blank Line — NoteBlock stops right here without skipping!]</span>
+                </div>
+                <span class="font-mono text-[10px] font-bold opacity-60">Line 5</span>
+              </div>
+
+              <!-- REAL FUNCTIONAL NOTEBLOCKS: POMODORO & INTERACTIVE DOODLE SKETCH CANVAS -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- 2. Real Functional Pomodoro NoteBlock -->
+                <div class="p-4 rounded-2xl border-2 space-y-3 shadow-md"
+                     style="background: var(--bg-card); border-color: var(--border-main);">
+                  <div class="flex items-center justify-between pb-1.5 border-b" style="border-color: var(--border-main);">
+                    <div class="flex items-center gap-2 font-mono text-xs font-bold" style="color: var(--accent);">
+                      <span>⏱</span>
+                      <span>POMODORO FOCUS // 25 MIN</span>
+                    </div>
+                    <span class="text-[9px] px-2 py-0.5 rounded font-mono font-bold bg-green-500/20 text-green-400">ACTIVE HUD</span>
+                  </div>
+                  <div class="text-center py-2">
+                    <div id="nb-timer-display" class="text-3xl font-black font-mono tracking-wider" style="color: var(--text-title);">
+                      25:00
+                    </div>
+                    <div class="text-[10px] font-mono opacity-60 mt-1">Deep Work Sprint Session</div>
+                  </div>
+                  <div class="flex items-center justify-center gap-2 pt-1 font-mono">
+                    <button id="nb-timer-toggle-btn" onclick="toggleNotebookTimer()"
+                            class="px-4 py-1.5 rounded-xl text-xs font-bold text-black transition-transform hover:scale-105 active:scale-95"
+                            style="background: var(--accent);">
+                      ▶ Start
+                    </button>
+                    <button onclick="resetNotebookTimer()"
+                            class="px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors hover:bg-black/10"
+                            style="color: var(--text-title); border-color: var(--border-main);">
+                      ↺ Reset
+                    </button>
+                  </div>
+                </div>
+
+                <!-- 3. Real Functional Sketch / Doodle Canvas NoteBlock -->
+                <div class="p-4 rounded-2xl border-2 space-y-3 shadow-md"
+                     style="background: var(--bg-card); border-color: var(--border-main);">
+                  <div class="flex items-center justify-between pb-1.5 border-b" style="border-color: var(--border-main);">
+                    <div class="flex items-center gap-2 font-mono text-xs font-bold" style="color: var(--accent);">
+                      <span>✏️</span>
+                      <span>SKETCH DOODLE NOTEBLOCK</span>
+                    </div>
+                    <button onclick="clearSketchCanvas()" class="text-[10px] font-mono px-2 py-0.5 rounded hover:bg-red-500/20 text-red-500">
+                      ↺ Clear
+                    </button>
+                  </div>
+                  
+                  <!-- HTML5 Canvas for doodling on notebook -->
+                  <div class="rounded-xl border overflow-hidden flex items-center justify-center"
+                       style="background: var(--bg-paper); border-color: var(--border-main);">
+                    <canvas id="notebook-sketch-canvas" width="280" height="110" class="w-full cursor-crosshair touch-none"></canvas>
+                  </div>
+
+                  <div class="flex items-center justify-between text-[10px] font-mono" style="color: var(--text-muted);">
+                    <div class="flex items-center gap-1.5">
+                      <span>Pen:</span>
+                      <button onclick="setSketchColor('var(--accent)')" class="w-3.5 h-3.5 rounded-full border" style="background: var(--accent);"></button>
+                      <button onclick="setSketchColor('#10B981')" class="w-3.5 h-3.5 rounded-full bg-emerald-500"></button>
+                      <button onclick="setSketchColor('#EF4444')" class="w-3.5 h-3.5 rounded-full bg-red-500"></button>
+                    </div>
+                    <span>Doodle with mouse / touch!</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Ruled Line 6 -->
+              <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
+                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="5">
+                <div class="flex items-center gap-3">
+                  <span class="opacity-40 font-mono text-[11px]">06</span>
+                  <span>Night session: deep focus achieved with Lo-Fi Pulse Audio waveform.</span>
+                </div>
+                <span class="font-mono text-[10px] font-bold opacity-60">Line 6</span>
+              </div>
+
+            </div>
+
+            <!-- Real-Time Stepper Status Bar -->
+            <div class="pt-4 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
+                 style="border-color: var(--border-main);">
+              <div id="demo-pos-status" class="font-mono font-bold px-3 py-1.5 rounded-xl border shadow-sm"
+                   style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-glow);">
+                📍 NoteBlock Position: Line 3 of 6 (Steps strictly 1 line per click)
+              </div>
+              <div class="font-hand text-lg" style="color: var(--text-hand);" data-i18n="demo.handTip">
+                Try moving it over the blank Line 5 — notice it steps one line at a time! 📌
               </div>
             </div>
 
-            <!-- Authentic Add Task Form -->
-            <form onsubmit="addDemoTask(event)" class="flex items-center gap-2 pt-1 font-sans">
-              <input id="demo-new-task-input" type="text" placeholder="Type new task and press Add..."
-                     class="flex-1 px-3 py-1.5 rounded-xl text-xs border focus:outline-none"
-                     style="background: var(--bg-card); color: var(--text-title); border-color: var(--border-main);" />
-              <button type="submit"
-                      class="px-4 py-1.5 rounded-xl text-xs font-bold transition-transform hover:scale-105 active:scale-95"
-                      style="background: var(--accent); color: #000000;">
-                + Add Task
-              </button>
-            </form>
-
           </div>
 
-          <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
-               style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="3">
-            <div class="flex items-center gap-2">
-              <span class="opacity-40 font-mono text-[10px]">04</span>
-              <span>Remember to commit all extensions to the local R2 backup cache before shutdown.</span>
-            </div>
-            <span class="text-[10px] font-bold opacity-60">Line 4</span>
-          </div>
-
-          <!-- Empty Blank Line (Crucial to demonstrate it does NOT skip!) -->
-          <div class="line-row p-3 rounded-xl border italic flex items-center justify-between transition-all"
-               style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-muted);" data-line="4">
-            <div class="flex items-center gap-2">
-              <span class="opacity-40 font-mono text-[10px]">05</span>
-              <span>[Empty Blank Line — NoteBlock stops right here without skipping!]</span>
-            </div>
-            <span class="text-[10px] font-bold opacity-60">Line 5</span>
-          </div>
-
-          <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
-               style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="5">
-            <div class="flex items-center gap-2">
-              <span class="opacity-40 font-mono text-[10px]">06</span>
-              <span>Night session: deep focus achieved with Lo-Fi Pulse Audio waveform.</span>
-            </div>
-            <span class="text-[10px] font-bold opacity-60">Line 6</span>
-          </div>
-
-        </div>
-
-        <!-- Real-Time Stepper Status Bar -->
-        <div class="pt-3 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
-             style="border-color: var(--border-main);">
-          <div id="demo-pos-status" class="font-mono font-bold px-3 py-1.5 rounded-xl border"
-               style="background: var(--bg-elevated); color: var(--accent); border-color: var(--border-glow);">
-            📍 NoteBlock Position: Line 3 of 6 (Steps strictly 1 line per click)
-          </div>
-          <div class="font-hand text-base" style="color: var(--text-hand);" data-i18n="demo.handTip">
-            Try moving it over the blank Line 5 — notice it steps one line at a time! 📌
-          </div>
         </div>
 
       </div>
@@ -1412,40 +1734,28 @@
       }, 1000);
     }
 
-    // 3. DESKTOP DYNAMIC ISLAND SIMULATOR (DOCKED VS EXPANDED)
-    let currentIslandState = 'expanded';
-    function setIslandState(state) {
-      currentIslandState = state;
-      const dockedNotch = document.getElementById('island-docked-notch');
-      const expandedContainer = document.getElementById('island-expanded-container');
-      const btnDocked = document.getElementById('btn-docked');
-      const btnExpanded = document.getElementById('btn-expanded');
-
-      if (!dockedNotch || !expandedContainer) return;
-
-      if (state === 'docked') {
-        dockedNotch.classList.remove('hidden');
-        expandedContainer.classList.add('hidden');
-        if (btnDocked && btnExpanded) {
-          btnDocked.style.background = 'var(--accent)';
-          btnDocked.style.color = '#000000';
-          btnDocked.style.opacity = '1';
-          btnExpanded.style.background = 'transparent';
-          btnExpanded.style.color = 'inherit';
-          btnExpanded.style.opacity = '0.7';
+    // 3. EXTERNAL EXTENSIONS COMPANION TAB SWITCHER (PULSE, CHRONO, CALC, VAULT, CLIP)
+    function switchCompanionTab(tabName) {
+      const tabs = ['pulse', 'chrono', 'calc', 'vault', 'clip'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`comp-tab-btn-${t}`);
+        const panel = document.getElementById(`comp-panel-${t}`);
+        if (btn) {
+          if (t === tabName) {
+            btn.style.background = 'var(--accent)';
+            btn.style.color = '#000000';
+            btn.style.opacity = '1';
+          } else {
+            btn.style.background = 'transparent';
+            btn.style.color = 'inherit';
+            btn.style.opacity = '0.6';
+          }
         }
-      } else {
-        dockedNotch.classList.add('hidden');
-        expandedContainer.classList.remove('hidden');
-        if (btnDocked && btnExpanded) {
-          btnExpanded.style.background = 'var(--accent)';
-          btnExpanded.style.color = '#000000';
-          btnExpanded.style.opacity = '1';
-          btnDocked.style.background = 'transparent';
-          btnDocked.style.color = 'inherit';
-          btnDocked.style.opacity = '0.7';
+        if (panel) {
+          if (t === tabName) panel.classList.remove('hidden');
+          else panel.classList.add('hidden');
         }
-      }
+      });
     }
 
     // 4. REAL NOTEBLOCK CHECKLIST TASK ADDITION & INTERACTION
@@ -1461,11 +1771,11 @@
 
       const div = document.createElement('div');
       div.onclick = function() { this.classList.toggle('task-checked'); };
-      div.className = "flex items-center justify-between p-2 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]";
+      div.className = "flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]";
       div.style.background = "var(--bg-card)";
       div.style.borderColor = "var(--border-main)";
       div.innerHTML = `
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2.5">
           <input type="checkbox" class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
           <span class="font-medium" style="color: var(--text-title);">${text}</span>
         </div>
@@ -1475,7 +1785,7 @@
       input.value = '';
     }
 
-    // 5. NOTEBLOCK LINE-BY-LINE STEPPER (DEMO)
+    // 5. NOTEBLOCK LINE-BY-LINE STEPPER (DEMO ON REAL RULED PAPER)
     function stepBlock(direction) {
       const container = document.getElementById('demo-sheet-container');
       const block = document.getElementById('interactive-noteblock');
@@ -1510,7 +1820,7 @@
 
       if (isBlockSquare) {
         block.classList.remove('w-full');
-        block.classList.add('aspect-square', 'w-[250px]', 'max-w-full', 'mx-auto', 'overflow-hidden');
+        block.classList.add('aspect-square', 'w-[230px]', 'max-w-full', 'mx-auto', 'overflow-hidden');
         if (label) label.innerText = 'Square';
         if (icon) icon.innerText = '⬝';
         if (btn) {
@@ -1518,7 +1828,7 @@
           btn.style.color = '#000000';
         }
       } else {
-        block.classList.remove('aspect-square', 'w-[250px]', 'max-w-full', 'mx-auto', 'overflow-hidden');
+        block.classList.remove('aspect-square', 'w-[230px]', 'max-w-full', 'mx-auto', 'overflow-hidden');
         block.classList.add('w-full');
         if (label) label.innerText = 'Wide';
         if (icon) icon.innerText = '▭';
@@ -1527,6 +1837,122 @@
           btn.style.color = 'inherit';
         }
       }
+    }
+
+    // 7. REAL POMODORO TIMER NOTEBLOCK (ON NOTEBOOK SHEET)
+    let notebookTimerSec = 25 * 60;
+    let notebookTimerInterval = null;
+    let isNotebookTimerRunning = false;
+
+    function toggleNotebookTimer() {
+      const btn = document.getElementById('nb-timer-toggle-btn');
+      if (isNotebookTimerRunning) {
+        clearInterval(notebookTimerInterval);
+        notebookTimerInterval = null;
+        isNotebookTimerRunning = false;
+        if (btn) btn.innerText = '▶ Start';
+      } else {
+        isNotebookTimerRunning = true;
+        if (btn) btn.innerText = '⏸ Pause';
+        notebookTimerInterval = setInterval(() => {
+          if (notebookTimerSec > 0) {
+            notebookTimerSec--;
+            updateNotebookTimerDisplay();
+          } else {
+            clearInterval(notebookTimerInterval);
+            notebookTimerInterval = null;
+            isNotebookTimerRunning = false;
+            if (btn) btn.innerText = '▶ Start';
+          }
+        }, 1000);
+      }
+    }
+
+    function resetNotebookTimer() {
+      clearInterval(notebookTimerInterval);
+      notebookTimerInterval = null;
+      isNotebookTimerRunning = false;
+      notebookTimerSec = 25 * 60;
+      const btn = document.getElementById('nb-timer-toggle-btn');
+      if (btn) btn.innerText = '▶ Start';
+      updateNotebookTimerDisplay();
+    }
+
+    function updateNotebookTimerDisplay() {
+      const el = document.getElementById('nb-timer-display');
+      if (!el) return;
+      const m = Math.floor(notebookTimerSec / 60).toString().padStart(2, '0');
+      const s = (notebookTimerSec % 60).toString().padStart(2, '0');
+      el.innerText = `${m}:${s}`;
+    }
+
+    // 8. INTERACTIVE SKETCH / DOODLE CANVAS NOTEBLOCK (ON NOTEBOOK SHEET)
+    let sketchDrawing = false;
+    let currentSketchColor = 'var(--accent)';
+
+    function setupSketchCanvas() {
+      const canvas = document.getElementById('notebook-sketch-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.strokeStyle = '#F59E0B';
+      ctx.lineWidth = 2.5;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return {
+          x: (clientX - rect.left) * (canvas.width / rect.width),
+          y: (clientY - rect.top) * (canvas.height / rect.height)
+        };
+      }
+
+      const startDraw = (e) => {
+        sketchDrawing = true;
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+        e.preventDefault();
+      };
+
+      const draw = (e) => {
+        if (!sketchDrawing) return;
+        const pos = getPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        e.preventDefault();
+      };
+
+      const stopDraw = () => {
+        if (sketchDrawing) {
+          ctx.closePath();
+          sketchDrawing = false;
+        }
+      };
+
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', draw);
+      window.addEventListener('mouseup', stopDraw);
+
+      canvas.addEventListener('touchstart', startDraw, { passive: false });
+      canvas.addEventListener('touchmove', draw, { passive: false });
+      window.addEventListener('touchend', stopDraw);
+    }
+
+    function clearSketchCanvas() {
+      const canvas = document.getElementById('notebook-sketch-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function setSketchColor(color) {
+      const canvas = document.getElementById('notebook-sketch-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.strokeStyle = color;
     }
 
     // 4. FREELY DRAGGABLE STICKERS (REAL IN-APP STICKER PACK)
@@ -1606,8 +2032,11 @@
       // Start automatic theme rotation
       startAutoThemeInterval();
 
-      // Initialize desktop island simulator to expanded dual-panel mode
-      setIslandState('expanded');
+      // Initialize extensions companion hub to Pulse Audio
+      switchCompanionTab('pulse');
+
+      // Initialize notebook sketch canvas
+      setupSketchCanvas();
 
       // Enable dragging for all built-in stickers
       setupDraggableStickers();
