@@ -7,7 +7,7 @@
   <meta name="description" content="Cross-Diary: The tactile personal journal with a desktop Dynamic Island HUD for Windows and Android, real-time sync, line-by-line modular NoteBlocks, and infinite aesthetic customization.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;600;800&family=Playfair+Display:ital,wght@0,600;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Comfortaa:wght@700&family=JetBrains+Mono:wght@400;600;800&family=Orbitron:wght@800;900&family=Playfair+Display:ital,wght@0,600;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script>
@@ -62,6 +62,7 @@
       --pill-shadow: 0 6px 20px -2px rgba(245, 158, 11, 0.4);
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-island-title: 'Plus Jakarta Sans', sans-serif;
     }
 
     /* 2. KAWAII PASTEL // Cozy Bullet Journal & Washi Tape */
@@ -96,6 +97,7 @@
       --pill-shadow: 0 6px 20px -2px rgba(255, 93, 143, 0.4);
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-island-title: 'Comfortaa', cursive, sans-serif;
     }
 
     /* 3. VINTAGE PARCHMENT // Antique Leather & Wax Seal */
@@ -130,6 +132,7 @@
       --pill-shadow: 0 6px 20px -2px rgba(184, 134, 11, 0.35);
       --font-heading: 'Playfair Display', serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-island-title: 'Playfair Display', Georgia, serif;
     }
 
     /* 4. NORDIC MINIMAL // Architectural Moleskine Grid */
@@ -165,6 +168,7 @@
       --pill-shadow: 0 6px 20px -2px rgba(255, 69, 0, 0.35);
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-island-title: 'JetBrains Mono', monospace;
     }
 
     /* 5. MIDNIGHT SYNTHWAVE // Neon Sunset 80s Journal */
@@ -199,6 +203,7 @@
       --pill-shadow: 0 0 22px rgba(255, 0, 127, 0.5);
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-island-title: 'Orbitron', monospace, sans-serif;
     }
 
     body {
@@ -238,21 +243,27 @@
     }
 
     /* Entire NoteBlocks Zone View Mode (Clean Physical Journal Reading) */
+    #noteblocks-section.section-view-mode .nb-header-steppers {
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
     #noteblocks-section.section-view-mode .nb-edit-only {
       display: none !important;
     }
     #noteblocks-section.section-view-mode .nb-view-only {
       display: flex !important;
     }
-    #noteblocks-section.section-view-mode .line-row {
-      background: transparent !important;
+    #noteblocks-section.section-view-mode .line-row.text-line {
       border-color: transparent !important;
-      box-shadow: none !important;
       padding-top: 0.25rem !important;
       padding-bottom: 0.25rem !important;
     }
     #noteblocks-section.section-view-mode .line-row .line-number-badge,
     #noteblocks-section.section-view-mode .line-row .line-tag-badge {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
       display: none !important;
     }
     #noteblocks-section.section-view-mode #interactive-noteblock {
@@ -592,8 +603,8 @@
           <!-- Headline -->
           <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1]" style="color: var(--text-title);">
             <span data-i18n="hero.titleLead">Your Thoughts, Docked on</span><br>
-            <span class="text-transparent bg-clip-text"
-                  style="background-image: linear-gradient(135deg, var(--accent), var(--accent-secondary));">
+            <span class="text-transparent bg-clip-text transition-all duration-300"
+                  style="background-image: linear-gradient(135deg, var(--accent), var(--accent-secondary)); font-family: var(--font-island-title);">
               <span data-i18n="hero.titleAccent">Dynamic Island</span>
             </span>
             <span class="font-hand font-normal ml-2 block sm:inline text-2xl sm:text-4xl" style="color: var(--text-hand);" data-i18n="hero.handAnnotation">
@@ -1271,34 +1282,34 @@
         </div>
 
         <!-- Master View/Write Segmented Pill & Line Stepper -->
-        <div class="flex flex-wrap items-center gap-3">
+        <div class="flex items-center gap-3 shrink-0">
           
-          <!-- Master Mode Toggle Pill for the WHOLE Zone -->
-          <div class="flex items-center p-1 rounded-2xl border shadow-sm font-mono text-xs"
+          <!-- Master Mode Toggle Pill for the WHOLE Zone - LOCKED SIZES SO IT NEVER JUMPS -->
+          <div class="inline-flex items-center p-1 rounded-2xl border shadow-sm font-mono text-xs select-none shrink-0"
                style="background: var(--bg-card); border-color: var(--border-main);">
             <button id="btn-master-mode-write" type="button" onclick="setNotebookZoneMode('write')"
-                    class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-bold transition-all shadow-sm"
+                    class="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl font-bold transition-all shadow-sm w-32"
                     style="background: var(--accent); color: var(--accent-fg);">
               <span>✍️</span> <span data-i18n="demo.modeWrite">Write Mode</span>
             </button>
             <button id="btn-master-mode-view" type="button" onclick="setNotebookZoneMode('view')"
-                    class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-bold transition-all opacity-60 hover:opacity-100"
+                    class="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl font-bold transition-all opacity-60 hover:opacity-100 w-32"
                     style="color: var(--text-title);">
               <span>👁️</span> <span data-i18n="demo.modeView">View Mode</span>
             </button>
           </div>
 
-          <!-- Line Steppers (Hidden in View Mode via .nb-edit-only) -->
-          <div class="nb-edit-only flex items-center gap-1.5">
+          <!-- Line Steppers (Smooth visibility toggle: Mode Pill position is 100% frozen) -->
+          <div class="nb-header-steppers flex items-center gap-1.5 shrink-0 transition-opacity duration-200">
             <button type="button" onclick="stepBlock('up')"
                     class="px-3.5 py-2 rounded-xl font-mono text-xs font-black uppercase flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 border shadow-sm"
                     style="background: var(--accent); color: var(--accent-fg); border-color: var(--border-glow);">
-              ▲ <span data-i18n="demo.btnUp">Move Up 1 Line</span>
+              ▲ <span data-i18n="demo.btnUp">Move Up</span>
             </button>
             <button type="button" onclick="stepBlock('down')"
                     class="px-3.5 py-2 rounded-xl font-mono text-xs font-black uppercase flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 border shadow-sm"
                     style="background: var(--accent); color: var(--accent-fg); border-color: var(--border-glow);">
-              ▼ <span data-i18n="demo.btnDown">Move Down 1 Line</span>
+              ▼ <span data-i18n="demo.btnDown">Move Down</span>
             </button>
           </div>
 
@@ -1356,187 +1367,157 @@
             </div>
 
             <!-- THE DOCUMENT LINES CONTAINER (INTERLEAVED NOTEBLOCKS BETWEEN RULED LINES) -->
-            <div id="demo-sheet-container" class="space-y-3 font-sans text-xs">
+            <div id="demo-sheet-container" class="space-y-2 font-sans text-xs">
               
               <!-- Ruled Line 1 -->
-              <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
-                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-title);" data-line="0">
+              <div class="line-row text-line py-2 px-3 rounded-lg flex items-center justify-between border-b border-dashed border-black/10 dark:border-white/10 transition-colors" data-line="0">
                 <div class="flex items-center gap-3">
-                  <span class="line-number-badge opacity-40 font-mono text-[11px]">01</span>
-                  <span class="font-bold text-sm" data-i18n="demo.line1">## Morning Session // Antigravity &amp; Cross-Diary Sync</span>
+                  <span class="line-number-badge opacity-40 font-mono text-[11px] w-6">01</span>
+                  <span class="font-bold text-sm" style="color: var(--text-title);" data-i18n="demo.line1">## Morning Session // Antigravity &amp; Cross-Diary Sync</span>
                 </div>
-                <span class="line-tag-badge font-mono text-[10px] font-bold opacity-60">Line 1</span>
+                <span class="line-tag-badge font-mono text-[10px] font-bold opacity-40">Line 1</span>
               </div>
 
               <!-- Ruled Line 2 -->
-              <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
-                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="1">
+              <div class="line-row text-line py-2 px-3 rounded-lg flex items-center justify-between border-b border-dashed border-black/10 dark:border-white/10 transition-colors" data-line="1">
                 <div class="flex items-center gap-3">
-                  <span class="line-number-badge opacity-40 font-mono text-[11px]">02</span>
-                  <span data-i18n="demo.line2">All encrypted partition vaults loaded smoothly with decoy note triggers active.</span>
+                  <span class="line-number-badge opacity-40 font-mono text-[11px] w-6">02</span>
+                  <span class="text-xs" style="color: var(--text-body);" data-i18n="demo.line2">All encrypted partition vaults loaded smoothly with decoy note triggers active.</span>
                 </div>
-                <span class="line-tag-badge font-mono text-[10px] font-bold opacity-60">Line 2</span>
+                <span class="line-tag-badge font-mono text-[10px] font-bold opacity-40">Line 2</span>
               </div>
 
-              <!-- REAL FUNCTIONAL NOTEBLOCK 1: CHECKLIST NOTEBLOCK -->
+              <!-- REAL FUNCTIONAL MODULAR NOTEBLOCK (THE ONLY ELEGANT WIDGET BLOCK ON THE SHEET) -->
               <div id="interactive-noteblock"
-                   class="line-row p-4 rounded-2xl border-2 space-y-3 shadow-xl transition-all duration-300"
+                   class="line-row my-2 p-4 rounded-2xl border-2 space-y-3 shadow-lg transition-all duration-300"
                    style="background: var(--bg-paper); border-color: var(--accent);">
                 
-                <!-- Real NoteBlock Header: Badge & Controls (Controls hidden in View Mode) -->
-                <div class="flex items-center justify-between pb-2 border-b" style="border-color: var(--border-main);">
-                  <div class="flex items-center gap-2 text-xs font-mono font-black uppercase tracking-wider"
-                       style="color: var(--accent);">
-                    <span>☑️</span>
-                    <span data-i18n="demo.blockName">CHECKLIST NOTEBLOCK</span>
-                    <span class="text-[9px] px-2 py-0.5 rounded-full text-black font-bold" style="background: var(--accent);">
-                      WIDGET
+                <!-- NoteBlock Header: Widget Selector Tabs & Controls -->
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b" style="border-color: var(--border-main);">
+                  
+                  <!-- Widget Switcher Tabs (Hidden in View Mode) -->
+                  <div class="nb-edit-only flex items-center gap-1 p-0.5 rounded-xl border text-[11px] font-mono"
+                       style="background: var(--bg-surface); border-color: var(--border-color);">
+                    <button id="nb-tab-btn-checklist" type="button" onclick="switchNoteBlockTab('checklist')"
+                            class="px-2.5 py-1 rounded-lg font-bold transition-all shadow-sm"
+                            style="background: var(--accent); color: var(--accent-fg);">
+                      ☑️ Checklist
+                    </button>
+                    <button id="nb-tab-btn-timer" type="button" onclick="switchNoteBlockTab('timer')"
+                            class="px-2.5 py-1 rounded-lg opacity-70 hover:opacity-100 transition-all">
+                      ⏱ Timer
+                    </button>
+                    <button id="nb-tab-btn-sketch" type="button" onclick="switchNoteBlockTab('sketch')"
+                            class="px-2.5 py-1 rounded-lg opacity-70 hover:opacity-100 transition-all">
+                      ✏️ Sketch
+                    </button>
+                    <button id="nb-tab-btn-sheet" type="button" onclick="switchNoteBlockTab('sheet')"
+                            class="px-2.5 py-1 rounded-lg opacity-70 hover:opacity-100 transition-all">
+                      📊 Table
+                    </button>
+                  </div>
+
+                  <!-- In View Mode: Clean Widget Badge -->
+                  <div class="nb-view-only hidden items-center gap-2 font-mono text-xs font-bold" style="color: var(--accent);">
+                    <span id="nb-view-widget-badge">☑️ CHECKLIST NOTEBLOCK</span>
+                    <span class="text-[9px] px-2 py-0.5 rounded-full font-mono uppercase tracking-wider opacity-75" style="background: var(--bg-elevated);">
+                      Line 3
                     </span>
                   </div>
 
-                  <!-- Edit Controls (Hidden in View Mode via .nb-edit-only) -->
-                  <div class="nb-edit-only flex items-center gap-1.5 text-xs font-mono">
-                    <button type="button" onclick="setBlockAlignment('left')" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Word wrap: Float left">⫷</button>
-                    <button type="button" onclick="setBlockAlignment('right')" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Word wrap: Float right">⫸</button>
+                  <!-- Shape and Stepper controls inside block (Hidden in View Mode) -->
+                  <div class="nb-edit-only flex items-center gap-1 text-xs font-mono">
+                    <button type="button" onclick="setBlockAlignment('left')" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Float left">⫷</button>
+                    <button type="button" onclick="setBlockAlignment('right')" class="p-1 rounded-lg border text-[11px] hover:bg-black/10 transition-colors" title="Float right">⫸</button>
                     <button id="btn-demo-shape" type="button" onclick="toggleBlockShape()"
                             class="px-2 py-0.5 rounded-lg border text-[11px] font-bold hover:bg-black/10 transition-all flex items-center gap-1"
-                            title="Switch between Wide banner and True 1:1 Square layout">
+                            title="Switch layout">
                       <span id="btn-demo-shape-icon">▭</span> <span id="btn-demo-shape-label">Wide</span>
                     </button>
-                    <button type="button" onclick="stepBlock('up')"
-                            class="px-2 py-0.5 rounded-lg border text-xs font-black transition-all hover:scale-105 active:scale-95"
-                            style="background: var(--accent); color: var(--accent-fg);"
-                            title="Move Up 1 Line">
-                      ▲
-                    </button>
-                    <button type="button" onclick="stepBlock('down')"
-                            class="px-2 py-0.5 rounded-lg border text-xs font-black transition-all hover:scale-105 active:scale-95"
-                            style="background: var(--accent); color: var(--accent-fg);"
-                            title="Move Down 1 Line">
-                      ▼
-                    </button>
-                    <button type="button" class="p-1 rounded-lg text-red-500 hover:bg-red-500/20 text-xs" title="Delete block">✕</button>
+                    <button type="button" onclick="stepBlock('up')" class="px-2 py-0.5 rounded-lg border text-xs font-bold hover:scale-105" style="background: var(--accent); color: var(--accent-fg);" title="Move Up">▲</button>
+                    <button type="button" onclick="stepBlock('down')" class="px-2 py-0.5 rounded-lg border text-xs font-bold hover:scale-105" style="background: var(--accent); color: var(--accent-fg);" title="Move Down">▼</button>
                   </div>
 
-                  <!-- View Mode Badge (Shown only in View Mode via .nb-view-only) -->
-                  <div class="nb-view-only hidden text-[9px] font-mono font-bold tracking-wider px-2 py-0.5 rounded-full"
-                       style="background: var(--bg-elevated); color: var(--accent);">
-                    👁️ VIEW MODE
-                  </div>
                 </div>
 
-                <!-- Authentic Checklist Items with Toggle Strikethrough -->
-                <div id="demo-checklist-items" class="space-y-1.5 font-sans text-xs">
-                  <div onclick="this.classList.toggle('task-checked')"
-                       class="flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
-                       style="background: var(--bg-card); border-color: var(--border-main);">
-                    <div class="flex items-center gap-2.5">
-                      <input type="checkbox" checked class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
-                      <span class="line-through opacity-50 font-medium" style="color: var(--text-title);" data-i18n="demo.check1">
-                        Scroll mouse wheel over folders or extensions to rotate tabs
-                      </span>
-                    </div>
-                    <span onclick="event.stopPropagation(); this.parentElement.remove();" class="nb-edit-only demo-item-del-btn text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
-                  </div>
-
-                  <div onclick="this.classList.toggle('task-checked')"
-                       class="flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
-                       style="background: var(--bg-card); border-color: var(--border-main);">
-                    <div class="flex items-center gap-2.5">
-                      <input type="checkbox" checked class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
-                      <span class="line-through opacity-50 font-medium" style="color: var(--text-title);" data-i18n="demo.check2">
-                        Click any empty line in the document to write freely
-                      </span>
-                    </div>
-                    <span onclick="event.stopPropagation(); this.parentElement.remove();" class="nb-edit-only demo-item-del-btn text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
-                  </div>
-
-                  <div onclick="this.classList.toggle('task-checked')"
-                       class="flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all hover:scale-[1.01]"
-                       style="background: var(--bg-card); border-color: var(--accent);">
-                    <div class="flex items-center gap-2.5">
-                      <input type="checkbox" class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
-                      <span class="font-bold" style="color: var(--text-title);" data-i18n="demo.check3">
-                        Insert interactive NoteBlocks via menu or by typing /
-                      </span>
-                    </div>
-                    <span onclick="event.stopPropagation(); this.parentElement.remove();" class="nb-edit-only demo-item-del-btn text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
-                  </div>
-                </div>
-
-                <!-- Authentic Add Task Form (Hidden in View Mode via .nb-edit-only) -->
-                <form id="demo-add-task-form" onsubmit="addDemoTask(event)" class="nb-edit-only flex items-center gap-2 pt-1 font-sans">
-                  <input id="demo-new-task-input" type="text" placeholder="Type new task and press Add..."
-                         data-i18n-placeholder="demo.addTaskPlaceholder"
-                         class="flex-1 px-3 py-1.5 rounded-xl text-xs border focus:outline-none"
-                         style="background: var(--bg-card); color: var(--text-title); border-color: var(--border-main);" />
-                  <button type="submit"
-                          class="px-4 py-1.5 rounded-xl text-xs font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm"
-                          style="background: var(--accent); color: var(--accent-fg);">
-                    <span data-i18n="demo.addTaskBtn">+ Add Task</span>
-                  </button>
-                </form>
-
-              </div>
-
-              <!-- Ruled Line 4 -->
-              <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
-                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="3">
-                <div class="flex items-center gap-3">
-                  <span class="line-number-badge opacity-40 font-mono text-[11px]">04</span>
-                  <span data-i18n="demo.line4">Remember to commit all extensions to the local R2 backup cache before shutdown.</span>
-                </div>
-                <span class="line-tag-badge font-mono text-[10px] font-bold opacity-60">Line 4</span>
-              </div>
-
-              <!-- Empty Blank Line (Crucial to demonstrate NoteBlocks DO NOT skip!) -->
-              <div class="line-row p-3 rounded-xl border italic flex items-center justify-between transition-all"
-                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-muted);" data-line="4">
-                <div class="flex items-center gap-3">
-                  <span class="line-number-badge opacity-40 font-mono text-[11px]">05</span>
-                  <span data-i18n="demo.line5">[Empty Blank Line — NoteBlock stops right here without skipping!]</span>
-                </div>
-                <span class="line-tag-badge font-mono text-[10px] font-bold opacity-60">Line 5</span>
-              </div>
-
-              <!-- REAL FUNCTIONAL NOTEBLOCKS: 3 REPLICAS MATCHING NOTIONEDITOR.TSX -->
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                
-                <!-- 2. Real Functional Pomodoro NoteBlock with Direct Numeric Input -->
-                <div class="p-4 rounded-2xl border-2 space-y-3 shadow-md flex flex-col justify-between"
-                     style="background: var(--bg-card); border-color: var(--border-main);">
-                  <div>
-                    <div class="flex items-center justify-between pb-1.5 border-b" style="border-color: var(--border-main);">
-                      <div class="flex items-center gap-2 font-mono text-xs font-bold" style="color: var(--accent);">
-                        <span>⏱</span>
-                        <span data-i18n="demo.pomoTitle">FOCUS // TIMER</span>
+                <!-- 1. CHECKLIST PANEL -->
+                <div id="nb-panel-checklist" class="space-y-2">
+                  <div id="demo-checklist-items" class="space-y-1.5 font-sans text-xs">
+                    <div onclick="this.classList.toggle('task-checked')"
+                         class="flex items-center justify-between p-2 rounded-xl border cursor-pointer transition-all hover:scale-[1.005]"
+                         style="background: var(--bg-card); border-color: var(--border-main);">
+                      <div class="flex items-center gap-2.5">
+                        <input type="checkbox" checked class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
+                        <span class="line-through opacity-50 font-medium" style="color: var(--text-title);" data-i18n="demo.check1">
+                          Scroll mouse wheel over folders or extensions to rotate tabs
+                        </span>
                       </div>
-                      <span class="text-[9px] px-2 py-0.5 rounded font-mono font-bold" style="background: var(--bg-pill); color: var(--accent-fg);">ACTIVE</span>
+                      <span onclick="event.stopPropagation(); this.parentElement.remove();" class="nb-edit-only demo-item-del-btn text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
                     </div>
-                    <div class="text-center py-2">
-                      <div id="nb-timer-display" class="text-3xl font-black font-mono tracking-wider" style="color: var(--accent);">
+
+                    <div onclick="this.classList.toggle('task-checked')"
+                         class="flex items-center justify-between p-2 rounded-xl border cursor-pointer transition-all hover:scale-[1.005]"
+                         style="background: var(--bg-card); border-color: var(--border-main);">
+                      <div class="flex items-center gap-2.5">
+                        <input type="checkbox" checked class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
+                        <span class="line-through opacity-50 font-medium" style="color: var(--text-title);" data-i18n="demo.check2">
+                          Click any empty line in the document to write freely
+                        </span>
+                      </div>
+                      <span onclick="event.stopPropagation(); this.parentElement.remove();" class="nb-edit-only demo-item-del-btn text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
+                    </div>
+
+                    <div onclick="this.classList.toggle('task-checked')"
+                         class="flex items-center justify-between p-2 rounded-xl border cursor-pointer transition-all hover:scale-[1.005]"
+                         style="background: var(--bg-card); border-color: var(--accent);">
+                      <div class="flex items-center gap-2.5">
+                        <input type="checkbox" class="w-4 h-4 accent-orange-500 rounded pointer-events-none">
+                        <span class="font-bold" style="color: var(--text-title);" data-i18n="demo.check3">
+                          Insert interactive NoteBlocks via menu or by typing /
+                        </span>
+                      </div>
+                      <span onclick="event.stopPropagation(); this.parentElement.remove();" class="nb-edit-only demo-item-del-btn text-xs opacity-40 hover:opacity-100 text-red-500">✕</span>
+                    </div>
+                  </div>
+
+                  <!-- Authentic Add Task Form -->
+                  <form id="demo-add-task-form" onsubmit="addDemoTask(event)" class="nb-edit-only flex items-center gap-2 pt-1 font-sans">
+                    <input id="demo-new-task-input" type="text" placeholder="Type new task and press Add..."
+                           data-i18n-placeholder="demo.addTaskPlaceholder"
+                           class="flex-1 px-3 py-1.5 rounded-xl text-xs border focus:outline-none"
+                           style="background: var(--bg-card); color: var(--text-title); border-color: var(--border-main);" />
+                    <button type="submit"
+                            class="px-4 py-1.5 rounded-xl text-xs font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm"
+                            style="background: var(--accent); color: var(--accent-fg);">
+                      <span data-i18n="demo.addTaskBtn">+ Add Task</span>
+                    </button>
+                  </form>
+                </div>
+
+                <!-- 2. TIMER PANEL -->
+                <div id="nb-panel-timer" class="hidden space-y-3 py-1">
+                  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-3 rounded-xl border"
+                       style="background: var(--bg-card); border-color: var(--border-main);">
+                    <div>
+                      <div id="nb-timer-display" class="text-3xl font-black font-mono tracking-wider text-center sm:text-left" style="color: var(--accent);">
                         25:00
                       </div>
-                      <div class="text-[10px] font-mono opacity-60 mt-1" data-i18n="demo.pomoSub">Deep Work Sprint Session</div>
+                      <div class="text-[10px] font-mono opacity-60 mt-0.5" data-i18n="demo.pomoSub">Deep Work Sprint Session</div>
                     </div>
-                    <div class="flex items-center justify-center gap-2 pt-1 font-mono">
+                    <div class="flex items-center gap-2 font-mono">
                       <button id="nb-timer-toggle-btn" onclick="toggleNotebookTimer()"
-                              class="px-4 py-1.5 rounded-xl text-xs font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm"
+                              class="px-4 py-2 rounded-xl text-xs font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm"
                               style="background: var(--accent); color: var(--accent-fg);">
                         ▶ Start
                       </button>
                       <button onclick="resetNotebookTimer()"
-                              class="px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors hover:opacity-100 opacity-75"
+                              class="px-3 py-2 rounded-xl text-xs font-bold border transition-colors hover:opacity-100 opacity-75"
                               style="color: var(--text-title); border-color: var(--border-main); background: var(--bg-surface);">
                         ↺ Reset
                       </button>
                     </div>
-                  </div>
-
-                  <!-- Direct Numeric Duration Typing (Hidden in View Mode via .nb-edit-only) -->
-                  <div class="nb-edit-only flex items-center justify-between gap-1 pt-2 border-t text-[10px] font-mono" style="border-color: var(--border-main);">
-                    <span class="font-bold uppercase opacity-70">Set time:</span>
-                    <div class="flex items-center gap-1">
+                    <div class="nb-edit-only flex items-center gap-1.5 text-[10px] font-mono border-t sm:border-t-0 sm:border-l sm:pl-3 pt-2 sm:pt-0" style="border-color: var(--border-main);">
+                      <span class="opacity-60">Set:</span>
                       <input id="nb-timer-input-m" type="number" min="0" max="999" value="25" onchange="setCustomTimerFromInputs()"
                              class="w-10 px-1 py-0.5 rounded text-center font-bold border focus:outline-none"
                              style="background: var(--bg-surface); border-color: var(--border-main); color: var(--text-title);" title="Minutes" />
@@ -1549,103 +1530,100 @@
                   </div>
                 </div>
 
-                <!-- 3. Real Functional Sketch / Doodle Canvas NoteBlock -->
-                <div class="p-4 rounded-2xl border-2 space-y-3 shadow-md flex flex-col justify-between"
-                     style="background: var(--bg-card); border-color: var(--border-main);">
-                  <div>
-                    <div class="flex items-center justify-between pb-1.5 border-b" style="border-color: var(--border-main);">
-                      <div class="flex items-center gap-2 font-mono text-xs font-bold" style="color: var(--accent);">
-                        <span>✏️</span>
-                        <span data-i18n="demo.doodleTitle">SKETCH DOODLE</span>
-                      </div>
-                      <button onclick="clearSketchCanvas()" class="nb-edit-only text-[10px] font-mono px-2 py-0.5 rounded hover:bg-red-500/20 text-red-500" data-i18n="demo.doodleClear">
-                        ↺ Clear
-                      </button>
-                    </div>
-                    
-                    <!-- HTML5 Canvas for doodling on notebook -->
-                    <div class="rounded-xl border overflow-hidden flex items-center justify-center my-2"
-                         style="background: var(--bg-paper); border-color: var(--border-main);">
-                      <canvas id="notebook-sketch-canvas" width="280" height="90" class="w-full cursor-crosshair touch-none"></canvas>
-                    </div>
+                <!-- 3. SKETCH PANEL -->
+                <div id="nb-panel-sketch" class="hidden space-y-2 py-1">
+                  <div class="flex items-center justify-between text-[11px] font-mono">
+                    <span class="opacity-70">Hand-drawn note block</span>
+                    <button onclick="clearSketchCanvas()" class="nb-edit-only text-[10px] font-mono px-2.5 py-1 rounded hover:bg-red-500/20 text-red-500 border border-red-500/30" data-i18n="demo.doodleClear">
+                      ↺ Clear
+                    </button>
                   </div>
-
-                  <div class="nb-edit-only flex items-center justify-between text-[10px] font-mono pt-1 border-t" style="border-color: var(--border-main); color: var(--text-muted);">
-                    <div class="flex items-center gap-1.5">
-                      <span>Pen:</span>
-                      <button onclick="setSketchColor('var(--accent)')" class="w-3.5 h-3.5 rounded-full border shadow-sm" style="background: var(--accent); border-color: var(--border-main);"></button>
-                      <button onclick="setSketchColor('#10B981')" class="w-3.5 h-3.5 rounded-full bg-emerald-500"></button>
-                      <button onclick="setSketchColor('#EF4444')" class="w-3.5 h-3.5 rounded-full bg-red-500"></button>
+                  <div class="rounded-xl border overflow-hidden flex items-center justify-center"
+                       style="background: var(--bg-paper); border-color: var(--border-main);">
+                    <canvas id="notebook-sketch-canvas" width="600" height="130" class="w-full cursor-crosshair touch-none"></canvas>
+                  </div>
+                  <div class="nb-edit-only flex items-center justify-between text-[10px] font-mono pt-1" style="color: var(--text-muted);">
+                    <div class="flex items-center gap-2">
+                      <span>Pen Color:</span>
+                      <button onclick="setSketchColor('var(--accent)')" class="w-4 h-4 rounded-full border shadow-sm" style="background: var(--accent); border-color: var(--border-main);" title="Accent"></button>
+                      <button onclick="setSketchColor('#10B981')" class="w-4 h-4 rounded-full bg-emerald-500" title="Green"></button>
+                      <button onclick="setSketchColor('#EF4444')" class="w-4 h-4 rounded-full bg-red-500" title="Red"></button>
+                      <button onclick="setSketchColor('#3B82F6')" class="w-4 h-4 rounded-full bg-blue-500" title="Blue"></button>
                     </div>
-                    <span>Draw freely!</span>
+                    <span>Draw freely on the ruled page!</span>
                   </div>
                 </div>
 
-                <!-- 4. Real Mini Spreadsheet NoteBlock with =SUM() Formula -->
-                <div class="p-4 rounded-2xl border-2 space-y-3 shadow-md flex flex-col justify-between"
-                     style="background: var(--bg-card); border-color: var(--border-main);">
-                  <div>
-                    <div class="flex items-center justify-between pb-1.5 border-b" style="border-color: var(--border-main);">
-                      <div class="flex items-center gap-2 font-mono text-xs font-bold" style="color: var(--accent);">
-                        <span>📊</span>
-                        <span data-i18n="demo.sheetBlockTitle">SPREADSHEET // CALC</span>
-                      </div>
-                      <span class="text-[9px] px-2 py-0.5 rounded font-mono font-bold" style="background: var(--bg-pill); color: var(--accent-fg);">=SUM</span>
-                    </div>
-
-                    <div class="overflow-x-auto rounded-xl border text-[10px] font-mono my-2" style="border-color: var(--border-main);">
-                      <table class="w-full border-collapse" style="background: var(--bg-surface);">
-                        <thead>
-                          <tr class="font-extrabold border-b" style="border-color: var(--border-main);">
-                            <th class="p-1.5 border-r text-left" style="color: var(--accent); border-color: var(--border-main);">ITEM</th>
-                            <th class="p-1.5 text-right" style="color: var(--accent);">COST</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr class="border-b" style="border-color: var(--border-main);">
-                            <td class="p-1.5 border-r" style="border-color: var(--border-main);">
-                              <input type="text" value="Moleskine A5" class="bg-transparent w-full focus:outline-none" style="color: var(--text-title);" />
-                            </td>
-                            <td class="p-1.5 text-right">
-                              <input id="sheet-val-1" type="number" value="45" oninput="calcSheetTotal()" class="bg-transparent w-12 text-right focus:outline-none font-bold" style="color: var(--text-title);" />
-                            </td>
-                          </tr>
-                          <tr class="border-b" style="border-color: var(--border-main);">
-                            <td class="p-1.5 border-r" style="border-color: var(--border-main);">
-                              <input type="text" value="Stylus Tip" class="bg-transparent w-full focus:outline-none" style="color: var(--text-title);" />
-                            </td>
-                            <td class="p-1.5 text-right">
-                              <input id="sheet-val-2" type="number" value="28" oninput="calcSheetTotal()" class="bg-transparent w-12 text-right focus:outline-none font-bold" style="color: var(--text-title);" />
-                            </td>
-                          </tr>
-                          <tr class="font-bold border-b" style="background: var(--bg-elevated); border-color: var(--border-main);">
-                            <td class="p-1.5 border-r flex items-center justify-between" style="border-color: var(--border-main); color: var(--accent);">
-                              <span>TOTAL</span>
-                              <span class="text-[8px] opacity-75 font-normal">=SUM()</span>
-                            </td>
-                            <td id="sheet-val-total" class="p-1.5 text-right font-black" style="color: var(--accent);">
-                              73
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                <!-- 4. SPREADSHEET PANEL -->
+                <div id="nb-panel-sheet" class="hidden space-y-2 py-1">
+                  <div class="overflow-x-auto rounded-xl border text-[11px] font-mono" style="border-color: var(--border-main);">
+                    <table class="w-full border-collapse" style="background: var(--bg-surface);">
+                      <thead>
+                        <tr class="font-extrabold border-b text-[10px]" style="border-color: var(--border-main);">
+                          <th class="p-2 border-r text-left" style="color: var(--accent); border-color: var(--border-main);">ITEM</th>
+                          <th class="p-2 text-right" style="color: var(--accent);">COST</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="border-b" style="border-color: var(--border-main);">
+                          <td class="p-2 border-r" style="border-color: var(--border-main);">
+                            <input type="text" value="Moleskine A5 Journal" class="bg-transparent w-full focus:outline-none" style="color: var(--text-title);" />
+                          </td>
+                          <td class="p-2 text-right">
+                            <input id="sheet-val-1" type="number" value="45" oninput="calcSheetTotal()" class="bg-transparent w-16 text-right focus:outline-none font-bold" style="color: var(--text-title);" />
+                          </td>
+                        </tr>
+                        <tr class="border-b" style="border-color: var(--border-main);">
+                          <td class="p-2 border-r" style="border-color: var(--border-main);">
+                            <input type="text" value="Stylus Fine Tip" class="bg-transparent w-full focus:outline-none" style="color: var(--text-title);" />
+                          </td>
+                          <td class="p-2 text-right">
+                            <input id="sheet-val-2" type="number" value="28" oninput="calcSheetTotal()" class="bg-transparent w-16 text-right focus:outline-none font-bold" style="color: var(--text-title);" />
+                          </td>
+                        </tr>
+                        <tr class="font-bold" style="background: var(--bg-elevated);">
+                          <td class="p-2 border-r flex items-center justify-between" style="border-color: var(--border-main); color: var(--accent);">
+                            <span>TOTAL</span>
+                            <span class="text-[9px] opacity-75 font-normal">=SUM(Cost)</span>
+                          </td>
+                          <td id="sheet-val-total" class="p-2 text-right font-black text-sm" style="color: var(--accent);">
+                            73
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-
-                  <div class="flex items-center justify-between text-[9px] font-mono pt-1 border-t opacity-75" style="border-color: var(--border-main);">
-                    <span>Formula Engine</span>
-                    <span class="font-bold" style="color: var(--accent);">Live =SUM()</span>
+                  <div class="flex items-center justify-between text-[10px] font-mono opacity-75">
+                    <span>Spreadsheet formula engine</span>
+                    <span class="font-bold" style="color: var(--accent);">Live Calculation</span>
                   </div>
                 </div>
 
               </div>
 
-              <!-- Ruled Line 6 -->
-              <div class="line-row p-3 rounded-xl border flex items-center justify-between transition-all"
-                   style="background: var(--bg-elevated); border-color: var(--border-main); color: var(--text-body);" data-line="5">
+              <!-- Ruled Line 4 -->
+              <div class="line-row text-line py-2 px-3 rounded-lg flex items-center justify-between border-b border-dashed border-black/10 dark:border-white/10 transition-colors" data-line="3">
                 <div class="flex items-center gap-3">
-                  <span class="line-number-badge opacity-40 font-mono text-[11px]">06</span>
-                  <span data-i18n="demo.line6">Night session: deep focus achieved with Lo-Fi Pulse Audio waveform.</span>
+                  <span class="line-number-badge opacity-40 font-mono text-[11px] w-6">04</span>
+                  <span class="text-xs" style="color: var(--text-body);" data-i18n="demo.line4">Save thoughts and reflections before evening review.</span>
+                </div>
+                <span class="line-tag-badge font-mono text-[10px] font-bold opacity-40">Line 4</span>
+              </div>
+
+              <!-- Empty Blank Line (Crucial to demonstrate NoteBlocks DO NOT skip!) -->
+              <div class="line-row text-line py-2 px-3 rounded-lg italic flex items-center justify-between border-b border-dashed border-black/10 dark:border-white/10 opacity-70 transition-colors" data-line="4">
+                <div class="flex items-center gap-3">
+                  <span class="line-number-badge opacity-40 font-mono text-[11px] w-6">05</span>
+                  <span class="text-xs" style="color: var(--text-muted);" data-i18n="demo.line5">[Empty Blank Line — NoteBlock stops right here without skipping!]</span>
+                </div>
+                <span class="line-tag-badge font-mono text-[10px] font-bold opacity-40">Line 5</span>
+              </div>
+
+              <!-- Ruled Line 6 -->
+              <div class="line-row text-line py-2 px-3 rounded-lg flex items-center justify-between border-b border-dashed border-black/10 dark:border-white/10 transition-colors" data-line="5">
+                <div class="flex items-center gap-3">
+                  <span class="line-number-badge opacity-40 font-mono text-[11px] w-6">06</span>
+                  <span class="text-xs" style="color: var(--text-body);" data-i18n="demo.line6">Night session: deep focus achieved with Lo-Fi Pulse Audio waveform.</span>
                 </div>
                 <span class="line-tag-badge font-mono text-[10px] font-bold opacity-60">Line 6</span>
               </div>
@@ -1770,7 +1748,7 @@
               <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
               <span>ONLINE</span>
             </div>
-            <div class="text-[8px] opacity-80 uppercase">R2 SYNC OK</div>
+            <div class="text-[8px] opacity-80 uppercase font-bold tracking-wider">CLOUD SYNC OK</div>
           </div>
         </div>
 
@@ -1805,92 +1783,64 @@
           </button>
         </div>
 
-        <!-- NOTION EDITOR CANVAS INSIDE ISLAND -->
-        <div class="flex-1 p-3.5 space-y-3 overflow-y-auto custom-scroll text-xs"
+        <!-- AUTHENTIC DIARY CANVAS INSIDE ISLAND (REAL JOURNAL ENTRY) -->
+        <div class="flex-1 p-4 space-y-3.5 overflow-y-auto custom-scroll text-xs"
              style="background-color: var(--bg-main); color: var(--text-main);">
           
-          <!-- Sheet Header Bar -->
-          <div class="flex items-center justify-between border-b pb-2" style="border-color: var(--border-color);">
-            <div class="font-bold flex items-center gap-1.5 text-xs truncate" style="color: var(--text-title);">
-              <span style="color: var(--accent);">⚡</span>
-              <span class="truncate">DAILY NOTES // 01</span>
-            </div>
-            <div class="flex items-center gap-1 text-[9px] font-mono shrink-0">
-              <span class="px-2 py-0.5 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color); color: var(--text-muted);">#journal</span>
-              <span class="px-2 py-0.5 rounded font-bold" style="background-color: var(--bg-pill); color: var(--accent-fg);">↺ Sync</span>
-            </div>
-          </div>
-
-          <!-- REAL NOTEBLOCK: CHECKLIST WIDGET -->
-          <div class="p-3 rounded-2xl border-2 space-y-2.5 shadow-md"
-               style="background-color: var(--bg-card); border-color: var(--border-strong);">
-            
-            <!-- NoteBlock Header: Badge & Controls -->
-            <div class="flex items-center justify-between pb-1.5 border-b font-mono" style="border-color: var(--border-color);">
-              <div class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider" style="color: var(--accent);">
-                <span>☑️</span>
-                <span>CHECKLIST</span>
+          <!-- Journal Sheet Header -->
+          <div class="flex items-center justify-between border-b pb-2.5" style="border-color: var(--border-color);">
+            <div>
+              <div class="font-bold text-xs flex items-center gap-1.5" style="color: var(--text-title);">
+                <span>📖</span>
+                <span>Tuesday, Nov 10 • Daily Reflection</span>
               </div>
-              <div class="flex items-center gap-1 text-[9px]" style="color: var(--text-muted);">
-                <button class="px-1.5 py-0.5 rounded hover:opacity-100 opacity-70" title="Float Left">⫷</button>
-                <button class="px-1.5 py-0.5 rounded hover:opacity-100 opacity-70" title="Float Right">⫸</button>
-                <button class="px-1.5 py-0.5 rounded font-bold hover:scale-105" style="background-color: var(--bg-pill); color: var(--accent-fg);" title="Toggle Layout">▭</button>
-                <button class="px-1.5 py-0.5 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color); color: var(--text-main);" title="Move Up">▲</button>
-                <button class="px-1.5 py-0.5 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color); color: var(--text-main);" title="Move Down">▼</button>
-                <button class="px-1.5 py-0.5 rounded text-red-500 hover:bg-red-500/20" title="Delete">✕</button>
+              <div class="text-[10px] font-mono opacity-60 mt-0.5" style="color: var(--text-muted);">
+                12:45 PM • Quiet Morning Session
               </div>
             </div>
-
-            <!-- Checklist Items with Strikethrough -->
-            <div class="space-y-1.5 text-[11px] font-sans">
-              <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl border cursor-pointer transition-all"
-                   style="background-color: var(--bg-surface); border-color: var(--border-color);">
-                <input type="checkbox" checked class="w-3.5 h-3.5 accent-[var(--accent)] rounded pointer-events-none">
-                <span class="line-through opacity-50 font-medium truncate" style="color: var(--text-main);">Scroll wheel over tabs to cycle folders</span>
-              </div>
-              <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl border cursor-pointer transition-all"
-                   style="background-color: var(--bg-surface); border-color: var(--border-color);">
-                <input type="checkbox" checked class="w-3.5 h-3.5 accent-[var(--accent)] rounded pointer-events-none">
-                <span class="line-through opacity-50 font-medium truncate" style="color: var(--text-main);">Click any blank line to start writing</span>
-              </div>
-              <div onclick="this.classList.toggle('task-checked')" class="flex items-center gap-2 p-1.5 rounded-xl border cursor-pointer transition-all"
-                   style="background-color: var(--bg-surface); border-color: var(--border-color);">
-                <input type="checkbox" class="w-3.5 h-3.5 accent-[var(--accent)] rounded pointer-events-none">
-                <span class="font-bold truncate" style="color: var(--text-title);">Insert NoteBlocks via menu or by typing /</span>
-              </div>
-            </div>
-
-            <!-- Add Task Row -->
-            <div class="flex items-center gap-1.5 pt-1">
-              <input type="text" placeholder="Add task..."
-                     class="flex-1 px-2.5 py-1 rounded-lg text-[10px] border focus:outline-none"
-                     style="background-color: var(--bg-surface); border-color: var(--border-color); color: var(--text-main);" />
-              <button class="px-2.5 py-1 rounded-lg text-[10px] font-bold transition-transform hover:scale-105"
-                      style="background-color: var(--accent); color: var(--accent-fg);">+ Add</button>
+            <div class="flex items-center gap-1.5 text-[9px] font-mono shrink-0">
+              <span class="px-2 py-0.5 rounded-full font-bold shadow-sm" style="background-color: var(--bg-pill); color: var(--accent-fg);">☕ Focused</span>
+              <span class="px-2 py-0.5 rounded border" style="background-color: var(--bg-surface); border-color: var(--border-color); color: var(--text-muted);">↺ Synced</span>
             </div>
           </div>
 
-          <!-- REAL NOTEBLOCK: FOCUS TIMER -->
-          <div class="p-2.5 rounded-2xl border flex items-center justify-between shadow-sm"
+          <!-- Natural Diary Paragraph 1 -->
+          <div class="leading-relaxed text-[11px] font-sans" style="color: var(--text-body);">
+            Started the day early with warm coffee and a clear mind. Reviewing the project roadmap gave me a lot of clarity—writing thoughts down freely makes complex ideas feel completely manageable.
+          </div>
+
+          <!-- Subtle Natural NoteBlock snippet: 2 Priorities -->
+          <div class="p-2.5 rounded-xl border space-y-1.5 shadow-sm"
                style="background-color: var(--bg-card); border-color: var(--border-color);">
-            <div class="flex items-center gap-2">
-              <span class="text-base" style="color: var(--accent);">⏱</span>
-              <div>
-                <div class="text-[10px] font-bold font-mono uppercase" style="color: var(--text-title);">FOCUS // 25 MIN</div>
-                <div class="text-[8px] font-sans" style="color: var(--text-muted);">Linked to Island HUD</div>
-              </div>
+            <div class="flex items-center justify-between text-[9px] font-mono font-bold uppercase tracking-wider opacity-75" style="color: var(--accent);">
+              <span class="flex items-center gap-1"><span>☑️</span> DAILY PRIORITIES</span>
+              <span class="text-[8px] opacity-60 font-normal">Line 4 NoteBlock</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-mono font-black" style="color: var(--accent);">25:00</span>
-              <button class="px-2 py-0.5 rounded-lg text-[9px] font-bold border transition-colors hover:scale-105"
-                      style="background-color: var(--bg-pill); color: var(--accent-fg); border-color: var(--border-color);">▶ Start</button>
+            <div class="space-y-1 text-[11px]">
+              <div class="flex items-center gap-2 cursor-pointer opacity-70" onclick="this.classList.toggle('opacity-50'); this.querySelector('input').checked = !this.querySelector('input').checked;">
+                <input type="checkbox" checked class="w-3.5 h-3.5 accent-[var(--accent)] rounded pointer-events-none">
+                <span class="line-through truncate">Complete morning design review</span>
+              </div>
+              <div class="flex items-center gap-2 cursor-pointer" onclick="this.classList.toggle('opacity-50'); this.querySelector('input').checked = !this.querySelector('input').checked;">
+                <input type="checkbox" class="w-3.5 h-3.5 accent-[var(--accent)] rounded pointer-events-none">
+                <span class="truncate font-medium" style="color: var(--text-title);">Afternoon deep work & evening tea</span>
+              </div>
             </div>
           </div>
 
-          <!-- Ruled note writing snippet -->
-          <div class="p-2.5 rounded-xl border italic text-[11px] font-sans"
-               style="background-color: var(--bg-surface); border-color: var(--border-color); color: var(--text-muted);">
-            "Today's workflow: zero friction writing, note blocks anchored on line 4 without drifting..."
+          <!-- Natural Diary Paragraph 2 -->
+          <div class="leading-relaxed text-[11px] font-sans" style="color: var(--text-body);">
+            Leaving the island docked to the right edge while working keeps me centered without cluttering my screen. Looking forward to winding down tonight with calm lo-fi music.
+          </div>
+
+          <!-- Tags & Mood footer -->
+          <div class="pt-2 border-t flex items-center justify-between text-[10px] font-mono opacity-70" style="border-color: var(--border-color);">
+            <div class="flex items-center gap-1.5">
+              <span class="hover:underline cursor-pointer">#journal</span>
+              <span class="hover:underline cursor-pointer">#reflection</span>
+              <span class="hover:underline cursor-pointer">#focus</span>
+            </div>
+            <span class="text-[9px]">Autosaved 12:45</span>
           </div>
 
         </div>
@@ -1970,7 +1920,7 @@
         'demo.sheetSub': 'PAGE 01 // ARCHITECTURE & PHYSICAL WORKFLOW',
         'demo.line1': '## Morning Session // Antigravity & Cross-Diary Sync',
         'demo.line2': 'All encrypted partition vaults loaded smoothly with decoy note triggers active.',
-        'demo.line4': 'Remember to commit all extensions to the local R2 backup cache before shutdown.',
+        'demo.line4': 'Save thoughts and reflections before evening review.',
         'demo.line5': '[Empty Blank Line — NoteBlock stops right here without skipping!]',
         'demo.line6': 'Night session: deep focus achieved with Lo-Fi Pulse Audio waveform.',
         'demo.blockName': 'CHECKLIST NOTEBLOCK',
@@ -1985,7 +1935,7 @@
         'demo.doodleClear': '↺ Clear',
         'demo.sheetBlockTitle': 'SPREADSHEET // CALC',
         'demo.statusWrite': '📍 NoteBlock Position: Line {line} of {total} (Steps strictly 1 line per click)',
-        'demo.statusView': '📖 Clean Reading View • 4 Active Blocks • Zero Distractions',
+        'demo.statusView': '📖 Clean Reading View • Active NoteBlock • Zero Distractions',
         'demo.handTip': 'Try moving it over the blank Line 5 — notice it steps one line at a time! 📌',
         'footer.builtBy': 'Crafted with passion by @walterdotblend',
         'comp.blocksTitle': 'NOTEBLOCKS // INSPECTOR',
@@ -2041,7 +1991,7 @@
         'demo.sheetSub': 'PÁGINA 01 // ARQUITECTURA Y FLUJO FÍSICO',
         'demo.line1': '## Sesión Matutina // Antigravity y Sincronización Cross-Diary',
         'demo.line2': 'Todas las particiones cifradas cargadas correctamente con disparador de señuelo activo.',
-        'demo.line4': 'Recuerda confirmar todas las extensiones en la caché local de respaldo R2 antes de apagar.',
+        'demo.line4': 'Guardar reflexiones e ideas antes de la revisión nocturna.',
         'demo.line5': '[Renglón Vacío — ¡El NoteBlock se detiene exactamente aquí sin saltar!]',
         'demo.line6': 'Sesión nocturna: concentración profunda alcanzada con el espectro de audio de Pulse Audio.',
         'demo.blockName': 'CHECKLIST NOTEBLOCK',
@@ -2056,7 +2006,7 @@
         'demo.doodleClear': '↺ Limpiar',
         'demo.sheetBlockTitle': 'HOJA DE CÁLCULO // MINI',
         'demo.statusWrite': '📍 Posición del NoteBlock: Línea {line} de {total} (Avanza estrictamente 1 renglón por clic)',
-        'demo.statusView': '📖 Vista de Lectura Limpia • 4 Bloques Activos • Cero Distracciones',
+        'demo.statusView': '📖 Vista de Lectura Limpia • NoteBlock Activo • Cero Distracciones',
         'demo.handTip': '¡Prueba moverlo sobre el renglón vacío 5: observa cómo avanza renglón a renglón! 📌',
         'footer.builtBy': 'Creado con pasión por @walterdotblend',
         'comp.blocksTitle': 'NOTEBLOCKS // INSPECTOR',
@@ -2112,7 +2062,7 @@
         'demo.sheetSub': 'PÁGINA 01 // ARQUITETURA E FLUXO FÍSICO',
         'demo.line1': '## Sessão Matinal // Antigravity e Sincronização Cross-Diary',
         'demo.line2': 'Todas as partições criptografadas carregadas perfeitamente com acionador de despiste ativo.',
-        'demo.line4': 'Lembre-se de confirmar todas as extensões no cache local R2 antes de desligar.',
+        'demo.line4': 'Salvar reflexões e ideias antes da revisão noturna.',
         'demo.line5': '[Linha Vazia — O NoteBlock para exatamente aqui sem pular!]',
         'demo.line6': 'Sessão noturna: foco profundo alcançado com o espectro sonoro do Pulse Audio.',
         'demo.blockName': 'CHECKLIST NOTEBLOCK',
@@ -2127,7 +2077,7 @@
         'demo.doodleClear': '↺ Limpar',
         'demo.sheetBlockTitle': 'PLANILHA // MINI',
         'demo.statusWrite': '📍 Posição do NoteBlock: Linha {line} de {total} (Avança rigorosamente 1 linha por clique)',
-        'demo.statusView': '📖 Leitura Limpa • 4 Blocos Ativos • Sem Distrações',
+        'demo.statusView': '📖 Leitura Limpa • NoteBlock Ativo • Sem Distrações',
         'demo.handTip': 'Mova sobre a linha vazia 5: note o avanço um a um! 📌',
         'footer.builtBy': 'Criado com carinho por @walterdotblend',
         'comp.blocksTitle': 'NOTEBLOCKS // INSPECTOR',
@@ -2183,7 +2133,7 @@
         'demo.sheetSub': 'PAGE 01 // ARCHITECTURE & WORKFLOW PHYSIQUE',
         'demo.line1': '## Session Matinale // Antigravity & Synchronisation Cross-Diary',
         'demo.line2': 'Toutes les partitions chiffrées ont été chargées avec succès avec leurre actif.',
-        'demo.line4': 'Pensez à valider toutes les extensions dans le cache local R2 avant extinction.',
+        'demo.line4': 'Enregistrer les réflexions et idées avant le bilan du soir.',
         'demo.line5': '[Ligne Vide — Le NoteBlock s\'arrête exactement ici sans sauter !]',
         'demo.line6': 'Session nocturne : concentration profonde avec le spectre audio de Pulse Audio.',
         'demo.blockName': 'CHECKLIST NOTEBLOCK',
@@ -2198,7 +2148,7 @@
         'demo.doodleClear': '↺ Effacer',
         'demo.sheetBlockTitle': 'TABLEAU // MINI',
         'demo.statusWrite': '📍 Position du NoteBlock : Ligne {line} sur {total} (Avance strictement d\'1 ligne par clic)',
-        'demo.statusView': '📖 Lecture Épurée • 4 Blocs Actifs • Zéro Distraction',
+        'demo.statusView': '📖 Lecture Épurée • NoteBlock Actif • Zéro Distraction',
         'demo.handTip': 'Déplacez-le sur la ligne vide 5 : notez le passage ligne par ligne ! 📌',
         'footer.builtBy': 'Créé avec passion par @walterdotblend',
         'comp.blocksTitle': 'NOTEBLOCKS // INSPECTEUR',
@@ -2239,7 +2189,17 @@
         }
         if (statusEl) {
           const dict = I18N[currentLang] || I18N.en;
-          statusEl.innerText = dict['demo.statusView'] || '📖 Clean Reading View • 4 Active Blocks • Zero Distractions';
+          statusEl.innerText = dict['demo.statusView'] || '📖 Clean Reading View • Active NoteBlock • Zero Distractions';
+        }
+        const badge = document.getElementById('nb-view-widget-badge');
+        if (badge) {
+          const names = {
+            checklist: '☑️ CHECKLIST NOTEBLOCK',
+            timer: '⏱ FOCUS TIMER NOTEBLOCK',
+            sketch: '✏️ SKETCH NOTEBLOCK',
+            sheet: '📊 SPREADSHEET NOTEBLOCK'
+          };
+          badge.innerText = names[currentNoteBlockTab] || '☑️ NOTEBLOCK';
         }
       } else {
         section.classList.remove('section-view-mode');
@@ -2422,7 +2382,49 @@
       input.value = '';
     }
 
-    // 5. NOTEBLOCK LINE-BY-LINE STEPPER (DEMO ON REAL RULED PAPER)
+    // 5. NOTEBLOCK TAB SWITCHER (CHECKLIST, TIMER, SKETCH, SPREADSHEET)
+    let currentNoteBlockTab = 'checklist';
+
+    function switchNoteBlockTab(tab) {
+      currentNoteBlockTab = tab;
+      const tabs = ['checklist', 'timer', 'sketch', 'sheet'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`nb-tab-btn-${t}`);
+        const panel = document.getElementById(`nb-panel-${t}`);
+        if (t === tab) {
+          if (btn) {
+            btn.style.background = 'var(--accent)';
+            btn.style.color = 'var(--accent-fg)';
+            btn.classList.add('font-bold', 'shadow-sm');
+            btn.classList.remove('opacity-70');
+          }
+          if (panel) panel.classList.remove('hidden');
+        } else {
+          if (btn) {
+            btn.style.background = 'transparent';
+            btn.style.color = 'inherit';
+            btn.classList.remove('font-bold', 'shadow-sm');
+            btn.classList.add('opacity-70');
+          }
+          if (panel) panel.classList.add('hidden');
+        }
+      });
+      const badge = document.getElementById('nb-view-widget-badge');
+      if (badge) {
+        const names = {
+          checklist: '☑️ CHECKLIST NOTEBLOCK',
+          timer: '⏱ FOCUS TIMER NOTEBLOCK',
+          sketch: '✏️ SKETCH NOTEBLOCK',
+          sheet: '📊 SPREADSHEET NOTEBLOCK'
+        };
+        badge.innerText = names[tab] || '☑️ NOTEBLOCK';
+      }
+      if (tab === 'sketch') {
+        setTimeout(setupSketchCanvas, 50);
+      }
+    }
+
+    // 6. NOTEBLOCK LINE-BY-LINE STEPPER (DEMO ON REAL RULED PAPER)
     function stepBlock(direction) {
       const container = document.getElementById('demo-sheet-container');
       const block = document.getElementById('interactive-noteblock');
@@ -2441,50 +2443,15 @@
       const newIdx = Array.from(container.children).indexOf(block) + 1;
       const total = container.children.length;
       if (status) {
-        status.innerText = `📍 NoteBlock Position: Line ${newIdx} of ${total} (Steps strictly 1 line per click)`;
+        const dict = I18N[currentLang] || I18N.en;
+        status.innerText = (dict['demo.statusWrite'] || '📍 NoteBlock Position: Line {line} of {total} (Steps strictly 1 line per click)')
+          .replace('{line}', newIdx).replace('{total}', total);
       }
     }
 
-    // 6. TOGGLE NOTEBLOCK SHAPE (WIDE BANNER VS TRUE 1:1 SQUARE) & VIEW/WRITE MODE
+    // 7. TOGGLE NOTEBLOCK SHAPE (WIDE BANNER VS TRUE 1:1 SQUARE)
     let isBlockSquare = false;
     let blockAlignment = 'left';
-    let isBlockViewMode = false;
-
-    function setBlockMode(mode) {
-      isBlockViewMode = (mode === 'view');
-      const modeBtn = document.getElementById('btn-demo-mode');
-      const modeLabel = document.getElementById('btn-demo-mode-label');
-      const modeIcon = document.getElementById('btn-demo-mode-icon');
-      const addForm = document.getElementById('demo-add-task-form');
-      const viewHint = document.getElementById('demo-view-mode-hint');
-      const delBtns = document.querySelectorAll('.demo-item-del-btn');
-
-      if (isBlockViewMode) {
-        if (addForm) addForm.classList.add('hidden');
-        if (viewHint) viewHint.classList.remove('hidden');
-        delBtns.forEach(b => b.classList.add('hidden'));
-        if (modeLabel) modeLabel.innerText = currentLang === 'es' ? 'Vista' : 'View';
-        if (modeIcon) modeIcon.innerText = '👁️';
-        if (modeBtn) {
-          modeBtn.style.background = 'var(--accent)';
-          modeBtn.style.color = 'var(--accent-fg)';
-        }
-      } else {
-        if (addForm) addForm.classList.remove('hidden');
-        if (viewHint) viewHint.classList.add('hidden');
-        delBtns.forEach(b => b.classList.remove('hidden'));
-        if (modeLabel) modeLabel.innerText = currentLang === 'es' ? 'Escribir' : 'Write';
-        if (modeIcon) modeIcon.innerText = '✍️';
-        if (modeBtn) {
-          modeBtn.style.background = 'transparent';
-          modeBtn.style.color = 'inherit';
-        }
-      }
-    }
-
-    function toggleBlockMode() {
-      setBlockMode(isBlockViewMode ? 'write' : 'view');
-    }
 
     function setBlockAlignment(align) {
       blockAlignment = align;
@@ -2507,33 +2474,17 @@
       const label = document.getElementById('btn-demo-shape-label');
       const icon = document.getElementById('btn-demo-shape-icon');
       const btn = document.getElementById('btn-demo-shape');
-      const items = document.getElementById('demo-checklist-items');
       if (!block) return;
 
       if (isBlockSquare) {
-        // Automatically switch to View mode to showcase how NoteBlocks adapt in View Mode
-        setBlockMode('view');
-
         block.classList.remove('w-full');
-        block.style.width = '280px';
-        block.style.height = '280px';
-        block.style.aspectRatio = '1 / 1';
-        block.style.maxWidth = '100%';
-        block.style.overflow = 'hidden';
-        block.style.display = 'flex';
-        block.style.flexDirection = 'column';
-        block.style.justifyContent = 'space-between';
-
+        block.style.maxWidth = '380px';
         if (blockAlignment === 'right') {
           block.style.marginLeft = 'auto';
           block.style.marginRight = '0';
         } else {
           block.style.marginLeft = '0';
           block.style.marginRight = 'auto';
-        }
-        if (items) {
-          items.style.maxHeight = '150px';
-          items.style.overflowY = 'auto';
         }
         if (label) label.innerText = 'Square';
         if (icon) icon.innerText = '⬝';
@@ -2542,23 +2493,10 @@
           btn.style.color = 'var(--accent-fg)';
         }
       } else {
-        // Switch back to Write mode when returning to Wide banner
-        setBlockMode('write');
-
-        block.style.width = '';
-        block.style.height = '';
-        block.style.aspectRatio = '';
+        block.style.maxWidth = '';
         block.style.marginLeft = '';
         block.style.marginRight = '';
-        block.style.overflow = '';
-        block.style.display = '';
-        block.style.flexDirection = '';
-        block.style.justifyContent = '';
         block.classList.add('w-full');
-        if (items) {
-          items.style.maxHeight = '';
-          items.style.overflowY = '';
-        }
         if (label) label.innerText = 'Wide';
         if (icon) icon.innerText = '▭';
         if (btn) {
@@ -2644,6 +2582,8 @@
       const canvas = document.getElementById('notebook-sketch-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
+      if (canvas._sketchInitialized) return;
+      canvas._sketchInitialized = true;
       ctx.strokeStyle = '#F59E0B';
       ctx.lineWidth = 2.5;
       ctx.lineCap = 'round';
@@ -2702,7 +2642,12 @@
       const canvas = document.getElementById('notebook-sketch-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
-      ctx.strokeStyle = color;
+      if (color.startsWith('var(')) {
+        const varName = color.replace('var(', '').replace(')', '').trim();
+        ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue(varName).trim() || '#F59E0B';
+      } else {
+        ctx.strokeStyle = color;
+      }
     }
 
     // 10. UNIVERSAL CLIPBOARD CONFIGURABLE LIMIT & SCROLL FILTER
