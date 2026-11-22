@@ -38,7 +38,12 @@ export interface AdSummaryMetrics {
   }>;
 }
 
-// GitHub Pages URL where ads are hosted and updated remotely
+// [MULTI-APP AD HUB NOTE]: Zylo Central Admin Panel (https://zylo.stream) is now the primary ad source
+// for Cross-Diary (slot: 'cross_diary'), with automatic fallback to GitHub Pages ads.json.
+const ZYLO_CENTRAL_CROSSDIARY_ADS_URL = 'https://zylo.stream/api/banners-list/cross_diary';
+const ZYLO_CENTRAL_TRACK_URL = 'https://zylo.stream/api/banner-track';
+
+// GitHub Pages URL where ads are hosted and updated remotely (fallback)
 const GITHUB_PAGES_ADS_URL = 'https://walterdotblend.github.io/cross-diary/ads.json';
 const GITHUB_RAW_ADS_URL = 'https://raw.githubusercontent.com/walterdotblend/cross-diary/main/docs/ads.json';
 const STORAGE_KEY_ADS = 'cross_diary_cached_ads_v4';
@@ -153,7 +158,7 @@ export async function fetchRemoteAdsFromGitHub(): Promise<AdItem[]> {
   if (isFetchingRemote) return getCachedAds();
   isFetchingRemote = true;
 
-  const urlsToTry = [GITHUB_RAW_ADS_URL, GITHUB_PAGES_ADS_URL];
+  const urlsToTry = [ZYLO_CENTRAL_CROSSDIARY_ADS_URL, GITHUB_RAW_ADS_URL, GITHUB_PAGES_ADS_URL];
 
   for (const url of urlsToTry) {
     try {
@@ -208,6 +213,7 @@ export function recordAdImpression(adId: string) {
 
   recordMetric('ad_impression' as any);
   saveAnalyticsEventToR2('impressions', adId).catch(() => {});
+  fetch(`${ZYLO_CENTRAL_TRACK_URL}/${encodeURIComponent(adId)}`, { method: 'POST' }).catch(() => {});
 }
 
 /**
