@@ -158,6 +158,20 @@ export async function fetchRemoteAdsFromGitHub(): Promise<AdItem[]> {
   if (isFetchingRemote) return getCachedAds();
   isFetchingRemote = true;
 
+  // Report once-per-session telemetry to Zylo central stats
+  try {
+    if (typeof sessionStorage !== 'undefined' && !sessionStorage.getItem('cd_zylo_visit_pinged')) {
+      sessionStorage.setItem('cd_zylo_visit_pinged', '1');
+      const isNew = typeof localStorage !== 'undefined' && !localStorage.getItem('cd_zylo_known_user');
+      if (isNew && typeof localStorage !== 'undefined') localStorage.setItem('cd_zylo_known_user', '1');
+      fetch('https://zylo.stream/api/stats/visit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'cross_diary', isNew })
+      }).catch(() => {});
+    }
+  } catch { /* ignore */ }
+
   const urlsToTry = [ZYLO_CENTRAL_CROSSDIARY_ADS_URL, GITHUB_RAW_ADS_URL, GITHUB_PAGES_ADS_URL];
 
   for (const url of urlsToTry) {
